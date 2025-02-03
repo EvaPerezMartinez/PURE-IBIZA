@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(234, 234, 234);;
+}
+header{
+    text-align: center;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+
+}
+button{
+    align-items: center;
+    text-align: center;
+    background-color: rgb(195, 139, 83);
+    border-color: rgb(234, 234, 234);
+}
+#nombre{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.apartado{
+    text-align: center;
+    font-size: medium;
+}
+#frase{
+    background-color: rgb(196, 191, 191);
+    background-image: url(./ibizaImagen.jpg);
+    height: 260px;
+}
