@@ -7,11 +7,36 @@ header{
 p{
     font-family: 'Times New Roman', Times, serif;
 }
+#elegirServicio {
+    background-color: #ffffff;
+    color: #333;
+    font-size: 14px;
+    padding: 5px 8px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 30px;
+    appearance: none; /*hace que el select no tenga apariencia (no aparece la flecha)*/
+}
+#elegirServicio:hover {
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+}
+#elegirServicio:focus {
+    box-shadow: 0 0 10px rgb(165, 165, 165);
+}
+#elegirServicio option {
+    background: #fff;
+    color: #333;
+}
 h2{ /*titulo del formulario*/
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-form {
+form { /*formulario*/
     text-align: center;
     align-items: center;
     background: white;
@@ -22,7 +47,7 @@ form {
     margin-top: 20px;
     margin-left: 20%;
 }
-fieldset {
+fieldset { /*formulario*/
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
@@ -36,15 +61,15 @@ button{ /*botón del formulario*/
     cursor: pointer;
     font-size: 14px;
     padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
+    border: none;
+    border-radius: 5px;
 }
 #nombre{ /*encabezado | Nombre de la empresa*/
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
-.apartado{
+.apartado{ 
     text-align: center;
     font-size:large;
 }
@@ -135,7 +160,7 @@ button{ /*botón del formulario*/
         padding-top: 20px;
     }
 }
-@media (max-width: 768px){
+@media (max-width: 768px){ 
     .serv1, .serv2{
         padding: 20px 5%;
     }

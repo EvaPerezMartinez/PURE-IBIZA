@@ -12,8 +12,19 @@
     <!--ENCABEZADO-->
     <header>
         <p id="nombre"><b>PURE IBIZA</b></p><!--Nombre de la empresa-->
-        <a href="#Servicios">Servicios</a>&emsp;<!--Muestra un apartado dentro de la misma página-->
+        <select id="elegirServicio" onchange="location = this.value;"><!--Muestra un apartado dentro de la misma página | según la opción seleccionada se dirige a un apartado o a otro-->
+            <option id="serv" value="#">Servicios</option>
+            <option value="#seccion1">Alquiler de yates</option>
+            <option value="#seccion2">Alquiler de motos de agua</option>
+            <option value="#seccion3">Alquiler de coches</option>
+            <option value="#seccion4">Hospedaje en la isla</option>
+            <option value="#seccion5">Chófer privado</option>
+            <option value="#seccion6">Chef privado</option>
+            <option value="#seccion7">Reserva en clubs nocturnos</option>
+            <option value="#seccion8">Reserva en restaurantes</option>
+        </select>&emsp;
         <a href="./contacto.html">Contacto</a><!--LLeva a otra página donde habrá un formulario para ponerse en contacto-->
+        
         <hr>
     </header>    
 
@@ -25,7 +36,7 @@
 
     <!--SERVICIOS DE LA EMPRESA-->
     <div id="Servicios">
-        <h3 style="font-size: 40px;">Alquiler de yates</h3>
+        <h3 style="font-size: 40px;" id="seccion1">Alquiler de yates</h3>
         <div class="serv1">
             <img class="imgServ" src="./imagenes/yate.png" width="450px" height="350px">&emsp;
             <div class="textoServ">     
@@ -33,7 +44,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Alquiler de motos de agua</h3>
+        <h3 style="font-size: 40px;" id="seccion2">Alquiler de motos de agua</h3>
         <div class="serv2">
             <img class="imgServ" src="./imagenes/motosAgua.jpg" width="450px" height="300px">&emsp;
             <div class="textoServ">
@@ -41,7 +52,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Alquiler de coches</h3>
+        <h3 style="font-size: 40px;" id="seccion3">Alquiler de coches</h3>
         <div class="serv1">
             <img class="imgServ" src="./imagenes/coches.png" width="450px" height="350px">&emsp;
             <div class="textoServ">
@@ -49,7 +60,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Hospedaje en la isla</h3>
+        <h3 style="font-size: 40px;" id="seccion4">Hospedaje en la isla</h3>
         <div class="serv2">
             <img class="imgServ" src="./imagenes/hospedaje.avif" width="450px" height="300px">&emsp;
             <div class="textoServ">
@@ -57,7 +68,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Chófer privado</h3>
+        <h3 style="font-size: 40px;" id="seccion5">Chófer privado</h3>
         <div class="serv1">
             <img class="imgServ" src="./imagenes/choferPrivado.jpg" width="450px" height="300px">&emsp;
             <div class="textoServ">
@@ -65,7 +76,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Chef privado</h3>
+        <h3 style="font-size: 40px;" id="seccion6">Chef privado</h3>
         <div class="serv2">
             <img class="imgServ" src="./imagenes/chefPrivado.jpg" width="450px" height="350px">&emsp;
             <div class="textoServ">
@@ -73,7 +84,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Reserva en clubs nocturnos</h3>
+        <h3 style="font-size: 40px;" id="seccion7">Reserva en clubs nocturnos</h3>
         <div class="serv1">
             <img class="imgServ" src="./imagenes/clubsNocturnos.webp" width="450px" height="300px">&emsp;
             <div class="textoServ">
@@ -81,7 +92,7 @@
             </div>
         </div>
         <br>
-        <h3 style="font-size: 40px;">Reserva en restaurantes</h3>
+        <h3 style="font-size: 40px;" id="seccion8">Reserva en restaurantes</h3>
         <div class="serv2">
             <img class="imgServ" src="./imagenes/restaurante.jpeg" width="450px" height="300px">&emsp;
             <div class="textoServ">
