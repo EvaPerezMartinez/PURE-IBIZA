@@ -7,11 +7,37 @@ header{
 p{
     font-family: 'Times New Roman', Times, serif;
 }
+h2{ /*titulo del formulario*/
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+form {
+    text-align: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+fieldset {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+}
 button{ /*botón del formulario*/
     align-items: center;
     text-align: center;
     background-color: rgb(218, 177, 137);
     border-color: rgb(234, 234, 234);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
 }
 #nombre{ /*encabezado | Nombre de la empresa*/
     font-size: 30px;
