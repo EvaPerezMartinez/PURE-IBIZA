@@ -1,29 +1,122 @@
 body{
-    background-color: rgb(234, 234, 234);;
+    background-color: rgb(234, 234, 234);
 }
 header{
     text-align: center;
 }
 p{
     font-family: 'Times New Roman', Times, serif;
-
 }
-button{
+button{ /*botón del formulario*/
     align-items: center;
     text-align: center;
-    background-color: rgb(195, 139, 83);
+    background-color: rgb(218, 177, 137);
     border-color: rgb(234, 234, 234);
 }
-#nombre{
+#nombre{ /*encabezado | Nombre de la empresa*/
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }
 .apartado{
     text-align: center;
-    font-size: medium;
+    font-size:large;
 }
-#frase{
-    background-color: rgb(196, 191, 191);
-    background-image: url(./ibizaImagen.jpg);
-    height: 260px;
+#frase{ /*frase corporativa de la imagen*/
+    background-image: url(./imagenes/imagenIbiza.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 60vh; 
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+}
+#frase span{ /*frase corporativa de la imagen*/
+    background-color: rgba(197, 197, 197, 0.301);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#rrss{ /*iconos de las redes sociales de la empresa*/
+    align-items: right;
+    float: right;
+    display: inline-flex;
+}
+#logo{ /*icono de whatsapp*/
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+}
+#Servicios{ /*apartado de servicios*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+}
+.serv1, .serv2{ /*apartado de servicios*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 10%;
+}
+.serv1{ /*apartado de servicios*/
+    background-color: rgb(234, 234, 234);
+}
+.serv2{ /*apartado de servicios*/
+    flex-direction: row-reverse;
+    background-color: #cfcbcb;
+}
+.imgServ{ /*apartado de servicios*/
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.textoServ{ /*apartado de servicios*/
+    width: 50%;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+.serv2 h3 { /*apartado de servicios*/
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 10px;
+}
+@media (max-width: 1024px){
+    .serv1, .serv2{
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 5%;
+    }
+    .imgServ, .textoServ{
+        width: 100%;
+    }
+    .textoServ{
+        padding-top: 20px;
+    }
+}
+@media (max-width: 768px){
+    .serv1, .serv2{
+        padding: 20px 5%;
+    }
+    .textoServ{
+        font-size: 16px;
+    }
+    .serv2 h3{
+        font-size: 22px;
+    }
 }
