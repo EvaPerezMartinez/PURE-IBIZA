@@ -7,6 +7,11 @@ header{
 p{
     font-family: 'Times New Roman', Times, serif;
 }
+#translate, #en{ /*icono para traducir la web*/
+    float: right;
+    width: 30px;
+    height: 20px;
+}
 #elegirServicio {
     background-color: #ffffff;
     color: #333;
