@@ -7,18 +7,46 @@ header{
 p{
     font-family: 'Times New Roman', Times, serif;
 }
+#nombre{ /*encabezado | Nombre de la empresa*/
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
 #translate, #en{ /*icono para traducir la web*/
     float: right;
     width: 30px;
     height: 20px;
 }
-#elegirServicio {
-    background-color: #ffffff;
+#enlace{
     color: #333;
     font-size: 14px;
-    padding: 5px 8px;
-    border: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 10px;
+    border: 0px;
     border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 30px;
+    text-decoration: none;
+}
+#enlace:hover{
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+}
+#enlace:focus{
+    box-shadow: 0 0 10px rgb(165, 165, 165);
+}
+#elegirServicio {
+    background-color: rgb(234, 234, 234);
+    color: black;
+    font-size: 14px;
+    padding: 5px 8px;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
@@ -36,6 +64,33 @@ p{
 #elegirServicio option {
     background: #fff;
     color: #333;
+}
+.apartado{ 
+    text-align: center;
+    font-size:x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#frase{ /*frase corporativa de la imagen*/
+    background-image: url(./imagenes/imagenIbiza.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 60vh; 
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+}
+#frase span{ /*frase corporativa de la imagen*/
+    background-color: rgba(197, 197, 197, 0.301);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h2{ /*titulo del formulario*/
     text-align: center;
@@ -69,37 +124,6 @@ button{ /*botón del formulario*/
     border: none;
     border-radius: 5px;
 }
-#nombre{ /*encabezado | Nombre de la empresa*/
-    font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-}
-.apartado{ 
-    text-align: center;
-    font-size:large;
-}
-#frase{ /*frase corporativa de la imagen*/
-    background-image: url(./imagenes/imagenIbiza.jpg);
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 60vh; 
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px;
-    color: white;
-    font-size: 20px;
-    font-weight: normal;
-}
-#frase span{ /*frase corporativa de la imagen*/
-    background-color: rgba(197, 197, 197, 0.301);
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-style: italic;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
 #rrss{ /*iconos de las redes sociales de la empresa*/
     align-items: right;
     float: right;
@@ -129,11 +153,11 @@ button{ /*botón del formulario*/
     padding: 50px 10%;
 }
 .serv1{ /*apartado de servicios*/
-    background-color: rgb(234, 234, 234);
+    background-color: #cfcbcb;
 }
 .serv2{ /*apartado de servicios*/
     flex-direction: row-reverse;
-    background-color: #cfcbcb;
+    background-color: rgb(234, 234, 234);
 }
 .imgServ{ /*apartado de servicios*/
     width: 45%;
@@ -144,7 +168,7 @@ button{ /*botón del formulario*/
 .textoServ{ /*apartado de servicios*/
     width: 50%;
     font-size: 18px;
-    color: #333;
+    color: black;
     line-height: 1.6;
 }
 .serv2 h3 { /*apartado de servicios*/
