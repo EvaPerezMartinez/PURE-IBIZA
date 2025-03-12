@@ -71,7 +71,7 @@ p{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #frase{ /*frase corporativa de la imagen*/
-    background-image: url(./imagenes/imagenIbiza.jpg);
+    background-image: url(./imagenes/ibizaImagen.jpg);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat; 
