@@ -115,17 +115,23 @@ form { /*formulario*/
     text-align: center;
     align-items: center;
     background: white;
-    padding: 20px;
+    padding-left: 240px;
+    padding-right: 240px;
+    padding-top: 80px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
+    width: auto;
+    height: 550px;
     margin-top: 20px;
-    margin-left: 20%;
+    background-image: url(./imagenes/ibizaFondo.avif);/*imagen fondo formulario*/
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 fieldset { /*formulario*/
     background-color: #f9f9f9;
-    padding: 20px;
     border-radius: 10px;
+    padding: 20px;
     border: none;
 }
 button{ /*botón del formulario*/
