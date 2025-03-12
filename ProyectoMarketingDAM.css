@@ -199,7 +199,7 @@ button{ /*botón del formulario*/
     color: #000;
     margin-bottom: 10px;
 }
-@media (max-width: 1024px){
+@media (max-width: 1024px){ /*responsive*/
     .serv1, .serv2{
         flex-direction: column;
         text-align: center;
@@ -212,7 +212,7 @@ button{ /*botón del formulario*/
         padding-top: 20px;
     }
 }
-@media (max-width: 768px){ 
+@media (max-width: 768px){ /*responsive*/
     .serv1, .serv2{
         padding: 20px 5%;
     }
