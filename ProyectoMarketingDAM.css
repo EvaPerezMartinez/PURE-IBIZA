@@ -1,0 +1,228 @@
+body{
+    background-color: rgb(234, 234, 234);
+}
+header{
+    text-align: center;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
+#nombre{ /*encabezado | Nombre de la empresa*/
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+#translate, #en{ /*icono para traducir la web*/
+    float: right;
+    width: 30px;
+    height: 20px;
+}
+#enlace{
+    color: #333;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 10px;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 30px;
+    text-decoration: none;
+}
+#enlace:hover{
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+}
+#enlace:focus{
+    box-shadow: 0 0 10px rgb(165, 165, 165);
+}
+#elegirServicio {
+    background-color: rgb(234, 234, 234);
+    color: black;
+    font-size: 14px;
+    padding: 5px 8px;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 30px;
+    appearance: none; /*hace que el select no tenga apariencia (no aparece la flecha)*/
+}
+#elegirServicio:hover {
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+}
+#elegirServicio:focus {
+    box-shadow: 0 0 10px rgb(165, 165, 165);
+}
+#elegirServicio option {
+    background: #fff;
+    color: #333;
+}
+.apartado{ 
+    text-align: center;
+    font-size:x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#frase{ /*frase corporativa de la imagen*/
+    background-image: url(./imagenes/ibizaImagen.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 60vh; 
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+}
+#frase span{ /*frase corporativa de la imagen*/
+    background-color: rgba(197, 197, 197, 0.301);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h2{ /*titulo del formulario*/
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.boton{/*boton al formulario desde servicios*/
+    background-color: rgb(218, 177, 137);
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 30px;
+    text-decoration: none;
+}
+form { /*formulario*/
+    text-align: center;
+    align-items: center;
+    background: white;
+    padding-left: 240px;
+    padding-right: 240px;
+    padding-top: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: 550px;
+    margin-top: 20px;
+    background-image: url(./imagenes/ibizaFondo.avif);/*imagen fondo formulario*/
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+fieldset { /*formulario*/
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    border: none;
+}
+button{ /*botón del formulario*/
+    align-items: center;
+    text-align: center;
+    background-color: rgb(218, 177, 137);
+    border-color: rgb(234, 234, 234);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+#rrss{ /*iconos de las redes sociales de la empresa*/
+    align-items: right;
+    float: right;
+    display: inline-flex;
+}
+#logo{ /*icono de whatsapp*/
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+}
+#Servicios{ /*apartado de servicios*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+}
+.serv1, .serv2{ /*apartado de servicios*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 10%;
+}
+.serv1{ /*apartado de servicios*/
+    background-color: #cfcbcb;
+}
+.serv2{ /*apartado de servicios*/
+    flex-direction: row-reverse;
+    background-color: rgb(234, 234, 234);
+}
+.imgServ{ /*apartado de servicios*/
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.textoServ{ /*apartado de servicios*/
+    width: 50%;
+    font-size: 18px;
+    color: black;
+    line-height: 1.6;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.serv2 h3 { /*apartado de servicios*/
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 10px;
+}
+@media (max-width: 1024px){ /*responsive*/
+    .serv1, .serv2{
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 5%;
+    }
+    .imgServ, .textoServ{
+        width: 100%;
+    }
+    .textoServ{
+        padding-top: 20px;
+    }
+}
+@media (max-width: 768px){ /*responsive*/
+    .serv1, .serv2{
+        padding: 20px 5%;
+    }
+    .textoServ{
+        font-size: 16px;
+    }
+    .serv2 h3{
+        font-size: 22px;
+    }
+    form{
+        width: 95%;
+    }  
+}
