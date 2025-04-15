@@ -1,5 +1,15 @@
-body{
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    box-sizing: border-box;
     background-color: rgb(234, 234, 234);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit; /* Asegura que todos los elementos respeten el tamaño del contenedor */
 }
 header{
     text-align: center;
@@ -71,7 +81,7 @@ p{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #frase{ /*frase corporativa de la imagen*/
-    background-image: url(./imagenes/ibizaImagen.jpg);
+    background-image: url(./imagenes/fotoPortada.jpg);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat; 
@@ -199,30 +209,174 @@ button{ /*botón del formulario*/
     color: #000;
     margin-bottom: 10px;
 }
-@media (max-width: 1024px){ /*responsive*/
-    .serv1, .serv2{
+
+/**********************NUEVO********************/
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                /* Mantiene la proporción sin deformar */
+    object-position: center center;  /* Centra la imagen horizontal y vertical */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.carousel-images img.active {
+    opacity: 1;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dots .dot.active {
+    background-color: goldenrod;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ============================
+   Tablets y pantallas medianas
+   ============================ */
+   @media (max-width: 1024px) {
+    .serv1, .serv2 {
         flex-direction: column;
         text-align: center;
         padding: 30px 5%;
     }
-    .imgServ, .textoServ{
+
+    .imgServ, .textoServ {
         width: 100%;
     }
-    .textoServ{
-        padding-top: 20px;
+
+    .carousel {
+        height: 300px;
+        width: 95%;
+    }
+
+    .carousel-images img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .textoServ {
+        font-size: 17px;
+        padding: 10px;
     }
 }
-@media (max-width: 768px){ /*responsive*/
-    .serv1, .serv2{
+
+/* ===================
+   Dispositivos móviles
+   =================== */
+@media (max-width: 768px) {
+    .serv1, .serv2 {
         padding: 20px 5%;
     }
-    .textoServ{
-        font-size: 16px;
+
+    .textoServ h3 {
+        font-size: 26px;
     }
-    .serv2 h3{
+
+    form {
+        width: 95%;
+    }
+
+    .carousel {
+        height: 250px;
+        width: 95%;
+    }
+
+    .carousel-images img {
+        object-position: center;
+    }
+
+    .textoServ {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* ========================
+   Móviles muy pequeños (extra small)
+   ======================== */
+@media (max-width: 480px) {
+    .textoServ h3 {
         font-size: 22px;
     }
-    form{
+
+    .textoServ p {
+        font-size: 14px;
+    }
+
+    .boton {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    #logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .carousel {
+        height: 220px;
         width: 95%;
-    }  
+    }
+
+    .carousel-images img {
+        object-position: center;
+    }
+
+    .textoServ h3 {
+        font-size: 22px;
+    }
+
+    .textoServ p {
+        font-size: 14px;
+    }
 }
