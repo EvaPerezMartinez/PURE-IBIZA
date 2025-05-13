@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions | Pure Ibiza Concierge</title>
+  <link rel="stylesheet" href="ProyectoMarketingDAM.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header>
+  <a class="flag-link" href="terminos.html">
+    <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
+  </a>
+ 
+  <p id="nombre"><b>PURE IBIZA</b></p>
+
+  <!-- Navigation -->
+  <a id="enlace" href="./index.html">Home</a>
+
+  <select id="elegirServicio" onchange="location = this.value;">
+    <option id="serv" value="#" selected>Services</option>
+    <option value="#seccion1">Yacht Rentals</option>
+    <option value="#seccion2">Jet Ski Rentals</option>
+    <option value="#seccion3">Car Rentals</option>
+    <option value="#seccion4">Island Lodging</option>
+    <option value="#seccion5">Private Driver</option>
+    <option value="#seccion6">Private Chef</option>
+    <option value="#seccion7">Nightclub Reservations</option>
+    <option value="#seccion8">Restaurant Reservations</option>
+  </select>&emsp;
+
+  <a id="enlace" href="./contacto.html">Contact</a>
+</header>
+
+
+  <!--CONTENIDO PRINCIPAL-->
+<main>
+  <section class="accordion-container">
+
+    <!-- Legal Notice -->
+    <div class="accordion" id="aviso-legal">
+      <div class="accordion-header">Legal Notice</div>
+      <div class="accordion-content">
+        <p><strong>Website owner:</strong><br>
+        Pure Ibiza Concierge S.L.<br>
+        VAT ID: N26655488<br>
+        Registered address: www.pureibizaconcierge.com<br>
+        Email: contact@pureibiza.com<br>
+        Phone: +34 616 670 665<br>
+        Registry info: Registered in the Ibiza Commercial Registry.</p>
+
+        <p><strong>Website purpose:</strong><br>
+        To offer concierge services and exclusive experiences in Ibiza. By browsing this website, the user accepts the terms of use.</p>
+
+        <p><strong>Intellectual and industrial property:</strong><br>
+        All content is owned by Pure Ibiza or third parties. Reproduction without authorization is prohibited.</p>
+
+        <p><strong>Content liability:</strong><br>
+        Pure Ibiza is not responsible for misuse of the website’s content and reserves the right to modify it without prior notice.</p>
+
+        <p><strong>External links:</strong><br>
+        The site may contain links to third parties. Pure Ibiza is not responsible for the content or privacy policies of those sites.</p>
+      </div>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="accordion" id="privacidad">
+      <div class="accordion-header">Privacy Policy</div>
+      <div class="accordion-content">
+        <p><strong>Data Controller:</strong> Pure Ibiza Concierge S.L.</p>
+        <p><strong>Purpose:</strong> To manage requests, bookings, and communication with the user.</p>
+        <p><strong>Legal basis:</strong> User consent.</p>
+        <p><strong>Recipients:</strong> Data will not be shared with third parties, unless legally required.</p>
+        <p><strong>Rights:</strong> To access, rectify, delete, and exercise other rights under GDPR.</p>
+        <p><strong>Contact:</strong> contact@pureibiza.com</p>
+        <p>Your data will be treated with the utmost confidentiality and in accordance with current regulations (GDPR and LOPDGDD).</p>
+      </div>
+    </div>
+
+    <!-- Cookie Policy -->
+    <div class="accordion" id="cookies">
+      <div class="accordion-header">Cookie Policy</div>
+      <div class="accordion-content">
+        <p><strong>What are cookies?</strong><br>
+        Small files stored in your browser to remember preferences and improve your experience.</p>
+
+        <p><strong>Types of cookies:</strong><br>
+        Technical (necessary), Analytics (to analyze browsing behavior), Personalized Advertising (if applicable).</p>
+
+        <p><strong>Cookie management:</strong><br>
+        You can configure this in your browser settings.</p>
+
+        <p><strong>Guides:</strong><br>
+        Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=en">link</a><br>
+        Firefox: <a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences">link</a><br>
+        Safari: <a href="https://support.apple.com/en-us/guide/safari/sfri11471/mac">link</a></p>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-title">
+      <p><b>PURE IBIZA Concierge</b></p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-left">
+        <p><img src="./imagenes/TelefonoIcono.png" alt="Phone"> +34 616 670 665</p>
+        <p><img src="./imagenes/gmailIcono.PNG" alt="Email"> contact@pureibiza.com</p>
+      </div>
+
+      <div class="footer-right">
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com" class="redes facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li><a href="https://x.com" class="redes x-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="https://www.instagram.com" class="redes instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+      <p>
+        <a href="#aviso-legal">Legal Notice</a> |
+        <a href="#privacidad">Privacy Policy</a> |
+        <a href="#cookies">Cookie Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  function openAccordionById(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    // Cierra todos los demás acordeones
+    document.querySelectorAll('.accordion').forEach(a => a.classList.remove('active'));
+
+    // Abre el objetivo
+    target.classList.add('active');
+
+    // Desplaza suavemente
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+  // Escucha clics en headers (para abrir/cerrar manualmente)
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const parent = header.parentElement;
+      const isActive = parent.classList.contains('active');
+      document.querySelectorAll('.accordion').forEach(a => a.classList.remove('active'));
+      if (!isActive) parent.classList.add('active');
+    });
+  });
+
+  // Detecta hash al cargar (por si el usuario entra directamente con #aviso-legal, etc.)
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      openAccordionById(hash);
+    }
+  });
+
+  // Detecta clics en enlaces del footer para activar el acordeón manualmente
+  document.querySelectorAll('footer a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.getAttribute('href').substring(1);
+      openAccordionById(id);
+      history.pushState(null, null, `#${id}`);
+    });
+  });
+</script>
+
+</body>
+</html>

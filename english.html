@@ -1,165 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Eva Pérez Martínez">
-    <meta name="keywords" content="trip, concierge, Ibiza">
-    <title>Pure Ibiza Concierge</title>
-    <link rel="stylesheet" href="./ProyectoMarketingDAM.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Eva Pérez Martínez">
+  <meta name="keywords" content="travel, concierge, Ibiza">
+  <title>Pure Ibiza Concierge</title>
+  <link rel="stylesheet" href="ProyectoMarketingDAM.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: transparent;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .flag-link {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  .flag-icon {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .flag-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  #nombre {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings: "wdth" 75;
+    font-size: 40px;
+    color: black;
+    margin: 0;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px; /* MÁS ESPACIO */
+  }
+
+  .nav-buttons select {
+  background-color: rgba(218, 177, 137, 0.75);
+  color: black;
+  font-size: 14px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  height: 30px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.nav-buttons select:hover {
+  background-color: rgba(218, 177, 137, 1);
+}
+
+.nav-buttons select option {
+  background-color: rgba(218, 177, 137, 0.9);
+  color: black;
+}
+
+
+  #frase {
+    background-image: url(./imagenes/fotoPortada.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+
+  #frase span {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+</style>
+
 </head>
 <body>
-    
-    <!--ENCABEZADO-->
-    <header>
-        <a id="translate" href="./index.html"><img id="en" src="./imagenes/españa.jpg"></a><!--Traducción de la página-->
-        <p id="nombre"><b>PURE IBIZA</b></p><!--Nombre de la empresa-->
-        <select id="elegirServicio" onchange="location = this.value;"><!--Muestra un apartado dentro de la misma página | según la opción seleccionada se dirige a un apartado o a otro-->
-            <option id="serv" value="#" selected>Services</option>
-            <option value="#seccion1">Yacht Charter</option>
-            <option value="#seccion2">Jet Ski Rental</option>
-            <option value="#seccion3">Car Rental</option>
-            <option value="#seccion4">Lodging on the insland</option>
-            <option value="#seccion5">Private Chauffeur</option>
-            <option value="#seccion6">Private Chef</option>
-            <option value="#seccion7">Nightclub Reservation</option>
-            <option value="#seccion8">Restaurant Reservations</option>
-        </select>&emsp;
-        <a id="enlace" href="./contactoIngles.html">Contact</a><!--LLeva a otra página donde habrá un formulario para ponerse en contacto-->
-        <hr>
-    </header>    
+  <header>
+    <a class="flag-link" href="./index.html">
+      <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
+    </a>
 
-    <!--Imágen inicial al fondo de la página web añadida con css en el id="frase"-->
-    <p id="frase"><span>Experience Ibiza like never before</span></p><!--Frase coorporativa-->
-    <p class="apartado"><b><span style="color: goldenrod;">VIP</span> Concierge Services in Ibiza</b></p>
-    <p style="text-align: center; margin-left: 10%; margin-right: 10%;">Dreaming of your perfect vacation in Ibiza? We know it can be a challenge to plan every little detail, our Ibiza Concierge Service can help you take care of all your personal needs and wishes. We will offer you the most exclusive Ibiza experiences and make sure you receive the best service from the most reliable people on the island.</p>
-    <br><br>
+    <p id="nombre"><b>PURE IBIZA</b></p>
 
-    <!--SERVICIOS DE LA EMPRESA-->
-    <div id="Servicios">
-        <div class="serv1">
-            <img class="imgServ" src="./imagenes/yate.png" width="450px" height="350px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion1">Yacht Charter</h3>     
-                <p>To spend a holiday in Ibiza and not sail to Formentera is to miss out on one of the most unforgettable experiences in the Mediterranean.
-                    The island offers white sandy beaches and crystal clear waters that seems to be straight out of a dream, as well as an exceptional gastronomy
-                    with the best fresh fish and seafood. At Pure Ibiza, we offer you an exclusive selection of luxury yachts and boats, tailored to your needs and preferences.
-                    Whether for a relaxing day, a special celebration or a romantic getaway, we have the perfect option for you. Our team will take care of all the detaills to
-                    make your trip flawless. Check the availability of our fleet and get ready to discover Formentera like never before.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv2">
-            <img class="imgServ" src="./imagenes/motosAgua.jpg" width="450px" height="300px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion2">Jet Ski Rental</h3>
-                <p>If you love the thrill of the sea, we invite you to live a unique experience with our exclusive jet skis. Enjoy the speed, freedom and adrenaline as you cruise
-                    the stunning waters of Ibiza and Formentera. We offer rentals for full days for an adventure without limits, or for half a day, an idel option as a perfect complement
-                    to your boat or yacht. Sail through hidden coves, discover spectacular landscapes and feel the energy fo the Mediterranean in a totally different way.
-                    Check availability and get ready for a unique experience on the water.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv1">
-            <img class="imgServ" src="./imagenes/coches.png" width="450px" height="350px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion3">Car Rental</h3>
-                <p>Discover Ibiza in the comfort and style that only a top-of-the-range vehicle can offer. Tour the island at your own pace, with easy access to its paradisiacal beaches,
-                    charming villages and most exclusive spots. From elegant convertibles to powerful SUVs, our fleet of luxury cars is designed to meet your demands. Enjoy the pleasure of
-                    driving along scenic roads with breathtaking views and make every journey an unforgettable experience. Browse our selection of vehicles and take your Ibiza holiday to the next level.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv2">
-            <img class="imgServ" src="./imagenes/hospedaje.avif" width="450px" height="300px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion4">Lodging on the insland</h3>
-                <p>Enjoy a dream stay in Ibiza by staying in one of our exclusive villas or charming hotels. Whether you prefer to wake up with sea views, stay close to the vibrant nightlife or
-                    unwind in a rural setting surrounded by nature, we have the perfect option for you. Our villas and hotels offer the utmost in comfort and privacy, with luxury amenities
-                    including infinity pools, panoramic terraces and personalised service. Relax, enjoy and let us take care of every detail to make your Ibiza experience unparalleled.
-                    Browse our selection and find your ideal island retreat.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv1">
-            <img class="imgServ" src="./imagenes/choferPrivado.jpg" width="450px" height="300px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion5">Private Chauffeur</h3>
-                <p>During your holiday in Ibiza, your time is a luxury that you deserve to enjoy without worries. Forget about waiting for a taxi or the hassle of looking for parking. With our
-                    private chauffeur service, all you have to do is relax and enjoy the ride. Our professional drivers will take you in total comfort and discretion to any destination, whether 
-                    it's an exclusive dinner, a paradise beach or an unforgettable night out in the island's most exclusive clubs. We have a fleet of top of the range vehicles to guarantee an
-                    impeccable experience. Let yourself go and experience Ibiza with the comfort and elegance it deserves.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv2">
-            <img class="imgServ" src="./imagenes/chefPrivado.jpg" width="450px" height="350px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion6">Private Chef</h3>
-                <p>If you want to relax and enjoy a culinary experience without worrying about the kitchen, we offer you our private chef service throughout the island, even on board. Thanks to our
-                    network of professional chefs, we guarantee you a completely personalised menu that to suit yout tastes and preferences. We use only the finest fresh and seasonal ingredients to
-                    ensure that every dish is a true delight. Whether it's for a special occasion or simply for a stress-free evening, we take care of everything so you can relax and savour a unique experience.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv1">
-            <img class="imgServ" src="./imagenes/clubsNocturnos.webp" width="450px" height="300px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion7">Nightclub Reservation</h3>
-                <p>Enjoy a unique night in Ibiza with our exclusive VIP booking services. We offer you access to the most select and exclusive venues on the island, guaranteeing a personalised experience with
-                    VIP treatment in every  detail. From the best tables in the most prestigious clubs to priority entry, our aim is to ensure that every aspect of your night is unforgettable. Let us make 
-                    your Ibiza experience truly exceptional, with an exclusive service that will make you feel like a true VIP.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="serv2">
-            <img class="imgServ" src="./imagenes/restaurante.jpeg" width="450px" height="300px">&emsp;
-            <div class="textoServ">
-                <h3 style="font-size: 40px; text-align: center;" id="seccion8">Restaurant Reservations</h3>
-                <p>Explore Ibiza's vibrant gastronomic scene without worrying about a thing, thaks to our exlusive concierge service. We take care of all your reservations at the best restaurants on the island, ensuring
-                    you enjoy a first class dining experience. From Michelin-starred restaurants to hidden hideaways with authentic flavours, we guarantee you a unique and memorable gastronomic journey.
-                    Let us organise your itinerary so you can concentrate on enjoying the exquisite flavours that Ibiza has to offer.
-                </p>
-                <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
-            </div>
-        </div>
+    <div class="nav-buttons">
+    <select id="elegirServicio" onchange="location = this.value;">
+        <option id="serv" value="#" selected>Services</option>
+        <option value="#seccion1">Yacht Charter</option>
+        <option value="#seccion2">Jet Ski Rental</option>
+        <option value="#seccion3">Car Rental</option>
+        <option value="#seccion4">Island Lodging</option>
+        <option value="#seccion5">Private Chauffeur</option>
+        <option value="#seccion6">Private Chef</option>
+        <option value="#seccion7">Nightclub Booking</option>
+        <option value="#seccion8">Restaurant Reservations</option>
+    </select>
+
+    <a id="enlace" href="./blog.html">Blog</a>
+    <a id="enlace" href="./contactoIngles.html">Contact</a>
     </div>
 
-    <!--BOTON DE FORMULARIO-->
-    <!--Debe aparecer siempre en la pantalla, aunque se haga scroll con el ratón-->
-    <img id="logo" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
+  </header>
 
-    <br>
-    <hr>
-    <br>
+  <p id="frase"><span>Experience Ibiza like never before</span></p>
 
-    <!--FOOTER-->
-    <footer>
-        <p id="nombre"><b>PURE IBIZA Concierge</b></p>
-        <p style="text-align: center;"><img style="align-content: center;" src="./imagenes/TelefonoIcono.png" width="27px" height="25px">  +34 987 654 321</p>
-        <p style="text-align: center;"><a href="https://mail.google.com/mail?hl=es"><img style="text-align: center;" src="./imagenes/gmailIcono.PNG" width="30px" height="30px"></a></p>        
-        <p style="text-align: center;">Pure Ibiza Concierge &copy; Copyright - 2025</p>
-        <p style="text-align: center;">Terms and conditions | Privacy Policy | Coockies</p>
-        <!--Iconos de las redes sociales de la empresa-->
-        <div id="rrss">
-            <p><a href="https://www.facebook.com/login/?locale=es_ES"><img src="./imagenes/facebookLogo.webp" width="70px" height="70px"></a></p>
-            <p><a href="https://x.com/?lang=es"><img src="./imagenes/twitterLogo.PNG" width="60px" height="55px"></a></p>
-            <p><a href="https://www.instagram.com/"><img src="./imagenes/instagramLogo.png" width="70px" height="55px"></a></p>
+  <p class="apartado"><b><span style="color:goldenrod">VIP</span> Concierge Services in Ibiza</b></p>
+  <p style="text-align: center; margin-left: 10%; margin-right: 10%;">Dreaming of your perfect vacation in Ibiza? We know that planning every little detail can be a challenge. Our Concierge Services in Ibiza help you take care of all your personal needs and desires. We'll offer you the most exclusive experiences and ensure you receive the best service from the most trusted people on the island.</p>
+  <br><br>
+
+  <!-- Scroll to top button -->
+  <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+  <!-- SERVICES -->
+  <div id="Servicios">
+    <!-- Section 1: Yacht Charter -->
+    <div class="serv1 reveal" id="seccion1">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="imagenes/fotosYate/fotoYate1.webp" class="active" alt="Yacht 1">
+          <img src="imagenes/fotosYate/fotoYate2.webp" alt="Yacht 2">
+          <img src="imagenes/fotosYate/fotoYate3.webp" alt="Yacht 3">
         </div>
-    </footer>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="showImage(0)"></span>
+          <span class="dot" onclick="showImage(1)"></span>
+          <span class="dot" onclick="showImage(2)"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Yacht Charter</h3>
+        <p>
+          Spending a holiday in Ibiza without sailing to Formentera is missing out on one of the Mediterranean’s most unforgettable experiences.
+          The island offers white sandy beaches and crystal-clear waters that feel like a dream, along with exceptional cuisine featuring the finest fresh fish and seafood.
+          At Pure Ibiza, we offer an exclusive selection of luxury yachts and boats tailored to your needs and preferences.
+          Whether you're looking for a relaxing day, a special celebration, or a romantic escape, we have the perfect option for you.
+          Our team will take care of every detail to ensure your trip is flawless. Check the availability of our fleet and get ready to discover Formentera like never before.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 2: Jet Ski Rental -->
+    <div class="serv2 reveal" id="seccion2">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="imagenes/fotosMoto/fotoMoto1.webp" class="active" alt="Jet Ski 1">
+          <img src="imagenes/fotosMoto/fotoMoto2.webp" alt="Jet Ski 2">
+          <img src="imagenes/fotosMoto/fotoMoto3.webp" alt="Jet Ski 3">
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="showImage(0)"></span>
+          <span class="dot" onclick="showImage(1)"></span>
+          <span class="dot" onclick="showImage(2)"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Jet Ski Rental</h3>
+        <p>
+          If you love the thrill of the sea, we invite you to live a unique experience with our exclusive jet skis.
+          Enjoy the speed, freedom, and adrenaline as you ride through the stunning waters of Ibiza and Formentera.
+          We offer full-day rentals for unlimited adventure, or half-day options as the perfect complement to your boat or yacht.
+          Cruise through hidden coves, discover spectacular landscapes, and feel the energy of the Mediterranean in a whole new way.
+          Check availability and get ready for an unmatched experience on the water.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 3: Car Rental -->
+    <div class="serv1 reveal" id="seccion3">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="imagenes/fotosCoche/fotoCoche1.webp" class="active" alt="Car 1">
+          <img src="imagenes/fotosCoche/fotoCoche2.webp" alt="Car 2">
+          <img src="imagenes/fotosCoche/fotoCoche3.webp" alt="Car 3">
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="showImage(0)"></span>
+          <span class="dot" onclick="showImage(1)"></span>
+          <span class="dot" onclick="showImage(2)"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Car Rental</h3>
+        <p>
+          Discover Ibiza with the comfort and style that only a premium vehicle can offer.
+          Explore the island at your own pace, with easy access to idyllic beaches, charming towns, and exclusive hideaways.
+          From elegant convertibles to powerful SUVs, our luxury car fleet is designed to meet your needs.
+          Enjoy the pleasure of driving along scenic routes with breathtaking views, and make every journey a memorable one.
+          Browse our vehicle selection and elevate your Ibiza getaway to the next level.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 4: Lodging -->
+    <div class="serv2 reveal" id="seccion4">
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-hospedaje">
+          <a href="https://www.ibizagranhotel.com" target="_blank" class="active">
+            <img src="imagenes/fotosHoteles/logoHotelIbiza.webp" alt="Ibiza Grand Hotel">
+          </a>
+          <a href="https://www.melia.com" target="_blank">
+            <img src="imagenes/fotosHoteles/logoMelia.jpg" alt="Melia Hotel">
+          </a>
+          <a href="https://www.sixsenses.com" target="_blank">
+            <img src="imagenes/fotosHoteles/logoSixSenses.png" alt="Six Senses Hotel">
+          </a>
+        </div>
+        <div class="carousel-dots" id="dots-hospedaje">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Island Lodging</h3>
+        <p id="descripcionHospedaje">
+          Enjoy a dreamy stay in Ibiza by booking one of our exclusive villas or boutique hotels.
+          Whether you prefer waking up to sea views, staying close to vibrant nightlife, or disconnecting in a rural oasis,
+          we have the perfect option for you. Our accommodations offer maximum comfort and privacy,
+          with luxury features like infinity pools, panoramic terraces, and personalized service.
+          Relax, unwind, and let us handle every detail to ensure your Ibiza experience is truly unforgettable.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+    <!-- Section 5: Private Chauffeur -->
+    <div class="serv1 reveal" id="seccion5">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="imagenes/fotosChofer/fotoChofer1.webp" class="active" alt="Chauffeur 1">
+          <img src="imagenes/fotosChofer/fotoChofer2.webp" alt="Chauffeur 2">
+          <img src="imagenes/fotosChofer/fotoChofer3.webp" alt="Chauffeur 3">
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="showImage(0)"></span>
+          <span class="dot" onclick="showImage(1)"></span>
+          <span class="dot" onclick="showImage(2)"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Private Chauffeur</h3>
+        <p>
+          During your holidays in Ibiza, time is a luxury you deserve to enjoy worry-free.
+          Forget waiting for taxis or dealing with parking. With our private chauffeur service, all you need to do is relax and enjoy the ride.
+          Our professional drivers will take you comfortably and discreetly to any destination — be it an exclusive dinner, a paradise beach, or an unforgettable night out.
+          We offer a fleet of premium vehicles to guarantee a seamless experience. Sit back, relax, and explore Ibiza with the elegance you deserve.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 6: Private Chef -->
+    <div class="serv2 reveal" id="seccion6">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="imagenes/fotosComida/fotoComida1.webp" class="active" alt="Dish 1">
+          <img src="imagenes/fotosComida/fotoComida2.webp" alt="Dish 2">
+          <img src="imagenes/fotosComida/fotoComida3.webp" alt="Dish 3">
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="showImage(0)"></span>
+          <span class="dot" onclick="showImage(1)"></span>
+          <span class="dot" onclick="showImage(2)"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Private Chef</h3>
+        <p>
+          Want to relax and enjoy a culinary experience without worrying about cooking?
+          We offer a private chef service across the island — even onboard.
+          Thanks to our network of professional chefs, we guarantee a fully personalized menu tailored to your tastes and preferences.
+          We use only the freshest seasonal ingredients to make every dish a delight.
+          Whether it's for a special occasion or a stress-free evening, we take care of everything so you can sit back and savor a unique experience.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 7: Nightclub Booking -->
+    <div class="serv1 reveal" id="seccion7">
+      <div class="carousel">
+        <div class="carousel-images" id="carousel-hospedaje">
+          <a href="https://www.hiibiza.com/en" target="_blank" class="active">
+            <img src="imagenes/fotosClubs/logoHiIbiza.webp" alt="Hï Ibiza">
+          </a>
+          <a href="https://www.amnesia.es/en/" target="_blank">
+            <img src="imagenes/fotosClubs/logoAmnesia.webp" alt="Amnesia">
+          </a>
+          <a href="https://pacha.com/en" target="_blank">
+            <img src="imagenes/fotosClubs/logoPacha.webp" alt="Pacha Club">
+          </a>
+        </div>
+        <div class="carousel-dots" id="dots-hospedaje">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+      </div>
+      <div class="textoServ">
+        <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Nightclubs</h3>
+        <p id="descripcionHospedaje">
+          Enjoy a one-of-a-kind night in Ibiza with our exclusive VIP booking service.
+          We provide access to the island’s most select and luxurious venues, ensuring a personalized experience with VIP treatment every step of the way.
+          From the best tables at the most prestigious clubs to priority entry, our goal is to make every part of your night unforgettable.
+          Let us make your Ibiza nightlife truly exceptional with top-tier service that makes you feel like a true VIP.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+    <br>
+
+    <!-- Section 8: Restaurants -->
+    <div class="serv2" id="seccion8">
+      <img class="imgServ" src="./imagenes/restaurante.jpeg" width="450px" height="300px">&emsp;
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center; margin-top: 0%;">Restaurant Reservations</h3>
+        <p>
+          Explore Ibiza’s vibrant food scene without worrying about a thing, thanks to our exclusive concierge service.
+          We take care of all bookings at the island’s top restaurants, ensuring you enjoy a first-class dining experience.
+          From Michelin-starred spots to hidden local gems, we’ll plan your culinary journey so you can focus on enjoying the exquisite flavors Ibiza has to offer.
+        </p>
+        <p><a class="boton" href="https://web.whatsapp.com/">Contact</a></p>
+      </div>
+    </div>
+  </div>
+  <!-- WhatsApp Floating Button -->
+  <img id="logo" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px" alt="WhatsApp icon">
+
+  <script>
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach((carousel) => {
+      let currentIndex = 0;
+      const images = carousel.querySelectorAll('.carousel-images img');
+      const dots = carousel.querySelectorAll('.carousel-dots .dot');
+
+      function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        dots[currentIndex].classList.remove('active');
+        currentIndex = index;
+        images[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+      }
+
+      function nextImage() {
+        const nextIndex = (currentIndex + 1) % images.length;
+        showImage(nextIndex);
+      }
+
+      let interval = setInterval(nextImage, 4000);
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showImage(index);
+          clearInterval(interval);
+          interval = setInterval(nextImage, 4000);
+        });
+      });
+    });
+
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        } else {
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    window.addEventListener('scroll', () => {
+      const scrollToTopButton = document.getElementById('scrollToTop');
+      if (window.scrollY > 200) {
+        scrollToTopButton.style.display = 'flex';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+/*
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.accept-all').addEventListener('click', () => {
+      document.getElementById('cookie-banner').style.display = 'none';
+      console.log('User accepted all cookies (simulation)');
+    });
+
+    document.querySelector('.reject-all').addEventListener('click', () => {
+      document.getElementById('cookie-banner').style.display = 'none';
+      console.log('User rejected all cookies (simulation)');
+    });
+
+    document.querySelector('.accept-tech').addEventListener('click', () => {
+      document.getElementById('cookie-banner').style.display = 'none';
+      console.log('User accepted only technical cookies (simulation)');
+    });
+  })*/;
+  </script>
+
+  <br>
+  <hr>
+  <br>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-title">
+        <p><b>PURE IBIZA Concierge</b></p>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-left">
+          <p><img src="./imagenes/TelefonoIcono.png" alt="Phone"> +34 616 670 665</p>
+          <p><img src="./imagenes/gmailIcono.PNG" alt="Email"> contact@pureibiza.com</p>
+        </div>
+
+        <div class="footer-right">
+          <ul class="social-icons">
+            <li><a href="https://www.facebook.com" class="redes facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="https://x.com" class="redes x-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com" class="redes instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+        <p>
+          <a href="terminosIngles.html#aviso-legal">Legal Notice</a> |
+          <a href="terminosIngles.html#privacidad">Privacy Policy</a> |
+          <a href="terminosIngles.html#cookies">Cookie Policy</a>
+        </p>
+      </div>
+    </div>
+  </footer><!-->
+<div id="cookie-banner">
+  <p>
+    This website uses cookies to enhance your browsing experience, provide social media features, and analyze our traffic.
+    You can choose to accept all cookies, reject them, or allow only the essential ones required for the website to function.
+  </p>
+  <div class="cookie-buttons">
+    <button class="cookie-btn accept-all">Accept all</button>
+    <button class="cookie-btn reject-all">Reject all</button>
+    <button class="cookie-btn accept-tech">Accept only necessary</button>
+  </div>
+</div>-->
 </body>
 </html>
