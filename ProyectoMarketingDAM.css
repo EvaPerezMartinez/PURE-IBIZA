@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wdth,wght@75,100&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -372,12 +375,10 @@ button:hover {
     float: right;
     display: inline-flex;
 }
-#logo {
+#logo-whatsapp {
   position: fixed;
   bottom: 80px;
   left: 20px;
-  width: 50px;
-  height: 50px;
   z-index: 1000;
 }
 #Servicios{ /*apartado de servicios*/
@@ -536,10 +537,19 @@ button:hover {
     gap: 20px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.form-section {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.form-group label a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.form-group label a:hover {
+  color: goldenrod;
+  text-decoration: underline;
 }
 
 .checkbox-group {
@@ -639,7 +649,7 @@ textarea {
   text-decoration: underline;
 }
 
-/*COOKIES
+/*COOKIES*/
 #cookie-banner {
   position: fixed;
   bottom: 0;
@@ -677,7 +687,7 @@ textarea {
 
 .cookie-btn:hover {
   background-color: #c1972f;
-}*/
+}
 
 /*BLOG*/
 
@@ -687,34 +697,36 @@ textarea {
   gap: 30px;
   padding: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 60px auto 60px auto; /* espacio arriba y abajo */
   background-color: #f7f7f7;
   box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .blog-card {
-  background: #ffffff;
-  border-radius: 10px;
+  background: linear-gradient(to bottom right, #ffffff, #fef6f0);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  transition: transform 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* Nuevo contenedor para imágenes */
 .blog-image-container {
-  height: 200px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  padding: 20px;
+  background: #fffaf4;
+  padding: 25px;
 }
 
 .blog-image {
@@ -724,7 +736,7 @@ textarea {
 }
 
 .blog-content {
-  padding: 20px;
+  padding: 25px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -732,30 +744,31 @@ textarea {
 }
 
 .blog-card h2 {
-  font-size: 20px;
-  color: #222;
-  margin-bottom: 10px;
+  font-size: 22px;
+  color: #2d2d2d;
+  margin-bottom: 15px;
   text-align: center;
 }
 
 .blog-card p {
   font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-  flex-grow: 1;
+  line-height: 1.7;
+  color: #555;
 }
 
 .read-more {
-  margin-top: 15px;
+  margin-top: 20px;
   align-self: flex-start;
-  color: goldenrod;
-  font-weight: bold;
+  color: #c1975f;
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .read-more:hover {
-  color: #c1972f;
+  color: goldenrod;
+  border-bottom: 1px solid goldenrod;
 }
 
 /* Responsive ajustes */
@@ -791,4 +804,655 @@ textarea {
     height: 160px;
     padding: 10px;
   }
+}
+
+/****** HAMBURGUESA ******/
+
+
+
+/***** FIN HAMBURGUESA *****/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wdth,wght@75,100&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    box-sizing: border-box;
+    background-color: rgb(234, 234, 234);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit; /* Asegura que todos los elementos respeten el tamaño del contenedor */
+}
+
+/* Header y navegación - Nueva estructura */
+header {
+    padding: 15px 0 5px;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-left {
+    flex: 1;
+    text-align: left;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Ajuste para el logo del header */
+#logo-header {
+    max-width: 120px; /* Tamaño más pequeño para el logo */
+    height: auto;
+    display: block;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#nombre {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.flag-link {
+    display: inline-block;
+}
+
+.flag-icon {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.flag-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#enlace {
+    color: #333;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px 10px;
+    border: 0px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#enlace:hover {
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+}
+
+#enlace:focus {
+    box-shadow: 0 0 10px rgb(165, 165, 165);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+/* Título de la página - Fondo transparente */
+.page-title {
+    background: transparent !important;
+    padding: 10px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    margin: 20px 0;
+    background: transparent !important;
+    color: #333;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-image: url(./imagenes/ibizaFondo.avif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Formulario */
+form {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px; /* Aumentado de 30px a 35px */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Ajustes para el fieldset y legend (Tus datos) */
+fieldset {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px; /* Aumentado el padding */
+    border: none;
+    margin: 0;
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0 10px; /* Añadido padding horizontal */
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(218, 177, 137);
+    width: auto; /* Cambiado de 100% a auto para que se ajuste al contenido */
+    display: inline-block; /* Para que se comporte como bloque pero solo ocupe el ancho necesario */
+    color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Estructura de filas para alinear inputs */
+.form-row {
+    display: flex;
+    gap: 25px; /* Aumentado de 20px a 25px */
+    margin-bottom: 25px; /* Aumentado de 20px a 25px */
+}
+
+/* Aumentar espaciado entre elementos del formulario */
+.form-group {
+    margin-bottom: 25px; /* Aumentado de 20px a 25px */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ajustes para los inputs y textareas */
+input, textarea, select {
+    width: 100%;
+    margin-bottom: 12px; /* Aumentado de 10px a 12px */
+    padding: 12px; /* Aumentado de 10px a 12px */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    font-size: 15px !important;
+    padding: 10px !important;
+    line-height: 1.4;
+    width: 100%;
+    height: auto;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: rgb(218, 177, 137);
+    box-shadow: 0 0 0 2px rgba(218, 177, 137, 0.2);
+    outline: none;
+    background-color: #fff;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Ajustes para la sección de servicios */
+.form-section {
+    margin: 35px 0; /* Aumentado de 30px a 35px */
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 18px; /* Aumentado de 15px a 18px */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+/* Aumentar espaciado en checkboxes */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px; /* Aumentado de 10px a 15px */
+    margin-top: 10px; /* Añadido margen superior */
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* Aumentado de 10px a 12px */
+    padding: 3px 0; /* Añadido padding vertical */
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    opacity: 1;
+    position: relative;
+}
+
+.checkbox-item label {
+    font-size: 15px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ajustes para la sección legal */
+.legal-section {
+    margin: 30px 0; /* Aumentado de 25px a 30px */
+    padding: 18px; /* Aumentado de 15px a 18px */
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border-left: 3px solid rgb(218, 177, 137);
+}
+
+.required label::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+.legal-section a {
+    color: rgb(193, 151, 99);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.legal-section a:hover {
+    color: goldenrod;
+    text-decoration: underline;
+}
+
+/* Ajustes para los botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px; /* Aumentado de 20px a 25px */
+    margin-top: 35px; /* Aumentado de 30px a 35px */
+}
+
+button {
+    align-items: center;
+    text-align: center;
+    background-color: rgb(218, 177, 137);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    width: 48%;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-weight: 600;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: rgb(193, 151, 99);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"] {
+    background-color: rgb(218, 177, 137);
+    color: #fff;
+    flex: 1;
+}
+
+button[type="reset"] {
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+button[type="reset"]:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Footer */
+footer {
+    background-color: #f0f0f0;
+    padding: 40px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.footer-title p {
+    font-size: 36px;
+    margin: 0;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.footer-left p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+/* Ajustes para el footer */
+.footer-left a {
+    display: block;
+    margin: 15px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-left a:hover {
+    color: rgb(218, 177, 137);
+}
+
+.footer-left a i {
+    margin-right: 10px;
+    color: rgb(218, 177, 137);
+}
+
+.footer-left img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* Iconos de redes sociales mejorados */
+.social-icons {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.social-icons li a:hover .social-icon-circle {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons li a.facebook:hover .social-icon-circle {
+    background-color: #1877f2;
+    color: white;
+}
+
+.social-icons li a.x-twitter:hover .social-icon-circle {
+    background-color: #000000;
+    color: white;
+}
+
+.social-icons li a.instagram:hover .social-icon-circle {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-icons li a i {
+    font-size: 18px;
+}
+
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.footer-bottom a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: goldenrod;
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+.input-error {
+    border-color: #e74c3c !important;
+    background-color: #fff8f8 !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-left, .header-center, .header-right {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    form {
+        padding: 20px;
+    }
+    
+    .footer-columns {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-right {
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 22px;
+    }
+    
+    legend {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+    
+    .form-container {
+        padding: 15px;
+    }
+    
+    form {
+        padding: 15px;
+    }
+    
+    .footer-title p {
+        font-size: 28px;
+    }
+    
+    #nombre {
+        font-size: 32px;
+    }
+    
+    button {
+        font-size: 15px;
+    }
 }

@@ -17,23 +17,84 @@
   }
 
   header {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    background-color: transparent;
     z-index: 999;
-    background: transparent;
-    padding-top: 20px;
+    transition: background-color 0.4s ease, box-shadow 0.3s ease;
+  }
+
+  header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-container {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 20px;
+  }
+
+  .header-logo img {
+    height: 90px;
+    object-fit: contain;
+  }
+
+  .nav-buttons {
     display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 16px;
     align-items: center;
-    gap: 10px;
+  }
+
+  .nav-buttons select,
+  .nav-buttons a {
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    padding: 7px 12px;
+    border: 1px solid rgba(218, 177, 137, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    height: 30px;
+    text-decoration: none;
+  }
+
+  .nav-buttons select:hover,
+  .nav-buttons a:hover {
+    background-color: rgba(218, 177, 137, 1);
+    color: white;
+  }
+
+  .header-flag {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 20px;
   }
 
   .flag-link {
-    position: absolute;
-    top: 15px;
-    right: 20px;
+    display: inline-block;
   }
 
   .flag-icon {
@@ -50,51 +111,6 @@
     transform: scale(1.1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-
-  #nombre {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    font-variation-settings: "wdth" 75;
-    font-size: 40px;
-    color: black;
-    margin: 0;
-  }
-
-  .nav-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 18px; /* MÁS ESPACIO */
-  }
-
-  .nav-buttons select {
-  background-color: rgba(218, 177, 137, 0.75);
-  color: black;
-  font-size: 14px;
-  padding: 7px 10px;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 100px;
-  height: 30px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.nav-buttons select:hover {
-  background-color: rgba(218, 177, 137, 1);
-}
-
-.nav-buttons select option {
-  background-color: rgba(218, 177, 137, 0.9);
-  color: black;
-}
-
 
   #frase {
     background-image: url(./imagenes/fotoPortada.jpg);
@@ -123,36 +139,52 @@
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
-  
 </style>
 
 </head>
 <body>
   <header>
-    <a class="flag-link" href="./index.html">
-      <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
-    </a>
+  <div class="header-container">
 
-    <p id="nombre"><b>PURE IBIZA</b></p>
-
-    <div class="nav-buttons">
-    <select id="elegirServicio" onchange="location = this.value;">
-        <option id="serv" value="#" selected>Services</option>
-        <option value="#seccion1">Yacht Charter</option>
-        <option value="#seccion2">Jet Ski Rental</option>
-        <option value="#seccion3">Car Rental</option>
-        <option value="#seccion4">Island Lodging</option>
-        <option value="#seccion5">Private Chauffeur</option>
-        <option value="#seccion6">Private Chef</option>
-        <option value="#seccion7">Nightclub Booking</option>
-        <option value="#seccion8">Restaurant Reservations</option>
-    </select>
-
-    <a id="enlace" href="./blog.html">Blog</a>
-    <a id="enlace" href="./contactoIngles.html">Contact</a>
+    <!-- Logo -->
+    <div class="header-logo">
+      <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
     </div>
 
-  </header>
+    <!-- Icono hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+
+    <!-- Menú navegacion -->
+    <div class="nav-buttons" id="menu">
+      <select id="elegirServicio" onchange="location = this.value;">
+          <option id="serv" value="#" selected>Services</option>
+          <option value="#seccion1">Yacht Charter</option>
+          <option value="#seccion2">Jet Ski Rental</option>
+          <option value="#seccion3">Car Rental</option>
+          <option value="#seccion4">Island Lodging</option>
+          <option value="#seccion5">Private Chauffeur</option>
+          <option value="#seccion6">Private Chef</option>
+          <option value="#seccion7">Nightclub Booking</option>
+          <option value="#seccion8">Restaurant Reservations</option>
+      </select>
+
+      <a id="enlace" href="./blogIngles.html">Blog</a>
+      <a id="enlace" href="./contactoIngles.html">Contact</a>
+    </div>
+
+    <!-- Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./index.html">
+        <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
+      </a>
+    </div>
+
+  </div>
+</header>
 
   <p id="frase"><span>Experience Ibiza like never before</span></p>
 
@@ -388,85 +420,119 @@
   <img id="logo" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px" alt="WhatsApp icon">
 
   <script>
-    const carousels = document.querySelectorAll('.carousel');
+  // Mostrar/ocultar el botón de "subir al inicio" al hacer scroll
+  const scrollToTopButton = document.getElementById('scrollToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollToTopButton.style.display = 'flex';
+    } else {
+      scrollToTopButton.style.display = 'none';
+    }
+  });
 
-    carousels.forEach((carousel) => {
-      let currentIndex = 0;
-      const images = carousel.querySelectorAll('.carousel-images img');
-      const dots = carousel.querySelectorAll('.carousel-dots .dot');
+  // Cambiar el color de fondo del header al hacer scroll
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 500) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 
-      function showImage(index) {
-        images[currentIndex].classList.remove('active');
-        dots[currentIndex].classList.remove('active');
-        currentIndex = index;
-        images[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
-      }
+  // Función para subir al inicio
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
-      function nextImage() {
-        const nextIndex = (currentIndex + 1) % images.length;
-        showImage(nextIndex);
-      }
+  // Menú hamburguesa: abrir/cerrar  
+  const hamburger = document.getElementById('hamburger');
+  const navButtons = document.querySelector('.nav-buttons');
 
-      let interval = setInterval(nextImage, 4000);
+  if (hamburger && navButtons) {
+    // Alternar la clase 'show' para abrir/cerrar el menú
+    hamburger.addEventListener('click', () => {
+      navButtons.classList.toggle('show');
+      hamburger.classList.toggle('active');
+    });
 
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          showImage(index);
-          clearInterval(interval);
-          interval = setInterval(nextImage, 4000);
-        });
+    // Cerrar el menú al hacer clic en un enlace o en el select
+    const enlacesMenu = document.querySelectorAll('.nav-buttons a, .nav-buttons select');
+    enlacesMenu.forEach(el => {
+      el.addEventListener('click', () => {
+        if (window.innerWidth < 890) {
+          navButtons.classList.remove('show');
+          hamburger.classList.remove('active');
+        }
       });
     });
+  }
 
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal');
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 100;
+  // Carruseles múltiples
+  const carousels = document.querySelectorAll('.carousel');
 
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        } else {
-          reveals[i].classList.remove('active');
-        }
-      }
+  carousels.forEach((carousel) => {
+    let currentIndex = 0;
+    const images = carousel.querySelectorAll('.carousel-images img');
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
+
+    function showImage(index) {
+      images[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      images[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
     }
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    function nextImage() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      showImage(nextIndex);
+    }
 
-    window.addEventListener('scroll', () => {
-      const scrollToTopButton = document.getElementById('scrollToTop');
-      if (window.scrollY > 200) {
-        scrollToTopButton.style.display = 'flex';
+    let interval = setInterval(nextImage, 4000);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showImage(index);
+        clearInterval(interval);
+        interval = setInterval(nextImage, 4000);
+      });
+    });
+  });
+
+  // Animación al hacer scroll para los elementos con clase 'reveal'
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
       } else {
-        scrollToTopButton.style.display = 'none';
+        reveals[i].classList.remove('active');
       }
-    });
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-/*
-    document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.accept-all').addEventListener('click', () => {
-      document.getElementById('cookie-banner').style.display = 'none';
-      console.log('User accepted all cookies (simulation)');
-    });
+  }
 
-    document.querySelector('.reject-all').addEventListener('click', () => {
-      document.getElementById('cookie-banner').style.display = 'none';
-      console.log('User rejected all cookies (simulation)');
-    });
+  // Ejecutar animación reveal al hacer scroll y también al cargar la página
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
 
-    document.querySelector('.accept-tech').addEventListener('click', () => {
-      document.getElementById('cookie-banner').style.display = 'none';
-      console.log('User accepted only technical cookies (simulation)');
-    });
-  })*/;
-  </script>
+  // Evitar que el menú quede abierto al cargar
+  window.addEventListener('DOMContentLoaded', () => {
+    if (navButtons.classList.contains('show')) {
+      navButtons.classList.remove('show');
+    }
+    if (hamburger.classList.contains('active')) {
+      hamburger.classList.remove('active');
+    }
+  });
+</script>
 
   <br>
   <hr>
@@ -502,17 +568,17 @@
         </p>
       </div>
     </div>
-  </footer><!-->
+  </footer>
 <div id="cookie-banner">
   <p>
     This website uses cookies to enhance your browsing experience, provide social media features, and analyze our traffic.
     You can choose to accept all cookies, reject them, or allow only the essential ones required for the website to function.
   </p>
-  <div class="cookie-buttons">
+  <div class="cookie-buttons">  
     <button class="cookie-btn accept-all">Accept all</button>
     <button class="cookie-btn reject-all">Reject all</button>
     <button class="cookie-btn accept-tech">Accept only necessary</button>
   </div>
-</div>-->
+</div>
 </body>
 </html>

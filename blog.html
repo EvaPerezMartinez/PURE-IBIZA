@@ -9,32 +9,47 @@
 </head>
 <body>
 
-  <!--HEADER importado-->
   <header>
-  <a class="flag-link" href="blogIngles.html">
-    <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
-  </a>
+  <div class="header-container">
+    <!-- Logo con enlace a index.html -->
+    <div class="header-logo">
+      <a href="./index.html">
+        <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
+      </a>
+    </div>
 
-  <p id="nombre"><b>PURE IBIZA</b></p>
+    <!-- Icono hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
 
-  <!-- Enlace a INICIO -->
-  <a id="enlace" href="./index.html">Inicio</a>
+    <!-- Menú navegación -->
+    <div class="nav-buttons" id="menu">
+      <a id="enlace" href="./index.html">Inicio</a>
+      <select id="elegirServicio" onchange="location = this.value;">
+        <option id="serv" value="#" selected>Servicios</option>
+        <option value="index.html#seccion1">Alquiler de yates</option>
+        <option value="index.html#seccion2">Alquiler de motos de agua</option>
+        <option value="index.html#seccion3">Alquiler de coches</option>
+        <option value="index.html#seccion4">Hospedaje</option>
+        <option value="index.html#seccion5">Chófer privado</option>
+        <option value="index.html#seccion6">Chef privado</option>
+        <option value="index.html#seccion7">Discotecas</option>
+        <option value="index.html#seccion8">Restaurantes</option>
+      </select>
+      <a id="enlace" href="./blog.html">Blog</a>
+      <a id="enlace" href="./contacto.html">Contacto</a>
+    </div>
 
-  <!-- Selector de servicios -->
-  <select id="elegirServicio" onchange="location = this.value;">
-    <option id="serv" value="#" selected>Servicios</option>
-    <option value="#seccion1">Alquiler de yates</option>
-    <option value="#seccion2">Alquiler de motos de agua</option>
-    <option value="#seccion3">Alquiler de coches</option>
-    <option value="#seccion4">Hospedaje en la isla</option>
-    <option value="#seccion5">Chófer privado</option>
-    <option value="#seccion6">Chef privado</option>
-    <option value="#seccion7">Reserva en clubs nocturnos</option>
-    <option value="#seccion8">Reserva en restaurantes</option>
-  </select>&emsp;
-
-  <!-- Enlace a CONTACTO -->
-  <a id="enlace" href="./contacto.html">Contacto</a>
+    <!-- Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./blogIngles.html">
+        <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
+      </a>
+    </div>
+  </div>
 </header>
 
 <main class="blog-grid">
@@ -106,36 +121,58 @@
 </main>
 
 <footer>
-  <div class="footer-container">
-    <div class="footer-title">
-      <p><b>PURE IBIZA Concierge</b></p>
-    </div>
-
-    <div class="footer-columns">
-      <div class="footer-left">
-        <p><img src="./imagenes/TelefonoIcono.png" alt="Teléfono"> +34 616 670 665</p>
-        <p><img src="./imagenes/gmailIcono.PNG" alt="Email"> contact@pureibiza.com</p>
+    <div class="footer-container">
+      <div class="footer-title">
+        <p><b>PURE IBIZA Concierge</b></p>
       </div>
 
-      <div class="footer-right">
-        <ul class="social-icons">
-          <li><a href="https://www.facebook.com" class="redes facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-          <li><a href="https://x.com" class="redes x-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
-          <li><a href="https://www.instagram.com" class="redes instagram"><i class="fa-brands fa-instagram"></i></a></li>
-        </ul>
+      <div class="footer-columns">
+        <div class="footer-left">
+          <a href="tel:+34616670665" >
+            <i class="fas fa-phone-alt"></i>+34 616 670 665
+          </a><br>
+          <a href="mailto:contact@pureibiza.com">
+            <i class="fas fa-envelope"></i>contact@pureibiza.com
+          </a>
+        </div>
+
+        <div class="footer-right">
+          <ul class="social-icons">
+            <li>
+              <a href="https://www.facebook.com" class="redes facebook" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" class="redes x-twitter" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com" class="redes instagram" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+        <p>
+          <a href="terminos.html#aviso-legal">Aviso legal</a> |
+          <a href="terminos.html#privacidad">Política de privacidad</a> |
+          <a href="terminos.html#cookies">Política de cookies</a>
+        </p>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
-      <p>
-        <a href="#aviso-legal">Aviso legal</a> |
-        <a href="#privacidad">Política de privacidad</a> |
-        <a href="#cookies">Política de cookies</a>
-      </p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <script>
   function openAccordionById(id) {

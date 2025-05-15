@@ -9,32 +9,47 @@
 </head>
 <body>
 
-  <!--HEADER importado-->
   <header>
-  <a class="flag-link" href="blog.html">
-    <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
-  </a>
+  <div class="header-container">
+    <!-- Logo con enlace a index.html -->
+    <div class="header-logo">
+      <a href="english.html">
+        <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
+      </a>
+    </div>
 
-  <p id="nombre"><b>PURE IBIZA</b></p>
+    <!-- Icono hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
 
-  <!-- Enlace a INICIO -->
-  <a id="enlace" href="./index.html">Inicio</a>
+    <!-- Menú navegación -->
+    <div class="nav-buttons" id="menu">
+      <a id="enlace" href="./index.html">Home</a>
+      <select id="elegirServicio" onchange="location = this.value;">
+          <option id="serv" value="#" selected>Services</option>
+          <option value="#seccion1">Yacht Charter</option>
+          <option value="#seccion2">Jet Ski Rental</option>
+          <option value="#seccion3">Car Rental</option>
+          <option value="#seccion4">Island Lodging</option>
+          <option value="#seccion5">Private Chauffeur</option>
+          <option value="#seccion6">Private Chef</option>
+          <option value="#seccion7">Nightclub Booking</option>
+          <option value="#seccion8">Restaurant Reservations</option>
+      </select>
+      <a id="enlace" href="./blog.html">Blog</a>
+      <a id="enlace" href="./contacto.html">Contact</a>
+    </div>
 
-  <!-- Selector de servicios -->
-  <select id="elegirServicio" onchange="location = this.value;">
-    <option id="serv" value="#" selected>Servicios</option>
-    <option value="#seccion1">Alquiler de yates</option>
-    <option value="#seccion2">Alquiler de motos de agua</option>
-    <option value="#seccion3">Alquiler de coches</option>
-    <option value="#seccion4">Hospedaje en la isla</option>
-    <option value="#seccion5">Chófer privado</option>
-    <option value="#seccion6">Chef privado</option>
-    <option value="#seccion7">Reserva en clubs nocturnos</option>
-    <option value="#seccion8">Reserva en restaurantes</option>
-  </select>&emsp;
-
-  <!-- Enlace a CONTACTO -->
-  <a id="enlace" href="./contacto.html">Contacto</a>
+    <!-- Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./blog.html">
+        <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
+      </a>
+    </div>
+  </div>
 </header>
 
 <main class="blog-grid">
@@ -130,9 +145,9 @@
     <div class="footer-bottom">
       <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
       <p>
-        <a href="#aviso-legal">Aviso legal</a> |
-        <a href="#privacidad">Política de privacidad</a> |
-        <a href="#cookies">Política de cookies</a>
+        <a href="terminosIngles.html#aviso-legal">Aviso legal</a> |
+        <a href="terminosIngles.html#privacidad">Política de privacidad</a> |
+        <a href="terminosIngles.html#cookies">Política de cookies</a>
       </p>
     </div>
   </div>

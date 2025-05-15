@@ -8,7 +8,7 @@
   <title>Pure Ibiza Concierge</title>
   <link rel="stylesheet" href="ProyectoMarketingDAM.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="shortcut icon" href="imagenes/logo/logoBlanco.png" type="image/x-icon">
   <style>
   html, body {
     margin: 0;
@@ -17,23 +17,84 @@
   }
 
   header {
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    background-color: transparent;
     z-index: 999;
-    background: transparent;
-    padding-top: 20px;
+    transition: background-color 0.4s ease, box-shadow 0.3s ease;
+  }
+
+  header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-container {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 20px;
+  }
+
+  .header-logo img {
+    height: 90px;
+    object-fit: contain;
+  }
+
+  .nav-buttons {
     display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 16px;
     align-items: center;
-    gap: 10px;
+  }
+
+  .nav-buttons select,
+  .nav-buttons a {
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    padding: 7px 12px;
+    border: 1px solid rgba(218, 177, 137, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    height: 30px;
+    text-decoration: none;
+  }
+
+  .nav-buttons select:hover,
+  .nav-buttons a:hover {
+    background-color: rgba(218, 177, 137, 1);
+    color: white;
+  }
+
+  .header-flag {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 20px;
   }
 
   .flag-link {
-    position: absolute;
-    top: 15px;
-    right: 20px;
+    display: inline-block;
   }
 
   .flag-icon {
@@ -50,51 +111,6 @@
     transform: scale(1.1);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-
-  #nombre {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-    font-variation-settings: "wdth" 75;
-    font-size: 40px;
-    color: black;
-    margin: 0;
-  }
-
-  .nav-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 18px; /* MÁS ESPACIO */
-  }
-
-  .nav-buttons select {
-  background-color: rgba(218, 177, 137, 0.75);
-  color: black;
-  font-size: 14px;
-  padding: 7px 10px;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 100px;
-  height: 30px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.nav-buttons select:hover {
-  background-color: rgba(218, 177, 137, 1);
-}
-
-.nav-buttons select option {
-  background-color: rgba(218, 177, 137, 0.9);
-  color: black;
-}
-
 
   #frase {
     background-image: url(./imagenes/fotoPortada.jpg);
@@ -123,36 +139,61 @@
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
-  
 </style>
 
 </head>
 <body>
   <header>
-    <a class="flag-link" href="./english.html">
-      <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
-    </a>
+  <div class="header-container">
 
-    <p id="nombre"><b>PURE IBIZA</b></p>
-
-    <div class="nav-buttons">
-    <select id="elegirServicio" onchange="location = this.value;">
-        <option id="serv" value="#" selected>Servicios</option>
-        <option value="#seccion1">Yacht Charter</option>
-        <option value="#seccion2">Jet Ski Rental</option>
-        <option value="#seccion3">Car Rental</option>
-        <option value="#seccion4">Island Lodging</option>
-        <option value="#seccion5">Private Chauffeur</option>
-        <option value="#seccion6">Private Chef</option>
-        <option value="#seccion7">Nightclub Booking</option>
-        <option value="#seccion8">Restaurant Reservations</option>
-    </select>
-
-    <a id="enlace" href="./blog.html">Blog</a>
-    <a id="enlace" href="./contactoIngles.html">Contacto</a>
+    <!-- Logo -->
+    <div class="header-logo">
+      <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
     </div>
 
-  </header>
+    <!-- Icono hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+
+    <!-- Menú navegacion -->
+    <div class="nav-buttons" id="menu">
+      <select id="elegirServicio" onchange="location = this.value;">
+          <option id="serv" value="#" selected>Servicios</option>
+          <option value="#seccion1">Alquiler de yates</option>
+          <option value="#seccion2">Jet Ski Rental</option>
+          <option value="#seccion3">Car Rental</option>
+          <option value="#seccion4">Island Lodging</option>
+          <option value="#seccion5">Private Chauffeur</option>
+          <option value="#seccion6">Private Chef</option>
+          <option value="#seccion7">Nightclub Booking</option>
+          <option value="#seccion8">Restaurant Reservations</option>
+      </select>
+
+      <a id="enlace" href="./blog.html">Blog</a>
+      <a id="enlace" href="./contacto.html">Contacto</a>
+    </div>
+
+    <!-- Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./english.html">
+        <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
+      </a>
+    </div>
+
+  </div>
+</header>
+
+    <!-- Columna 3: Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./english.html">
+        <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
+      </a>
+    </div>
+  </div>
+</header>
 
   <p id="frase"><span>Experience Ibiza like never before</span></p>
     <p class="apartado"><b><span style="color:goldenrod">VIP</span> Concierge Services in Ibiza</b></p>
@@ -377,117 +418,175 @@
 
     <!--BOTON DE WHATSAPP (es un chatbot no funcional)-->
     <!--Debe aparecer siempre en la pantalla (parte inferior izq), aunque se haga scroll con el ratón-->
-    <img id="logo" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
+    <img id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
 
     <script>
-        // Selecciona todos los carruseles en la página
-        const carousels = document.querySelectorAll('.carousel');
-    
-        carousels.forEach((carousel) => {
-            let currentIndex = 0;
-            const images = carousel.querySelectorAll('.carousel-images img');
-            const dots = carousel.querySelectorAll('.carousel-dots .dot');
-    
-            // Función para mostrar una imagen específica
-            function showImage(index) {
-                images[currentIndex].classList.remove('active');
-                dots[currentIndex].classList.remove('active');
-                currentIndex = index;
-                images[currentIndex].classList.add('active');
-                dots[currentIndex].classList.add('active');
-            }
-    
-            // Función para pasar a la siguiente imagen
-            function nextImage() {
-                const nextIndex = (currentIndex + 1) % images.length;
-                showImage(nextIndex);
-            }
-    
-            // Cambio automático cada 6 segundos para este carrusel
-            let interval = setInterval(nextImage, 4000);
-    
-            // Agregar eventos a los puntos para navegación manual
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showImage(index);
-                    clearInterval(interval); // Reinicia el intervalo al hacer clic
-                    interval = setInterval(nextImage, 4000);
-                });
-            });
-        });
-    
-        // Función para revelar elementos al hacer scroll
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-    
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
-                } else {
-                    reveals[i].classList.remove('active');
-                }
-            }
+  // Mostrar/ocultar el botón de "subir al inicio" al hacer scroll
+  const scrollToTopButton = document.getElementById('scrollToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollToTopButton.style.display = 'flex';
+    } else {
+      scrollToTopButton.style.display = 'none';
+    }
+  });
+
+  // Cambiar el color de fondo del header al hacer scroll
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 500) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Función para subir al inicio
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Menú hamburguesa: abrir/cerrar  
+  const hamburger = document.getElementById('hamburger');
+  const navButtons = document.querySelector('.nav-buttons');
+
+  if (hamburger && navButtons) {
+    // Alternar la clase 'show' para abrir/cerrar el menú
+    hamburger.addEventListener('click', () => {
+      navButtons.classList.toggle('show');
+      hamburger.classList.toggle('active');
+    });
+
+    // Cerrar el menú al hacer clic en un enlace o en el select
+    const enlacesMenu = document.querySelectorAll('.nav-buttons a, .nav-buttons select');
+    enlacesMenu.forEach(el => {
+      el.addEventListener('click', () => {
+        if (window.innerWidth < 890) {
+          navButtons.classList.remove('show');
+          hamburger.classList.remove('active');
         }
-    
-        // Eventos para ejecutar la función de revelar al cargar y al hacer scroll
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+      });
+    });
+  }
 
-        // Mostrar el botón cuando el usuario hace scroll hacia abajo
-        window.addEventListener('scroll', () => {
-            const scrollToTopButton = document.getElementById('scrollToTop');
-            if (window.scrollY > 200) {
-                scrollToTopButton.style.display = 'flex';
-            } else {
-                scrollToTopButton.style.display = 'none';
-            }
-        });
+  // Carruseles múltiples
+  const carousels = document.querySelectorAll('.carousel');
 
-        // Función para subir al inicio de la página
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Desplazamiento suave
-            });
-        }
-    </script>
+  carousels.forEach((carousel) => {
+    let currentIndex = 0;
+    const images = carousel.querySelectorAll('.carousel-images img');
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
 
-    <br>
-    <hr>
-    <br>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-title">
-                <p><b>PURE IBIZA Concierge</b></p>
-            </div>
+    function showImage(index) {
+      images[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      images[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+    }
 
-            <div class="footer-columns">
-                <div class="footer-left">
-                    <p><img src="./imagenes/TelefonoIcono.png" alt="Teléfono"> +34 616 670 665</p>
-                    <p><img src="./imagenes/gmailIcono.PNG" alt="Email"> contact@pureibiza.com</p>
-                </div>
+    function nextImage() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      showImage(nextIndex);
+    }
 
-                <div class="footer-right">
-                    <ul class="social-icons">
-                    <li><a href="https://www.facebook.com" class="redes facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="https://x.com" class="redes x-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com" class="redes instagram"><i class="fa-brands fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+    let interval = setInterval(nextImage, 4000);
 
-            <div class="footer-bottom">
-                <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
-                <p>
-                    <a href="terminos.html#aviso-legal">Aviso legal</a> |
-                    <a href="terminos.html#privacidad">Política de privacidad</a> |
-                    <a href="terminos.html#cookies">Política de cookies</a>
-                </p>
-            </div>
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showImage(index);
+        clearInterval(interval);
+        interval = setInterval(nextImage, 4000);
+      });
+    });
+  });
+
+  // Animación al hacer scroll para los elementos con clase 'reveal'
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
+      }
+    }
+  }
+
+  // Ejecutar animación reveal al hacer scroll y también al cargar la página
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+  // Evitar que el menú quede abierto al cargar
+  window.addEventListener('DOMContentLoaded', () => {
+    if (navButtons.classList.contains('show')) {
+      navButtons.classList.remove('show');
+    }
+    if (hamburger.classList.contains('active')) {
+      hamburger.classList.remove('active');
+    }
+  });
+</script>
+
+<footer>
+    <div class="footer-container">
+      <div class="footer-title">
+        <p><b>PURE IBIZA Concierge</b></p>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-left">
+          <a href="tel:+34616670665" >
+            <i class="fas fa-phone-alt"></i>+34 616 670 665
+          </a><br>
+          <a href="mailto:contact@pureibiza.com">
+            <i class="fas fa-envelope"></i>contact@pureibiza.com
+          </a>
         </div>
-    </footer>
+
+        <div class="footer-right">
+          <ul class="social-icons">
+            <li>
+              <a href="https://www.facebook.com" class="redes facebook" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" class="redes x-twitter" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com" class="redes instagram" target="_blank">
+                <div class="social-icon-circle">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+        <p>
+          <a href="terminos.html#aviso-legal">Aviso legal</a> |
+          <a href="terminos.html#privacidad">Política de privacidad</a> |
+          <a href="terminos.html#cookies">Política de cookies</a>
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

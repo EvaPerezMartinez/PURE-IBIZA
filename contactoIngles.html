@@ -1,93 +1,412 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Eva Pérez Martínez">
-    <meta name="keywords" content="trip, concierge, Ibiza">
+    <meta name="keywords" content="viajes, concierge, Ibiza">
     <title>Contact Pure Ibiza Concierge</title>
-    <link rel="stylesheet" href="./ProyectoMarketingDAM.css">
+    <link rel="stylesheet" href="ProyectoMarketingDAM.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!--ENCABEZADO-->
-    <header>
-        <a class="flag-link" href="contacto.html">
-            <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
-        </a>
-        <p id="nombre"><b>PURE IBIZA</b></p><!--Nombre de la marca-->
-        <a id="enlace" href="./english.html">Home</a><!--Enlace que lleva a la página principal-->
-        <hr>
-    </header>
 
+  <header>
+  <div class="header-container">
+    <!-- Logo con enlace a index.html -->
+    <div class="header-logo">
+      <a href="./index.html">
+        <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
+      </a>
+    </div>
+
+    <!-- Icono hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+
+    <!-- Menú navegación -->
+    <div class="nav-buttons" id="menu">
+      <a id="enlace" href="./index.html">Home</a>
+      <select id="elegirServicio" onchange="location = this.value;">
+          <option id="serv" value="#" selected>Services</option>
+          <option value="#seccion1">Yacht Charter</option>
+          <option value="#seccion2">Jet Ski Rental</option>
+          <option value="#seccion3">Car Rental</option>
+          <option value="#seccion4">Island Lodging</option>
+          <option value="#seccion5">Private Chauffeur</option>
+          <option value="#seccion6">Private Chef</option>
+          <option value="#seccion7">Nightclub Booking</option>
+          <option value="#seccion8">Restaurant Reservations</option>
+      </select>
+      <a id="enlace" href="./blog.html">Blog</a>
+      <a id="enlace" href="./contacto.html">Contacto</a>
+    </div>
+
+    <!-- Bandera -->
+    <div class="header-flag">
+      <a class="flag-link" href="./contacto.html">
+        <img class="flag-icon" src="./imagenes/españa.webp" alt="Spanish flag">
+      </a>
+    </div>
+  </div>
+</header>
+  
+  <!-- TÍTULO -->
+  <div class="page-title">
     <h2>Contact with us</h2>
-    <!--FORMULARIO DE CONTACTO-->
-    <form id="form">
-        <fieldset><br>
-            <label><b>Your details:</b></label><br><br>
-            <label for="nombre">Name:</label>&emsp;
-            <input type="text" name="nombre" placeholder="Enter your name" size="17" required><br>
+  </div>
 
-            <label for="ap">Surname:</label>&emsp;
-            <input type="text" name="ap" placeholder="Enter your surname" size="16" required><br>
-        
-            <label for="email">Email address:</label>&emsp;
-            <input type="text" name="email" placeholder="Enter your email address" size="20" required><br>
+  <!-- FORMULARIO DE CONTACTO -->
+  <div class="form-container">
+    <form id="contactForm">
+      <fieldset>
+        <legend><b>Your data</b></legend>
 
-            <label for="tlf">Telephone number:</label>&emsp;
-            <input type="text" name="tlf" placeholder="Type your phone number" size="20" required><br>
+        <!-- Datos personales -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Name</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Write your name" required>
+          </div>
 
-            <br><br>
-
-            <label for="servicios"><b>Available services:</b></label><br><br>
-            <input type="checkbox" name="servicios">
-            <label for="serv1">Yacht Charter</label>&emsp;
-            <input type="checkbox" name="servicios">
-            <label for="serv2">Jet Ski Rentals</label><br>
-            <input type="checkbox" name="servicios">
-            <label for="serv3">Car Rental</label>&emsp;
-            <input type="checkbox" name="servicios">
-            <label for="serv4">Accomodarion on the island</label><br>
-            <input type="checkbox" name="servicios">
-            <label for="serv5">Private Chauffeur</label>&emsp;
-            <input type="checkbox" name="servicios">
-            <label for="serv6">Private Chef</label><br>
-            <input type="checkbox" name="servicios">
-            <label for="serv7">Nightclub Reservation</label>&emsp;
-            <input type="checkbox" name="servicios">
-            <label for="serv8">Restaurant Reservation</label>
-
-            <br><br>
-
-            <label for="coment">Comments:</label><br>
-            <textarea name="coment" rows="5" cols="50"></textarea>
-
-            <br><br>
-
-            <input type="checkbox" name="politics" required>
-            <label>I have read and accept the privacy agreement</label>
-
-            <br><br>
-
-            <button type="submit">Send</button>&emsp;
-            <button type="reset">Delete</button>
-        </fieldset>
-    </form>
-
-    <br>
-    <hr>
-    <br>
-    
-    <!--FOOTER-->
-    <footer>
-        <p id="nombre"><b>PURE IBIZA Concierge</b></p>
-        <p style="text-align: center;">Tlf: +34 987 654 321</p>
-        <p style="text-align: center;">Pure Ibiza Concierge &copy; Copyright - 2025</p>
-        <p style="text-align: center;">Terms and conditions | Privacy Policy | Coockies</p>
-        <!--Iconos de las redes sociales de la empresa-->
-        <div id="rrss">
-            <p><a href="https://www.facebook.com/login/?locale=es_ES"><img src="./imagenes/facebookLogo.webp" width="70px" height="70px"></a></p>
-            <p><a href="https://x.com/?lang=es"><img src="./imagenes/twitterLogo.PNG" width="60px" height="55px"></a></p>
-            <p><a href="https://www.instagram.com/"><img src="./imagenes/instagramLogo.png" width="70px" height="55px"></a></p>
+          <div class="form-group">
+            <label for="ap">Surname</label>
+            <input type="text" id="ap" name="ap" placeholder="Write your surname" required>
+          </div>
         </div>
-    </footer>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Example: email@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tlf">Phone number</label>
+            <input type="tel" id="tlf" name="tlf" placeholder="Number with international prefix" required>
+          </div>
+        </div>
+
+        <!-- Servicios -->
+        <div class="form-section">
+          <h3 class="section-title">Services of interest</h3>
+          
+          <div class="checkbox-grid">
+            <div class="checkbox-item">
+              <input type="checkbox" id="yates" name="servicios" value="Alquiler de yates">
+              <label for="yates">Yacht rental</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="motos" name="servicios" value="Alquiler de motos de agua">
+              <label for="motos">Water motorcycle rental</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="coches" name="servicios" value="Alquiler de coches">
+              <label for="coches">Car rental</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="hospedaje" name="servicios" value="Hospedaje en la isla">
+              <label for="hospedaje">Lodging on the island</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="chofer" name="servicios" value="Chófer privado">
+              <label for="chofer">Private driver</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="chef" name="servicios" value="Chef privado">
+              <label for="chef">Private chef</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="clubs" name="servicios" value="Reserva en clubs nocturnos">
+              <label for="clubs">Book at nightclubs</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="restaurantes" name="servicios" value="Reserva en restaurantes">
+              <label for="restaurantes">Book in restaurants</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="form-group">
+          <label for="coment">Comments</label>
+          <textarea id="coment" name="coment" rows="5" placeholder="Write your specific comments or requests..."></textarea>
+        </div>
+
+        <!-- Casillas legales -->
+        <div class="legal-section">
+          <div class="checkbox-item required">
+            <input type="checkbox" id="privacidad" name="privacidad" required>
+            <label for="privacidad">I have read and accept <a href="terminosIngles.html#privacidad">the privacy agreement</a>.</label>
+          </div>
+
+          <div class="checkbox-item">
+            <input type="checkbox" id="comunicados" name="comunicados">
+            <label for="comunicados">I want to receive commercial communications and news by email (optional).</label>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="button-group">
+          <button type="submit" id="submitBtn">Send</button>
+          <button type="reset" id="resetBtn">Reset</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <br>
+  <hr>
+  <br>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-title">
+        <p><b>PURE IBIZA Concierge</b></p>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-left">
+          <p><img src="./imagenes/TelefonoIcono.png" alt="Teléfono"> +34 616 670 665</p>
+          <p><img src="./imagenes/gmailIcono.PNG" alt="Email"> contact@pureibiza.com</p>
+        </div>
+
+        <div class="footer-right">
+          <ul class="social-icons">
+            <li><a href="https://www.facebook.com" class="redes facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="https://x.com" class="redes x-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com" class="redes instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+        <p>
+          <a href="terminosIngles.html#aviso-legal">Legal notice</a> |
+          <a href="terminosIngles.html#privacidad">Privacy Policy</a> |
+          <a href="terminosIngles.html#cookies">Cookies policy</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    
+    // Validación del formulario
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validar campos requeridos
+        let isValid = true;
+        const requiredInputs = form.querySelectorAll('[required]');
+        
+        requiredInputs.forEach(input => {
+            if (!input.value.trim() && input.type !== 'checkbox') {
+                isValid = false;
+                showError(input, 'Este campo es obligatorio');
+            } else if (input.type === 'checkbox' && !input.checked) {
+                isValid = false;
+                showError(input, 'Debes aceptar los términos');
+            } else {
+                removeError(input);
+            }
+        });
+        
+        // Validar email
+        const emailInput = document.getElementById('email');
+        if (emailInput.value && !isValidEmail(emailInput.value)) {
+            isValid = false;
+            showError(emailInput, 'Por favor, introduce un email válido');
+        }
+        
+        // Validar teléfono
+        const phoneInput = document.getElementById('tlf');
+        if (phoneInput.value && !isValidPhone(phoneInput.value)) {
+            isValid = false;
+            showError(phoneInput, 'Por favor, introduce un número de teléfono válido');
+        }
+        
+        // Si todo es válido, mostrar mensaje de éxito
+        if (isValid) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // Simulación de envío (reemplazar con tu lógica de envío real)
+            setTimeout(() => {
+                showSuccessMessage();
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+            }, 1500);
+        }
+    });
+    
+    // Resetear formulario
+    resetBtn.addEventListener('click', function() {
+        // Eliminar todos los mensajes de error
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(msg => msg.remove());
+        
+        // Quitar clases de error
+        const inputsWithError = document.querySelectorAll('.input-error');
+        inputsWithError.forEach(input => {
+            input.classList.remove('input-error');
+        });
+    });
+    
+    // Funciones auxiliares
+    function showError(input, message) {
+        // Eliminar mensaje de error previo si existe
+        removeError(input);
+        
+        // Añadir clase de error
+        input.classList.add('input-error');
+        
+        // Crear y añadir mensaje de error
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        
+        if (input.type === 'checkbox') {
+            // Para checkboxes, añadir el error después de la etiqueta
+            input.parentElement.appendChild(errorDiv);
+        } else {
+            // Para otros inputs, añadir el error después del input
+            input.parentElement.appendChild(errorDiv);
+        }
+    }
+    
+    function removeError(input) {
+        input.classList.remove('input-error');
+        const errorMessage = input.parentElement.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.remove();
+        }
+    }
+    
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    
+    function isValidPhone(phone) {
+        // Acepta formatos internacionales como +34612345678
+        const re = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+        return re.test(String(phone));
+    }
+    
+    function showSuccessMessage() {
+        // Crear modal de éxito
+        const successModal = document.createElement('div');
+        successModal.className = 'success-modal';
+        
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content';
+        
+        const closeBtn = document.createElement('span');
+        closeBtn.className = 'close-btn';
+        closeBtn.innerHTML = '&times;';
+        closeBtn.onclick = function() {
+            document.body.removeChild(successModal);
+        };
+        
+        const title = document.createElement('h3');
+        title.textContent = '¡Mensaje enviado con éxito!';
+        
+        const message = document.createElement('p');
+        message.textContent = 'Gracias por contactar con Pure Ibiza Concierge. Nos pondremos en contacto contigo lo antes posible.';
+        
+        modalContent.appendChild(closeBtn);
+        modalContent.appendChild(title);
+        modalContent.appendChild(message);
+        successModal.appendChild(modalContent);
+        
+        document.body.appendChild(successModal);
+        
+        // Cerrar modal al hacer clic fuera
+        successModal.onclick = function(e) {
+            if (e.target === successModal) {
+                document.body.removeChild(successModal);
+            }
+        };
+        
+        // Añadir estilos para el modal
+        const style = document.createElement('style');
+        style.textContent = `
+            .success-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+            
+            .modal-content {
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                max-width: 500px;
+                width: 90%;
+                position: relative;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #999;
+                transition: color 0.2s;
+            }
+            
+            .close-btn:hover {
+                color: #333;
+            }
+            
+            .modal-content h3 {
+                color: rgb(218, 177, 137);
+                margin-top: 0;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            
+            .input-error {
+                border-color: #e74c3c !important;
+                background-color: #fff8f8 !important;
+            }
+            
+            .error-message {
+                color: #e74c3c;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+        `;
+        
+        document.head.appendChild(style);
+    }
+});
+  </script>
 </body>
 </html>
