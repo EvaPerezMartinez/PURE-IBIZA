@@ -424,6 +424,163 @@
         document.head.appendChild(style);
     }
 });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Referencias a elementos del DOM
+    const hamburger = document.getElementById('hamburger');
+    const navButtons = document.getElementById('menu');
+    const header = document.querySelector('header');
+    
+    // Función para manejar el menú hamburguesa
+    if (hamburger && navButtons) {
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation(); // Evitar que el clic se propague
+        this.classList.toggle('active');
+        navButtons.classList.toggle('show');
+        
+        // Bloquear scroll cuando el menú está abierto
+        if (navButtons.classList.contains('show')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Cerrar menú al hacer clic en un enlace
+      const menuLinks = navButtons.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 890) {
+            hamburger.classList.remove('active');
+            navButtons.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+      
+      // Cerrar menú al hacer clic fuera
+      document.addEventListener('click', function(event) {
+        // Solo ejecutar si el menú está abierto y la pantalla es pequeña
+        if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
+          const isClickInsideMenu = navButtons.contains(event.target);
+          const isClickOnHamburger = hamburger.contains(event.target);
+          
+          if (!isClickInsideMenu && !isClickOnHamburger) {
+            hamburger.classList.remove('active');
+            navButtons.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        }
+      });
+      
+      // Evitar que los clics dentro del menú cierren el menú
+      navButtons.addEventListener('click', function(e) {
+        // Solo detener la propagación si no es un enlace
+        if (!e.target.closest('a')) {
+          e.stopPropagation();
+        }
+      });
+      
+      // Ajustar en caso de cambio de tamaño de ventana
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 890 && navButtons.classList.contains('show')) {
+          hamburger.classList.remove('active');
+          navButtons.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+    
+    // Cambiar estilo del header al hacer scroll
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Iniciar con el header en estado scrolled si la página ya está desplazada
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    }
+    
+    // Mostrar/ocultar el botón de "subir al inicio" al hacer scroll
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    if (scrollToTopButton) {
+      // Ocultar el botón inicialmente
+      scrollToTopButton.style.display = 'none';
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+          scrollToTopButton.style.display = 'flex';
+        } else {
+          scrollToTopButton.style.display = 'none';
+        }
+      });
+    }
+    
+    // Función para subir al inicio
+    window.scrollToTop = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+    
+    // Carruseles múltiples
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach((carousel) => {
+      let currentIndex = 0;
+      const images = carousel.querySelectorAll('.carousel-images img');
+      const dots = carousel.querySelectorAll('.carousel-dots .dot');
+      
+      if (images.length === 0 || dots.length === 0) return;
+      
+      function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        dots[currentIndex].classList.remove('active');
+        currentIndex = index;
+        images[currentIndex].classList.add('active');
+        dots[currentIndex].classList.add('active');
+      }
+      
+      function nextImage() {
+        const nextIndex = (currentIndex + 1) % images.length;
+        showImage(nextIndex);
+      }
+      
+      let interval = setInterval(nextImage, 4000);
+      
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showImage(index);
+          clearInterval(interval);
+          interval = setInterval(nextImage, 4000);
+        });
+      });
+    });
+    
+    // Animación al hacer scroll para los elementos con clase 'reveal'
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        } else {
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    
+    // Ejecutar animación reveal al hacer scroll y también al cargar la página
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Ejecutar inmediatamente al cargar
+  });
   </script>
 </body>
 </html>
