@@ -20,9 +20,9 @@
 
     <!-- Icono hamburguesa -->
     <div class="hamburger" id="hamburger">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
     <!-- Menú navegación -->
@@ -104,6 +104,29 @@
             Safari: <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac">enlace</a></p>
         </div>
       </div>
+
+      <div class="accordion" id="aviso-legal-academico">
+        <div class="accordion-header">Aviso legal - PROYECTO ACADÉMICO</div>
+        <div class="accordion-content">
+          <p><strong>AVISO LEGAL - PROYECTO ACADÉMICO</strong><br>
+          Esta plataforma de comercio electrónico constituye un PROYECTO ACADÉMICO desarrollado por estudiantes de primer curso del Grado Superior en Desarrollo de Aplicaciones Multiplataforma y Marketing y Publicidad, durante el curso 2024/2025.</p>
+          
+          <p><strong>DECLARACIÓN DE CARÁCTER FICTICIO:</strong><br>
+          - La marca, productos, servicios y entidad comercial presentados en este sitio web son completamente FICTICIOS y han sido creados con fines exclusivamente educativos.<br>
+          - Esta web NO representa una empresa real ni realiza actividad comercial alguna.<br>
+          - No se efectúan transacciones económicas reales ni se recopilan datos personales con fines comerciales.</p>
+          
+          <p><strong>PROPIEDAD INTELECTUAL:</strong><br>
+          - Los elementos visuales, textuales y audiovisuales utilizados en este proyecto tienen un propósito EXCLUSIVAMENTE ACADÉMICO y DIDÁCTICO, amparado bajo el derecho de cita con fines educativos.<br>
+          - Este sitio web no tiene finalidad comercial y se utiliza únicamente como ejercicio práctico en un entorno educativo controlado.<br>
+          - Los titulares de derechos que identifiquen contenido de su propiedad pueden contactar con rgg0036@alu.medac.es / mss0058@alu.medac.es para solicitar su retirada inmediata.<br>
+          - Este uso limitado y con fines estrictamente académicos se realiza sin ánimo de lucro ni de perjudicar los intereses de los titulares originales.</p>
+          
+          <p><strong>EXENCIÓN DE RESPONSABILIDAD:</strong><br>
+          - Ni los estudiantes creadores, ni el profesorado, ni la institución educativa asumen responsabilidad alguna por el uso indebido o interpretación errónea del contenido de este sitio.<br>
+          En caso de duda o consulta relacionada con este proyecto académico, o para solicitar la retirada de cualquier contenido, puede contactar con rgg0036@alu.medac.es / mss0058@alu.medac.es.</p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -153,9 +176,9 @@
       <div class="footer-bottom">
         <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
         <p>
-          <a href="terminos.html#aviso-legal">Aviso legal</a> |
-          <a href="terminos.html#privacidad">Política de privacidad</a> |
-          <a href="terminos.html#cookies">Política de cookies</a>
+          <a href="#aviso-legal">Aviso legal</a> |
+          <a href="#privacidad">Política de privacidad</a> |
+          <a href="#cookies">Política de cookies</a>
         </p>
       </div>
     </div>
@@ -205,6 +228,87 @@
       history.pushState(null, null, `#${id}`);
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+  // Referencias a elementos del DOM
+  const hamburger = document.getElementById('hamburger');
+  const navButtons = document.getElementById('menu');
+  const header = document.querySelector('header');
+  
+  // Función para manejar el menú hamburguesa
+  if (hamburger && navButtons) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation(); // Evitar que el clic se propague
+      this.classList.toggle('active');
+      navButtons.classList.toggle('show');
+      
+      // Bloquear scroll cuando el menú está abierto
+      if (navButtons.classList.contains('show')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    const menuLinks = navButtons.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 890) {
+          hamburger.classList.remove('active');
+          navButtons.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(event) {
+      // Solo ejecutar si el menú está abierto y la pantalla es pequeña
+      if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
+        const isClickInsideMenu = navButtons.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnHamburger) {
+          hamburger.classList.remove('active');
+          navButtons.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+    
+    // Evitar que los clics dentro del menú cierren el menú
+    navButtons.addEventListener('click', function(e) {
+      // Solo detener la propagación si no es un enlace
+      if (!e.target.closest('a') && !e.target.closest('select')) {
+        e.stopPropagation();
+      }
+    });
+    
+    // Ajustar en caso de cambio de tamaño de ventana
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 890 && navButtons.classList.contains('show')) {
+        hamburger.classList.remove('active');
+        navButtons.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+  
+  // Cambiar estilo del header al hacer scroll
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+  
+  // Iniciar con el header en estado scrolled si la página ya está desplazada
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  }
+});
 </script>
 </body>
 </html>
