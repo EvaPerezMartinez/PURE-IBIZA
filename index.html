@@ -316,8 +316,12 @@
           e.preventDefault();
           e.stopPropagation();
           
+          // Mejorar el comportamiento del menú de servicios
           servicesDropdownContent.classList.toggle('show-mobile');
           isServicesDropdownOpen = !isServicesDropdownOpen;
+          
+          // Evitar que el clic se propague al documento
+          e.stopPropagation();
         }
       });
     }
@@ -350,21 +354,26 @@
       });
     });
 
+    // Mejorar el manejo de clics fuera del menú
     document.addEventListener('click', function (event) {
-      if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
+      if (window.innerWidth <= 890) {
         const isClickInsideMenu = navButtons.contains(event.target);
         const isClickOnHamburger = hamburger.contains(event.target);
-        const isClickOnServicesBtn = servicesDropdownBtn.contains(event.target);
+        const isClickOnServicesBtn = servicesDropdownBtn && servicesDropdownBtn.contains(event.target);
 
-        if (!isClickInsideMenu && !isClickOnHamburger) {
+        // Si el menú está abierto y se hace clic fuera de él
+        if (navButtons.classList.contains('show') && !isClickInsideMenu && !isClickOnHamburger) {
           hamburger.classList.remove('active');
           navButtons.classList.remove('show');
           document.body.style.overflow = '';
-
-          if (isServicesDropdownOpen && !isClickOnServicesBtn) {
-            servicesDropdownContent.classList.remove('show-mobile');
-            isServicesDropdownOpen = false;
-          }
+          servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
+        }
+        
+        // Si el dropdown de servicios está abierto y se hace clic fuera de él (pero no en su botón)
+        else if (isServicesDropdownOpen && !isClickOnServicesBtn && !servicesDropdownContent.contains(event.target)) {
+          servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
         }
       }
     });
