@@ -287,228 +287,183 @@
     <img id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Referencias a elementos del DOM
-    const hamburger = document.getElementById('hamburger');
-    const navButtons = document.getElementById('menu');
-    const header = document.querySelector('header');
-    const servicesDropdownBtn = document.getElementById('services-dropdown-btn');
-    const servicesDropdownContent = document.getElementById('services-dropdown-content');
-    
-    // Variable para controlar el estado del dropdown de servicios
-    let isServicesDropdownOpen = false;
-    
-    // Función para manejar el menú hamburguesa
-    if (hamburger && navButtons) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation(); // Evitar que el clic se propague
-        this.classList.toggle('active');
-        navButtons.classList.toggle('show');
-        
-        // Bloquear scroll cuando el menú está abierto
-        if (navButtons.classList.contains('show')) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-          // Cerrar el dropdown de servicios si está abierto cuando se cierra el menú
-          if (isServicesDropdownOpen) {
-            servicesDropdownContent.classList.remove('show-mobile');
-            isServicesDropdownOpen = false;
-          }
-        }
-      });
-      
-      // Manejar clic en el botón dropdown de servicios
-      if (servicesDropdownBtn) {
-        servicesDropdownBtn.addEventListener('click', function(e) {
-          if (window.innerWidth <= 890) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Toggle el estado del dropdown
-            isServicesDropdownOpen = !isServicesDropdownOpen;
-            
-            if (isServicesDropdownOpen) {
-              servicesDropdownContent.classList.add('show-mobile');
-            } else {
-              servicesDropdownContent.classList.remove('show-mobile');
-            }
-          }
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.getElementById('hamburger');
+  const navButtons = document.getElementById('menu');
+  const header = document.querySelector('header');
+  const servicesDropdownBtn = document.getElementById('services-dropdown-btn');
+  const servicesDropdownContent = document.getElementById('services-dropdown-content');
+  let isServicesDropdownOpen = false;
+
+  if (hamburger && navButtons) {
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      this.classList.toggle('active');
+      navButtons.classList.toggle('show');
+
+      if (navButtons.classList.contains('show')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+        servicesDropdownContent.classList.remove('show-mobile');
+        isServicesDropdownOpen = false;
       }
-      
-      // Cerrar menú al hacer clic en un enlace normal (no en el dropdown)
-      const menuLinks = navButtons.querySelectorAll('a:not(.dropdown-content a)');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 890) {
-            hamburger.classList.remove('active');
-            navButtons.classList.remove('show');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-      
-      // Cerrar submenú al hacer clic en los enlaces del dropdown
-      if (servicesDropdownContent) {
-        const dropdownLinks = servicesDropdownContent.querySelectorAll('a');
-        dropdownLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            if (window.innerWidth <= 890) {
-              // Cerrar solo el submenú
-              servicesDropdownContent.classList.remove('show-mobile');
-              isServicesDropdownOpen = false;
-              
-              // Cerrar también el menú principal
-              hamburger.classList.remove('active');
-              navButtons.classList.remove('show');
-              document.body.style.overflow = '';
-            }
-          });
-        });
-      }
-      
-      // Cerrar menú al hacer clic fuera
-      document.addEventListener('click', function(event) {
-        // Solo ejecutar si el menú está abierto y la pantalla es pequeña
-        if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
-          const isClickInsideMenu = navButtons.contains(event.target);
-          const isClickOnHamburger = hamburger.contains(event.target);
-          
-          if (!isClickInsideMenu && !isClickOnHamburger) {
-            hamburger.classList.remove('active');
-            navButtons.classList.remove('show');
-            document.body.style.overflow = '';
-            
-            // Cerrar también el dropdown si está abierto
-            if (isServicesDropdownOpen) {
-              servicesDropdownContent.classList.remove('show-mobile');
-              isServicesDropdownOpen = false;
-            }
-          }
-        }
-      });
-      
-      // Evitar que los clics dentro del menú cierren el menú
-      navButtons.addEventListener('click', function(e) {
-        // Solo detener la propagación si no es un enlace
-        if (!e.target.closest('a') && e.target !== servicesDropdownBtn) {
+    });
+
+    if (servicesDropdownBtn) {
+      servicesDropdownBtn.addEventListener('click', function (e) {
+        if (window.innerWidth <= 890) {
+          e.preventDefault();
           e.stopPropagation();
-        }
-      });
-      
-      // Ajustar en caso de cambio de tamaño de ventana
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 890) {
-          // Si pasamos a pantalla grande, cerramos el menú móvil
-          if (navButtons.classList.contains('show')) {
-            hamburger.classList.remove('active');
-            navButtons.classList.remove('show');
-            document.body.style.overflow = '';
-          }
           
-          // Y también ocultamos el dropdown en modo móvil
-          if (isServicesDropdownOpen) {
-            servicesDropdownContent.classList.remove('show-mobile');
-            isServicesDropdownOpen = false;
-          }
+          servicesDropdownContent.classList.toggle('show-mobile');
+          isServicesDropdownOpen = !isServicesDropdownOpen;
         }
       });
     }
-    
-    // Cambiar estilo del header al hacer scroll
-    window.addEventListener('scroll', function() {
-      // Cambiado de 50px a 500px como solicitado
-      if (window.scrollY > 500) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+
+    const menuLinks = navButtons.querySelectorAll('a:not(.dropdown-content a)');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 890) {
+          hamburger.classList.remove('active');
+          navButtons.classList.remove('show');
+          document.body.style.overflow = '';
+          servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
+        }
+      });
+    });
+
+    const dropdownLinks = servicesDropdownContent.querySelectorAll('a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 890) {
+          setTimeout(function() {
+            servicesDropdownContent.classList.remove('show-mobile');
+            isServicesDropdownOpen = false;
+            hamburger.classList.remove('active');
+            navButtons.classList.remove('show');
+            document.body.style.overflow = '';
+          }, 100);
+        }
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
+        const isClickInsideMenu = navButtons.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        const isClickOnServicesBtn = servicesDropdownBtn.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnHamburger) {
+          hamburger.classList.remove('active');
+          navButtons.classList.remove('show');
+          document.body.style.overflow = '';
+
+          if (isServicesDropdownOpen && !isClickOnServicesBtn) {
+            servicesDropdownContent.classList.remove('show-mobile');
+            isServicesDropdownOpen = false;
+          }
+        }
       }
     });
-    
-    // Iniciar con el header en estado normal (sin scrolled) al cargar la página
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 890) {
+        hamburger.classList.remove('active');
+        navButtons.classList.remove('show');
+        document.body.style.overflow = '';
+        servicesDropdownContent.classList.remove('show-mobile');
+        isServicesDropdownOpen = false;
+      }
+    });
+  }
+
+  window.addEventListener('scroll', function () {
     if (window.scrollY > 500) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-    
-    // Mostrar/ocultar el botón de "subir al inicio" al hacer scroll
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    if (scrollToTopButton) {
-      // Ocultar el botón inicialmente
-      scrollToTopButton.style.display = 'none';
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-          scrollToTopButton.style.display = 'flex';
-        } else {
-          scrollToTopButton.style.display = 'none';
-        }
-      });
+  });
+
+  if (window.scrollY > 500) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+
+  const scrollToTopButton = document.getElementById('scrollToTop');
+  if (scrollToTopButton) {
+    scrollToTopButton.style.display = 'none';
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollToTopButton.style.display = 'flex';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    });
+  }
+
+  window.scrollToTop = function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const carousels = document.querySelectorAll('.carousel');
+  carousels.forEach((carousel) => {
+    let currentIndex = 0;
+    const images = carousel.querySelectorAll('.carousel-images img');
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
+
+    if (images.length === 0 || dots.length === 0) return;
+
+    function showImage(index) {
+      images[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      images[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
     }
-    
-    // Función para subir al inicio
-    window.scrollToTop = function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    };
-    
-    // Carruseles múltiples
-    const carousels = document.querySelectorAll('.carousel');
-    carousels.forEach((carousel) => {
-      let currentIndex = 0;
-      const images = carousel.querySelectorAll('.carousel-images img');
-      const dots = carousel.querySelectorAll('.carousel-dots .dot');
-      
-      if (images.length === 0 || dots.length === 0) return;
-      
-      function showImage(index) {
-        images[currentIndex].classList.remove('active');
-        dots[currentIndex].classList.remove('active');
-        currentIndex = index;
-        images[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
-      }
-      
-      function nextImage() {
-        const nextIndex = (currentIndex + 1) % images.length;
-        showImage(nextIndex);
-      }
-      
-      let interval = setInterval(nextImage, 4000);
-      
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          showImage(index);
-          clearInterval(interval);
-          interval = setInterval(nextImage, 4000);
-        });
+
+    function nextImage() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      showImage(nextIndex);
+    }
+
+    let interval = setInterval(nextImage, 4000);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showImage(index);
+        clearInterval(interval);
+        interval = setInterval(nextImage, 4000);
       });
     });
-    
-    // Animación al hacer scroll para los elementos con clase 'reveal'
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal');
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        } else {
-          reveals[i].classList.remove('active');
-        }
+  });
+
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
       }
     }
-    
-    // Ejecutar animación reveal al hacer scroll y también al cargar la página
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Ejecutar inmediatamente al cargar
-  });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+});
 </script>
 
 <footer>
