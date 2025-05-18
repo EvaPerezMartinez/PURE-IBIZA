@@ -49,13 +49,9 @@ header {
   width: 100%;
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  /* Quitamos el fondo blanco inicial */
   background-color: white;
   box-shadow: none;
 }
-
-/* Estilo del header cuando se hace scroll */
-
 
 header.scrolled .header-logo img {
   height: 50px;
@@ -83,7 +79,6 @@ header.scrolled .header-logo img {
   text-decoration: none;
 }
 
-/* Logo del header */
 .header-logo img {
   height: 60px;
   transition: height 0.3s ease;
@@ -98,7 +93,7 @@ header.scrolled .header-logo img {
   display: flex;
   gap: 15px;
   align-items: center;
-  justify-content: center; /* Añadir esta línea para centrar los elementos */
+  justify-content: center;
 }
 
 /* Botones transparentes - Todos con el mismo estilo */
@@ -109,7 +104,6 @@ header.scrolled .header-logo img {
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   padding: 7px 15px;
-  /* Quitamos el borde en versión desktop */
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -135,8 +129,6 @@ header.scrolled .header-logo img {
 .dropdown {
   position: relative;
   display: inline-block;
-
-  position: relative;
   z-index: 1002;
 }
 
@@ -222,7 +214,7 @@ header.scrolled .header-logo img {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Menú hamburguesa - Asegurar visibilidad y estilo consistente */
+/* Menú hamburguesa */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -269,25 +261,40 @@ header.scrolled .header-logo img {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  aspect-ratio: 1 / 1; /* Asegura que sea perfectamente cuadrado */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background-color: rgb(218, 177, 137);
   color: black;
   border: none;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  padding: 0; /* Elimina cualquier padding que pueda afectar la forma */
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+  min-width: 0;
+  min-height: 0;
+  max-width: 48px;
+  max-height: 48px;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }
 
 #scrollToTop:hover {
   background-color: rgb(193, 151, 99);
+  color: white;
   transform: scale(1.1);
 }
 
@@ -391,20 +398,20 @@ header.scrolled .header-logo img {
   background-color: rgb(218, 177, 137);
   color: black;
   font-size: 16px;
-  padding: 0; /* Eliminamos el padding para controlarlo mejor */
+  padding: 0;
   border: 0;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
   outline: none;
   transition: all 0.3s ease;
-  width: 100px; /* Ancho fijo */
-  height: 40px; /* Altura fija */
+  width: 100px;
+  height: 40px;
   text-decoration: none;
-  display: flex; /* Cambiado a flex para centrar el contenido */
-  justify-content: center; /* Centrado horizontal */
-  align-items: center; /* Centrado vertical */
-  margin: 15px auto 0; /* Centrado con margen automático y espacio superior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto 0;
 }
 
 .boton:hover {
@@ -412,7 +419,6 @@ header.scrolled .header-logo img {
   color: white;
 }
 
-/* Aseguramos que el contenedor del botón también esté centrado */
 .textoServ p:last-child {
   text-align: center;
   margin-top: 20px;
@@ -730,7 +736,7 @@ button:active {
   gap: 30px;
   padding: 40px;
   max-width: 1200px;
-  margin: 120px auto 50px auto; /* ← Ahora tiene margen superior para el header fijo */
+  margin: 120px auto 50px auto;
   background-color: #f7f7f7;
   box-sizing: border-box;
   border-radius: 16px;
@@ -1074,6 +1080,10 @@ footer {
   transform: translateY(0);
 }
 
+#main-terminos {
+  margin-top: 100px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1098,17 +1108,59 @@ footer {
   }
 }
 
+.bloque-fondo {
+  background-image: url("./imagenes/fotoPortada.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Estilos para pantallas grandes */
 @media (min-width: 891px) {
+  body.blog #scrollToTop,
+  body.contacto #scrollToTop {
+    display: none !important;
+  }
+
   .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
     transform: translateY(0);
   }
+
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-logo {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  .nav-buttons {
+    grid-column: 2;
+    justify-content: center;
+  }
+
+  .header-flag {
+    grid-column: 3;
+    justify-content: flex-end;
+    display: flex;
+  }
 }
 
-/* ===== RESPONSIVE ===== */
-
+/* Estilos para pantallas medianas y pequeñas */
 @media (max-width: 890px) {
+  /* Header y navegación */
   .hamburger {
     display: flex;
     position: absolute;
@@ -1146,33 +1198,36 @@ footer {
 
   .nav-buttons a,
   .nav-buttons .dropdown-button,
-  .dropdown-content a {
-    width: 100%; /* Cambiar de 80% a 100% para consistencia */
+  .dropdown-content a,
+  .nav-buttons a#enlace,
+  .nav-buttons select#elegirServicio {
+    width: 100%;
     max-width: 250px;
-    height: 50px; /* Aumentar altura para mejor usabilidad en móvil */
-    margin: 8px 0; /* Reducir margen para un aspecto más compacto */
+    height: 50px;
+    margin: 8px 0;
     border: 1px solid rgba(218, 177, 137, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    font-size: 16px; /* Aumentar tamaño de fuente para mejor legibilidad */
+    font-size: 16px;
     text-align: center;
     background: white;
     color: black;
+    text-decoration: none;
   }
 
-  /* Asegurar que el dropdown tenga el mismo ancho que los botones */
+  /* Dropdown en móvil */
   .dropdown {
-    width: 100%; /* Cambiar de 80% a 100% para consistencia */
+    width: 100%;
     max-width: 250px;
-    margin: 8px 0; /* Mantener el mismo margen que los botones */
+    margin: 8px 0;
   }
 
-  /* Mejorar el estilo del dropdown en móvil */
   .dropdown-content.show-mobile {
     display: flex;
+    flex-direction: column;
     position: static;
     transform: none;
     box-shadow: none;
@@ -1180,54 +1235,17 @@ footer {
     max-width: 250px;
     margin: 0 auto;
     padding: 0;
-    background-color: #f9f9f9; /* Añadir un fondo ligeramente diferente */
-    border-radius: 8px; /* Añadir bordes redondeados */
-    overflow: hidden; /* Asegurar que los bordes redondeados se apliquen a los elementos hijos */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 1;
   }
 
   .dropdown-content.show-mobile a {
     margin: 5px 0;
     background-color: #f5f5f5;
     border-radius: 5px;
-    border-color: rgba(218, 177, 137, 0.4); /* Borde más sutil para los elementos del dropdown */
-  }
-
-  .header-flag {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .hamburger.active div:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active div:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active div:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
-
-@media (max-width: 890px) {
-  .dropdown-content.show-mobile {
-    display: flex;
-    position: static;
-    transform: none;
-    box-shadow: none;
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .dropdown-content.show-mobile a {
-    margin: 5px 0;
-    background-color: #f5f5f5;
-    border-radius: 5px;
+    border-color: rgba(218, 177, 137, 0.4);
   }
 
   .dropdown-content.show-mobile a:hover {
@@ -1241,106 +1259,63 @@ footer {
   .dropdown-content.show-mobile + .dropdown-button i {
     transform: rotate(180deg);
   }
-}
 
-/* Ajustar la posición de la bandera en pantallas de escritorio para permitir centrar el menú */
-@media (min-width: 891px) {
-  .header-container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 10px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  /* Ajustes específicos para el select */
+  .nav-buttons select#elegirServicio {
+    padding: 0 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 35px;
   }
 
-  .header-logo {
-    grid-column: 1;
-    justify-content: flex-start;
-  }
-
-  .nav-buttons {
-    grid-column: 2;
-    justify-content: center;
-  }
-
+  /* Ajustes para la bandera */
   .header-flag {
-    grid-column: 3;
-    justify-content: flex-end;
-    display: flex;
-  }
-}
-
-/* Estilos para el select en las páginas secundarias */
-#elegirServicio {
-  background-color: transparent;
-  color: #333;
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 7px 15px;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-  min-width: 100px;
-  height: 40px;
-  box-sizing: border-box;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 12px;
-  padding-right: 28px;
-}
-
-#elegirServicio:hover {
-  background-color: rgba(218, 177, 137, 0.2);
-}
-
-#elegirServicio option {
-  background-color: white;
-  color: #333;
-}
-
-/* Ajustes para el responsive en las páginas secundarias */
-@media (max-width: 890px) {
-  /* Ajustes para el select en móvil */
-  #elegirServicio {
-    width: 100%;
-    max-width: 250px;
-    height: 50px;
-    margin: 8px 0;
-    border: 1px solid rgba(218, 177, 137, 0.6);
-    background-color: white;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
-  /* Ajustes para el blog en móvil */
-  .blog-grid {
-    padding: 20px;
-    margin: 30px auto;
+  /* Hamburger activo */
+  .hamburger.active div:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
   }
 
-  /* Ajustes para el formulario en móvil */
-  .form-row {
-    flex-direction: column;
-    gap: 15px;
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
   }
 
-  /* Ajustes para el acordeón en móvil */
-  .accordion-header {
-    font-size: 18px;
-    padding: 15px;
+  .hamburger.active div:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
-  .accordion-content {
-    font-size: 15px;
+  /* Secciones de servicios */
+  .serv1,
+  .serv2 {
+    flex-direction: column !important;
+    padding: 30px 10px !important;
+    text-align: center;
   }
 
-  /* Ajustes para el footer en móvil */
+  .textoServ {
+    width: 100% !important;
+    margin: 20px 0 !important;
+    font-size: 16px !important;
+  }
+
+  .imgServ,
+  .carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Footer */
   .footer-columns {
     flex-direction: column;
     align-items: center;
@@ -1358,11 +1333,168 @@ footer {
   }
 
   .social-icons {
-    justify-content: center;
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  .footer-right {
+    justify-content: center !important;
+  }
+
+  /* Formulario */
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Blog */
+  .blog-grid {
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  /* Acordeón */
+  .accordion-header {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .accordion-content {
+    font-size: 15px;
+  }
+
+  .carousel {
+    position: relative !important;
+    width: 100% !important;
+    height: 250px !important;    /* altura fija, puedes ajustarla */
+    max-width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 10px;
+  }
+  .carousel-images {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .carousel-images img,
+  .carousel-images a img {
+    position: absolute !important;
+    top: 0; left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: none;
+    border-radius: 10px;
+  }
+  .carousel-images img.active,
+  .carousel-images a.active img {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  /* Dots superpuestos sobre la imagen, sin afectar el alto */
+  .carousel-dots {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 12px !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+    display: flex !important;
+    gap: 8px !important;
+    background: rgba(0,0,0,0.2);
+    border-radius: 16px;
+    padding: 3px 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.13);
+    pointer-events: auto;
+  }
+  .carousel-dots .dot {
+    width: 11px !important;
+    height: 11px !important;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.75);
+    border: 1.5px solid #dab189;
+    transition: background 0.2s;
+  }
+  .carousel-dots .dot.active {
+    background: #dab189;
+  }
+
+  /* Imágenes directas */
+  .imgServ {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  /* Blog */
+  .blog-image-container {
+    height: auto !important;
+    min-height: 150px !important;
+  }
+
+  .blog-image {
+    position: static !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  #main-terminos {
+    margin-top: 75px;
   }
 }
 
-/* Ajustes específicos para pantallas muy pequeñas */
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 768px) {
+  /* Blog */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin-top: 90px;
+  }
+
+  .blog-card {
+    margin-bottom: 20px;
+  }
+
+  /* Términos */
+  main {
+    margin-top: 80px;
+    padding: 0 15px;
+  }
+
+  .accordion-header {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .accordion-content {
+    padding: 0 15px;
+    font-size: 15px;
+  }
+
+  .accordion.active .accordion-content {
+    padding: 15px;
+  }
+
+  /* Contacto */
+  .page-title {
+    margin-top: 80px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  fieldset {
+    padding: 15px;
+  }
+}
+
 @media (max-width: 480px) {
   .blog-grid {
     grid-template-columns: 1fr;
@@ -1388,269 +1520,4 @@ footer {
   button {
     width: 100%;
   }
-}
-
-/* Ajustes para el header en las páginas secundarias */
-@media (min-width: 891px) {
-  /* Aplicar el mismo grid que en la página principal */
-  .header-container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  .header-logo {
-    grid-column: 1;
-    justify-content: flex-start;
-  }
-
-  .nav-buttons {
-    grid-column: 2;
-    justify-content: center;
-  }
-
-  .header-flag {
-    grid-column: 3;
-    justify-content: flex-end;
-  }
-}
-
-/* Corregir el problema con el menú de servicios */
-.dropdown-content.show-mobile {
-  display: flex;
-  flex-direction: column;
-  position: static;
-  transform: none;
-  box-shadow: none;
-  width: 100%;
-  max-width: 250px;
-  margin: 0 auto;
-  padding: 0;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  overflow: hidden;
-  opacity: 1;
-}
-
-/* Corregir el estilo de los enlaces en el menú hamburguesa */
-@media (max-width: 890px) {
-  .nav-buttons a#enlace {
-    width: 100%;
-    max-width: 250px;
-    height: 50px;
-    margin: 8px 0;
-    border: 1px solid rgba(218, 177, 137, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    text-align: center;
-    background: white;
-    color: black;
-    text-decoration: none;
-  }
-
-  /* Corregir el estilo de los elementos del hamburger */
-  .hamburger .bar1,
-  .hamburger .bar2,
-  .hamburger .bar3 {
-    width: 100%;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-
-  .hamburger.active .bar1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-
-  .hamburger.active .bar2 {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-}
-
-/* Estilos para el menú móvil */
-@media (max-width: 890px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-buttons {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    padding: 80px 20px 20px;
-    overflow-y: auto;
-  }
-
-  .nav-buttons.show {
-    transform: translateX(0);
-  }
-
-  /* Estilos para los enlaces y el select en el menú móvil */
-  .nav-buttons a#enlace,
-  .nav-buttons a,
-  .nav-buttons select#elegirServicio {
-    width: 100%;
-    max-width: 250px;
-    height: 50px;
-    margin: 8px 0;
-    border: 1px solid rgba(218, 177, 137, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    text-align: center;
-    background: white;
-    color: black;
-    text-decoration: none;
-  }
-
-  /* Ajustes específicos para el select */
-  .nav-buttons select#elegirServicio {
-    padding: 0 15px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 12px;
-    padding-right: 35px;
-  }
-
-  /* Ajustes para la bandera */
-  .header-flag {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-/* Ajustes para el blog en responsive */
-@media (max-width: 768px) {
-  .blog-grid {
-    grid-template-columns: 1fr;
-    padding: 20px;
-    margin-top: 90px;
-  }
-
-  .blog-card {
-    margin-bottom: 20px;
-  }
-}
-
-/* Ajustes para la página de términos en responsive */
-@media (max-width: 768px) {
-  main {
-    margin-top: 80px;
-    padding: 0 15px;
-  }
-
-  .accordion-header {
-    font-size: 18px;
-    padding: 15px;
-  }
-
-  .accordion-content {
-    padding: 0 15px;
-    font-size: 15px;
-  }
-
-  .accordion.active .accordion-content {
-    padding: 15px;
-  }
-}
-
-/* Ajustes para la página de contacto en responsive */
-@media (max-width: 768px) {
-  .page-title {
-    margin-top: 80px;
-  }
-
-  .form-container {
-    padding: 15px;
-  }
-
-  form {
-    padding: 20px;
-  }
-
-  fieldset {
-    padding: 15px;
-  }
-
-  .form-row {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  button {
-    width: 100%;
-  }
-}
-
-
-@media (max-width: 890px) {
-  .serv1,
-  .serv2 {
-    flex-direction: column !important;
-    padding: 30px 10px !important;
-    text-align: center;
-  }
-
-  .textoServ {
-    width: 100% !important;
-    margin: 20px 0 !important;
-    font-size: 16px !important;
-  }
-
-  .imgServ,
-  .carousel {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-    margin-bottom: 20px !important;
-  }
-
-  .social-icons {
-    justify-content: center !important;
-    width: 100%;
-  }
-
-  .footer-right {
-    justify-content: center !important;
-  }
-}
-.bloque-fondo {
-  background-image: url('./imagenes/fotoPortada.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top: 100px;
-  padding-bottom: 60px;
 }

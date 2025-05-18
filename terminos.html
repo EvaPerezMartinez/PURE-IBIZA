@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Términos y Condiciones | Pure Ibiza Concierge</title>
-  <link rel="stylesheet" href="ProyectoMarketingDAM.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Eva Pérez Martínez">
+    <meta name="keywords" content="viajes, concierge, Ibiza">
+    <title>Términos y Condiciones Pure Ibiza Concierge</title>
+    <link rel="stylesheet" href="ProyectoMarketingDAM.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" href="imagenes/logo/logoBlanco.png" type="image/x-icon">
+    <style>
+      .form-container { margin-top: 110px; }
+      @media (max-width: 890px) {
+        .form-container { margin-top: 90px; }
+      }
+    </style>
 </head>
-<body>
+<body class="contacto">
 
-  <header>
+  <!-- Header -->
+
+<header>
   <div class="header-container">
     <!-- Logo con enlace a index.html -->
     <div class="header-logo">
@@ -27,25 +38,28 @@
 
     <!-- Menú navegación -->
     <div class="nav-buttons" id="menu">
-      <a id="enlace" href="./index.html">Inicio</a>
-      <select id="elegirServicio" onchange="location = this.value;">
-        <option id="serv" value="#" selected>Servicios</option>
-        <option value="index.html#seccion1">Alquiler de yates</option>
-        <option value="index.html#seccion2">Alquiler de motos de agua</option>
-        <option value="index.html#seccion3">Alquiler de coches</option>
-        <option value="index.html#seccion4">Hospedaje</option>
-        <option value="index.html#seccion5">Chófer privado</option>
-        <option value="index.html#seccion6">Chef privado</option>
-        <option value="index.html#seccion7">Discotecas</option>
-        <option value="index.html#seccion8">Restaurantes</option>
-      </select>
-      <a id="enlace" href="./blog.html">Blog</a>
-      <a id="enlace" href="./contacto.html">Contacto</a>
+      <a href="./index.html">Inicio</a>
+      <div class="dropdown">
+        <div class="dropdown-button" id="services-dropdown-btn">
+          Servicios <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="dropdown-content" id="services-dropdown-content">
+          <a href="index.html#seccion1">Alquiler de yates</a>
+          <a href="index.html#seccion2">Alquiler de motos de agua</a>
+          <a href="index.html#seccion3">Alquiler de coches</a>
+          <a href="index.html#seccion4">Hospedaje</a>
+          <a href="index.html#seccion5">Chófer privado</a>
+          <a href="index.html#seccion6">Chef privado</a>
+          <a href="index.html#seccion7">Discotecas</a>
+          <a href="index.html#seccion8">Restaurantes</a>
+        </div>
+      </div>
+      <a href="./blog.html">Blog</a>
+      <a href="./contacto.html">Contacto</a>
     </div>
-
     <!-- Bandera -->
     <div class="header-flag">
-      <a class="flag-link" href="./terminosIngles.html">
+      <a class="flag-link" href="./english.html">
         <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
       </a>
     </div>
@@ -53,7 +67,7 @@
 </header>
 
   <!--CONTENIDO PRINCIPAL-->
-  <main>
+  <main id="main-terminos">
     <section class="accordion-container">
       <div class="accordion" id="aviso-legal">
         <div class="accordion-header">Aviso legal</div>
@@ -308,6 +322,19 @@
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
   }
+
+  // Smooth scroll a la sección si hay hash en la URL al cargar la página
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.hash) {
+      // Espera un poco para que cargue todo y entonces hace scroll suave
+      setTimeout(function() {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 250); // puedes ajustar el tiempo si tienes imágenes grandes o sliders
+    }
+  });
 });
 </script>
 </body>

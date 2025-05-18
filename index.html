@@ -301,192 +301,6 @@
     <!--Debe aparecer siempre en la pantalla (parte inferior izq), aunque se haga scroll con el ratón-->
     <img id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.getElementById('hamburger');
-  const navButtons = document.getElementById('menu');
-  const header = document.querySelector('header');
-  const servicesDropdownBtn = document.getElementById('services-dropdown-btn');
-  const servicesDropdownContent = document.getElementById('services-dropdown-content');
-  let isServicesDropdownOpen = false;
-
-  if (hamburger && navButtons) {
-    hamburger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      this.classList.toggle('active');
-      navButtons.classList.toggle('show');
-
-      if (navButtons.classList.contains('show')) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-        servicesDropdownContent.classList.remove('show-mobile');
-        isServicesDropdownOpen = false;
-      }
-    });
-
-    if (servicesDropdownBtn) {
-      servicesDropdownBtn.addEventListener('click', function (e) {
-        if (window.innerWidth <= 890) {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Alternar la clase show-mobile en el dropdown
-          servicesDropdownContent.classList.toggle('show-mobile');
-          isServicesDropdownOpen = !isServicesDropdownOpen;
-        }
-      });
-    }
-
-    const menuLinks = navButtons.querySelectorAll('a:not(.dropdown-content a)');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        if (window.innerWidth <= 890) {
-          hamburger.classList.remove('active');
-          navButtons.classList.remove('show');
-          document.body.style.overflow = '';
-          servicesDropdownContent.classList.remove('show-mobile');
-          isServicesDropdownOpen = false;
-        }
-      });
-    });
-
-    const dropdownLinks = servicesDropdownContent.querySelectorAll('a');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        if (window.innerWidth <= 890) {
-          setTimeout(function() {
-            servicesDropdownContent.classList.remove('show-mobile');
-            isServicesDropdownOpen = false;
-            hamburger.classList.remove('active');
-            navButtons.classList.remove('show');
-            document.body.style.overflow = '';
-          }, 100);
-        }
-      });
-    });
-
-    // Mejorar el manejo de clics fuera del menú
-    document.addEventListener('click', function (event) {
-      if (window.innerWidth <= 890) {
-        const isClickInsideMenu = navButtons.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        const isClickOnServicesBtn = servicesDropdownBtn && servicesDropdownBtn.contains(event.target);
-
-        // Si el menú está abierto y se hace clic fuera de él
-        if (navButtons.classList.contains('show') && !isClickInsideMenu && !isClickOnHamburger) {
-          hamburger.classList.remove('active');
-          navButtons.classList.remove('show');
-          document.body.style.overflow = '';
-          servicesDropdownContent.classList.remove('show-mobile');
-          isServicesDropdownOpen = false;
-        }
-        
-        // Si el dropdown de servicios está abierto y se hace clic fuera de él (pero no en su botón)
-        else if (isServicesDropdownOpen && !isClickOnServicesBtn && !servicesDropdownContent.contains(event.target)) {
-          servicesDropdownContent.classList.remove('show-mobile');
-          isServicesDropdownOpen = false;
-        }
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 890) {
-        hamburger.classList.remove('active');
-        navButtons.classList.remove('show');
-        document.body.style.overflow = '';
-        servicesDropdownContent.classList.remove('show-mobile');
-        isServicesDropdownOpen = false;
-      }
-    });
-  }
-
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 500) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
-  if (window.scrollY > 500) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-
-  const scrollToTopButton = document.getElementById('scrollToTop');
-  if (scrollToTopButton) {
-    scrollToTopButton.style.display = 'none';
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-        scrollToTopButton.style.display = 'flex';
-      } else {
-        scrollToTopButton.style.display = 'none';
-      }
-    });
-  }
-
-  window.scrollToTop = function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  const carousels = document.querySelectorAll('.carousel');
-  carousels.forEach((carousel) => {
-    let currentIndex = 0;
-    const images = carousel.querySelectorAll('.carousel-images img');
-    const dots = carousel.querySelectorAll('.carousel-dots .dot');
-
-    if (images.length === 0 || dots.length === 0) return;
-
-    function showImage(index) {
-      images[currentIndex].classList.remove('active');
-      dots[currentIndex].classList.remove('active');
-      currentIndex = index;
-      images[currentIndex].classList.add('active');
-      dots[currentIndex].classList.add('active');
-    }
-
-    function nextImage() {
-      const nextIndex = (currentIndex + 1) % images.length;
-      showImage(nextIndex);
-    }
-
-    let interval = setInterval(nextImage, 4000);
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showImage(index);
-        clearInterval(interval);
-        interval = setInterval(nextImage, 4000);
-      });
-    });
-  });
-
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-      const elementVisible = 150;
-
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add('active');
-      } else {
-        reveals[i].classList.remove('active');
-      }
-    }
-  }
-
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
-});
-</script>
-
 <footer>
     <div class="footer-container">
       <div class="footer-title">
@@ -540,5 +354,177 @@
       </div>
     </div>
   </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // --- CARRUSEL AUTOMÁTICO Y DOTS ---
+  const carousels = document.querySelectorAll('.carousel');
+  carousels.forEach(function(carousel) {
+    const imagesWrapper = carousel.querySelector('.carousel-images');
+    let slides = Array.from(imagesWrapper.querySelectorAll('img, a'));
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
+    let currentIndex = 0;
+    let interval;
+
+    function showImage(index) {
+      slides.forEach((slide, i) => {
+        if (slide.tagName === 'A') {
+          slide.classList.toggle('active', i === index);
+          let img = slide.querySelector('img');
+          if (img) img.classList.toggle('active', i === index);
+        } else {
+          slide.classList.toggle('active', i === index);
+        }
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    function nextImage() {
+      let nextIdx = (currentIndex + 1) % slides.length;
+      showImage(nextIdx);
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', function () {
+        showImage(idx);
+        clearInterval(interval);
+        interval = setInterval(nextImage, 4000);
+      });
+    });
+
+    interval = setInterval(nextImage, 4000);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(nextImage, 4000);
+      }
+    });
+
+    showImage(0);
+  });
+
+  // --- MENÚ HAMBURGUESA ---
+  const hamburger = document.querySelector('.hamburger');
+  const navButtons = document.querySelector('.nav-buttons');
+  const dropdownButtons = document.querySelectorAll('.dropdown-button');
+
+  if (hamburger && navButtons) {
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navButtons.classList.toggle('show');
+    });
+
+    dropdownButtons.forEach((dropdownButton) => {
+      dropdownButton.addEventListener('click', function (e) {
+        if (window.innerWidth <= 890) {
+          e.preventDefault();
+          const dropdown = dropdownButton.closest('.dropdown');
+          const dropdownContent = dropdown.querySelector('.dropdown-content');
+          dropdownContent.classList.toggle('show-mobile');
+        }
+      });
+    });
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', function (event) {
+      if (
+        !event.target.closest('.nav-buttons') &&
+        !event.target.closest('.hamburger')
+      ) {
+        hamburger.classList.remove('active');
+        navButtons.classList.remove('show');
+        document
+          .querySelectorAll('.dropdown-content')
+          .forEach((content) => content.classList.remove('show-mobile'));
+      }
+    });
+  }
+
+  // --- HEADER SCROLL SOMBRA ---
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // --- SCROLL TO TOP BUTTON ---
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 200) {
+      scrollToTopBtn.classList.add('show');
+    } else {
+      scrollToTopBtn.classList.remove('show');
+    }
+  });
+
+  if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // --- ANIMACIONES AL HACER SCROLL ---
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+    reveals.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      const elementVisible = 80;
+      if (elementTop < windowHeight - elementVisible) {
+        el.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+
+  // ===== SCROLL SUAVE AL HASH DESDE EL PRINCIPIO DEL INDEX =====
+  if (window.location.hash) {
+    // Sube arriba instantáneamente
+    window.scrollTo(0, 0);
+    setTimeout(function () {
+      const header = document.querySelector('header');
+      const offset = header ? header.offsetHeight + 10 : 90;
+      const id = window.location.hash.replace('#', '');
+      const target = document.getElementById(id);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 350);
+  }
+
+  // --- Scroll suave para anclas internas (en la misma página) ---
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (hash.length > 1) {
+        const header = document.querySelector('header');
+        const offset = header ? header.offsetHeight + 10 : 90;
+        const target = document.getElementById(hash.slice(1));
+        if (target) {
+          e.preventDefault();
+          // Sube arriba instantáneamente, luego baja suavemente
+          window.scrollTo({ top: 0, behavior: 'instant' });
+          setTimeout(function () {
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }, 200);
+        }
+      }
+    });
+  });
+
+});
+</script>
+
 </body>
 </html>

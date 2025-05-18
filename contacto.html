@@ -8,6 +8,7 @@
     <title>Contacto Pure Ibiza Concierge</title>
     <link rel="stylesheet" href="ProyectoMarketingDAM.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" href="imagenes/logo/logoBlanco.png" type="image/x-icon">
     <style>
       .form-container { margin-top: 110px; }
       @media (max-width: 890px) {
@@ -15,7 +16,9 @@
       }
     </style>
 </head>
-<body>
+<body class="contacto">
+
+  <!-- Header -->
 
 <header>
   <div class="header-container">
@@ -197,88 +200,135 @@
   </div>
 </footer>
 
+<!-- Botón "subir arriba" -->
+<button id="scrollToTop" title="Volver arriba">↑</button>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Referencias a elementos del DOM
+document.addEventListener('DOMContentLoaded', function () {
+  // MENÚ HAMBURGUESA Y HEADER
   const hamburger = document.getElementById('hamburger');
   const navButtons = document.getElementById('menu');
   const header = document.querySelector('header');
-  
-  // Función para manejar el menú hamburguesa
+  const servicesDropdownBtn = document.getElementById('services-dropdown-btn');
+  const servicesDropdownContent = document.getElementById('services-dropdown-content');
+  let isServicesDropdownOpen = false;
+
   if (hamburger && navButtons) {
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evitar que el clic se propague
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
       this.classList.toggle('active');
       navButtons.classList.toggle('show');
-      
-      // Bloquear scroll cuando el menú está abierto
       if (navButtons.classList.contains('show')) {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = '';
+        if (servicesDropdownContent) servicesDropdownContent.classList.remove('show-mobile');
+        isServicesDropdownOpen = false;
       }
     });
-    
-    // Cerrar menú al hacer clic en un enlace
-    const menuLinks = navButtons.querySelectorAll('a');
+
+    if (servicesDropdownBtn) {
+      servicesDropdownBtn.addEventListener('click', function (e) {
+        if (window.innerWidth <= 890) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (servicesDropdownContent) servicesDropdownContent.classList.toggle('show-mobile');
+          isServicesDropdownOpen = !isServicesDropdownOpen;
+        }
+      });
+    }
+
+    const menuLinks = navButtons.querySelectorAll('a:not(.dropdown-content a)');
     menuLinks.forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function () {
         if (window.innerWidth <= 890) {
           hamburger.classList.remove('active');
           navButtons.classList.remove('show');
           document.body.style.overflow = '';
+          if (servicesDropdownContent) servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
         }
       });
     });
-    
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', function(event) {
-      // Solo ejecutar si el menú está abierto y la pantalla es pequeña
-      if (navButtons.classList.contains('show') && window.innerWidth <= 890) {
+
+    if (servicesDropdownContent) {
+      const dropdownLinks = servicesDropdownContent.querySelectorAll('a');
+      dropdownLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= 890) {
+            setTimeout(function() {
+              servicesDropdownContent.classList.remove('show-mobile');
+              isServicesDropdownOpen = false;
+              hamburger.classList.remove('active');
+              navButtons.classList.remove('show');
+              document.body.style.overflow = '';
+            }, 100);
+          }
+        });
+      });
+    }
+
+    document.addEventListener('click', function (event) {
+      if (window.innerWidth <= 890) {
         const isClickInsideMenu = navButtons.contains(event.target);
         const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideMenu && !isClickOnHamburger) {
+        const isClickOnServicesBtn = servicesDropdownBtn && servicesDropdownBtn.contains(event.target);
+        if (navButtons.classList.contains('show') && !isClickInsideMenu && !isClickOnHamburger) {
           hamburger.classList.remove('active');
           navButtons.classList.remove('show');
           document.body.style.overflow = '';
+          if (servicesDropdownContent) servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
+        }
+        else if (isServicesDropdownOpen && !isClickOnServicesBtn && servicesDropdownContent && !servicesDropdownContent.contains(event.target)) {
+          servicesDropdownContent.classList.remove('show-mobile');
+          isServicesDropdownOpen = false;
         }
       }
     });
-    
-    // Evitar que los clics dentro del menú cierren el menú
-    navButtons.addEventListener('click', function(e) {
-      // Solo detener la propagación si no es un enlace
-      if (!e.target.closest('a') && !e.target.closest('select')) {
-        e.stopPropagation();
-      }
-    });
-    
-    // Ajustar en caso de cambio de tamaño de ventana
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 890 && navButtons.classList.contains('show')) {
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 890) {
         hamburger.classList.remove('active');
         navButtons.classList.remove('show');
         document.body.style.overflow = '';
+        if (servicesDropdownContent) servicesDropdownContent.classList.remove('show-mobile');
+        isServicesDropdownOpen = false;
       }
     });
   }
-  
-  // Cambiar estilo del header al hacer scroll
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
+
+  // HEADER DINÁMICO
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 500) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
   });
-  
-  // Iniciar con el header en estado scrolled si la página ya está desplazada
-  if (window.scrollY > 50) {
+  if (window.scrollY > 500) {
     header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+
+  // BOTÓN SOLO EN MÓVIL/TABLET (≤890px), tras 400px scroll
+  const scrollToTopButton = document.getElementById('scrollToTop');
+  if (scrollToTopButton) {
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 890 && window.scrollY > 400) {
+        scrollToTopButton.classList.add('show');
+      } else {
+        scrollToTopButton.classList.remove('show');
+      }
+    });
+    scrollToTopButton.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   }
 });
 </script>
+
 
 </body>
 </html>
