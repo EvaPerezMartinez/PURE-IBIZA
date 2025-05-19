@@ -196,6 +196,17 @@
   </div>
 </footer>
 
+<div id="cookie-banner" style="display:none;">
+  <div id="cookie-flex">
+    <div id="cookie-content"></div>
+    <div id="cookie-buttons">
+      <button id="cookie-accept-all"></button>
+      <button id="cookie-accept-necessary"></button>
+      <button id="cookie-decline"></button>
+    </div>
+  </div>
+</div>
+
 <script>
   function openAccordionById(id) {
     const target = document.getElementById(id);
@@ -333,6 +344,36 @@
       }, 250); // puedes ajustar el tiempo si tienes imágenes grandes o sliders
     }
   });
+
+  (function() {
+    var t = {
+      texto: 'Este sitio web utiliza cookies propias y de terceros para personalizar tu experiencia de navegación, analizar el tráfico y ofrecerte contenidos adaptados a tus intereses. Algunas cookies son estrictamente necesarias para el funcionamiento básico del sitio, mientras que otras ayudan a mejorar nuestros servicios y mostrarte información relevante. Puedes obtener más información consultando nuestra <a href="terminos.html#privacidad" style="color: #ac8747; text-decoration:underline;">Política de Privacidad</a>. Selecciona tu opción:',
+      aceptarTodo: "Aceptar todo",
+      soloNecesarias: "Aceptar solo necesarias",
+      noAceptar: "No aceptar"
+    };
+    var cookiePrefs = localStorage.getItem('cookiePrefs');
+    if (!cookiePrefs) {
+      var banner = document.getElementById('cookie-banner');
+      document.getElementById('cookie-content').innerHTML = t.texto;
+      document.getElementById('cookie-accept-all').textContent = t.aceptarTodo;
+      document.getElementById('cookie-accept-necessary').textContent = t.soloNecesarias;
+      document.getElementById('cookie-decline').textContent = t.noAceptar;
+      banner.style.display = "block";
+      document.getElementById('cookie-accept-all').onclick = function(){
+        localStorage.setItem('cookiePrefs','all');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-accept-necessary').onclick = function(){
+        localStorage.setItem('cookiePrefs','necessary');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-decline').onclick = function(){
+        localStorage.setItem('cookiePrefs','none');
+        banner.style.display = "none";
+      };
+    }
+  })();
 });
 </script>
 </body>

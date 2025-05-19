@@ -25,29 +25,63 @@
       background-color: white;
       box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     }
+    
+    /* Estilos para carruseles normales */
+    .carousel-images img {
+      display: none;
+    }
+    
+    .carousel-images img.active {
+      display: block;
+    }
+    
+    /* Estilos específicos para carruseles con enlaces */
+    #carousel-hospedaje a, 
+    #carousel-clubs a {
+      display: none !important;
+    }
+    
+    #carousel-hospedaje a.active, 
+    #carousel-clubs a.active {
+      display: block !important;
+    }
+    
+    #carousel-hospedaje a img, 
+    #carousel-clubs a img {
+      display: block !important;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    /* Asegurar que el contenedor del carrusel tenga altura */
+    .carousel {
+      height: 300px;
+    }
+    
+    .carousel-images {
+      height: 100%;
+      position: relative;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
   <header>
   <div class="header-container">
-
-    <!-- Logo con enlace a index.html -->
     <div class="header-logo">
       <a href="./index.html">
         <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
       </a>
     </div>
-
-    <!-- Icono hamburguesa -->
     <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
       <div></div>
     </div>
-
-    <!-- Menú navegación -->
     <div class="nav-buttons" id="menu">
-      
       <div class="dropdown">
         <div class="dropdown-button" id="services-dropdown-btn">
           Servicios <i class="fas fa-chevron-down"></i>
@@ -63,12 +97,9 @@
           <a href="index.html#seccion8">Restaurantes</a>
         </div>
       </div>
-      
       <a href="./blog.html">Blog</a>
       <a href="./contacto.html">Contacto</a>
     </div>
-
-    <!-- Bandera -->
     <div class="header-flag">
       <a class="flag-link" href="./english.html">
         <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
@@ -97,9 +128,9 @@
         <img src="imagenes/fotosYate/fotoYate3.webp" alt="Yate 3">
       </div>
       <div class="carousel-dots">
-        <span class="dot active" onclick="showImage(0)"></span>
-        <span class="dot" onclick="showImage(1)"></span>
-        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
     </div>
     <div class="textoServ">
@@ -126,9 +157,9 @@
         <img src="imagenes/fotosMoto/fotoMoto3.webp" alt="Moto 3">
       </div>
       <div class="carousel-dots">
-        <span class="dot active" onclick="showImage(0)"></span>
-        <span class="dot" onclick="showImage(1)"></span>
-        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
     </div>
     <div class="textoServ">
@@ -152,9 +183,9 @@
         <img src="imagenes/fotosCoche/fotoCoche3.webp" alt="Coche 3">
       </div>
       <div class="carousel-dots">
-        <span class="dot active" onclick="showImage(0)"></span>
-        <span class="dot" onclick="showImage(1)"></span>
-        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
     </div>
     <div class="textoServ">
@@ -173,18 +204,20 @@
   <div class="serv2 reveal" id="seccion4">
     <div class="carousel">
       <div class="carousel-images" id="carousel-hospedaje">
-        <a href="https://www.ibizagranhotel.com" target="_blank" class="active">
-          <img src="imagenes/fotosHoteles/logoHotelIbiza.webp" alt="Hotel Ibiza">
+        <a href="https://www.ibizagranhotel.com" target="_blank" class="active" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <img src="imagenes/fotosHoteles/logoHotelIbiza.webp" alt="Ibiza Gran Hotel" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
-        <a href="https://www.melia.com" target="_blank">
-          <img src="imagenes/fotosHoteles/logoMelia.jpg" alt="Hotel Melia">
+        <a href="https://www.melia.com" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <img src="imagenes/fotosHoteles/logoMelia.png" alt="Hotel Melia" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
-        <a href="https://www.sixsenses.com" target="_blank">
-          <img src="imagenes/fotosHoteles/logoSixSenses.png" alt="Hotel Six Senses">
+        <a href="https://www.sixsenses.com" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <img src="imagenes/fotosHoteles/logoSixSenses.png" alt="Six Senses" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
-        <!-- NUEVA IMAGEN Ushuaïa -->
-        <a href="https://www.theushuaiaexperience.com/es" target="_blank" rel="noopener">
-          <img src="imagenes/fotosHoteles/logoUshuaia.jpg" alt="Ushuaïa Ibiza">
+        <a href="https://www.theushuaiaexperience.com/es" target="_blank" rel="noopener" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <img src="imagenes/fotosHoteles/ushuaia-logo.png" alt="Ushuaïa Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        </a>
+        <a href="https://hotel.hardrock.com/ibiza/es/" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <img src="imagenes/fotosHoteles/hard-rock-logo.png" alt="Hard Rock Hotel Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
       </div>
       <div class="carousel-dots" id="dots-hospedaje">
@@ -192,13 +225,17 @@
         <span class="dot" data-index="1"></span>
         <span class="dot" data-index="2"></span>
         <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
       </div>
     </div>
     <div class="textoServ">
       <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Hoteles</h3>     
       <p id="descripcionHospedaje">
-        Disfrute de una estancia de ensueño en Ibiza alojándose en una de nuestras exclusivas villas o en hoteles con encanto...
-        <!-- resto del texto igual -->
+        Disfruta de una estancia de ensueño en Ibiza reservando una de nuestras exclusivas villas o hoteles boutique.
+        Tanto si prefieres despertarte con vistas al mar, alojarte cerca de la animada vida nocturna, o desconectar en un oasis rural,
+        tenemos la opción perfecta para ti. Nuestros alojamientos ofrecen el máximo confort y privacidad,
+        con detalles de lujo como piscinas infinitas, terrazas panorámicas y un servicio personalizado.
+        Relájate, desconecta y deja que nos encarguemos de cada detalle para que tu experiencia en Ibiza sea realmente inolvidable.
       </p>
       <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
     </div>
@@ -214,9 +251,9 @@
         <img src="imagenes/fotosChofer/fotoChofer3.webp" alt="Chófer 3">
       </div>
       <div class="carousel-dots">
-        <span class="dot active" onclick="showImage(0)"></span>
-        <span class="dot" onclick="showImage(1)"></span>
-        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
     </div>
     <div class="textoServ">
@@ -241,9 +278,9 @@
         <img src="imagenes/fotosComida/fotoComida3.webp" alt="Comida 3">
       </div>
     <div class="carousel-dots">
-      <span class="dot active" onclick="showImage(0)"></span>
-      <span class="dot" onclick="showImage(1)"></span>
-      <span class="dot" onclick="showImage(2)"></span>
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
     </div>
   </div>
   <div class="textoServ">
@@ -261,18 +298,18 @@
   <!--7a: Sección Clubs Nocturnos -->
   <div class="serv1 reveal" id="seccion7">
     <div class="carousel">
-      <div class="carousel-images" id="carousel-hospedaje">
-        <a href="https://www.hiibiza.com/es" target="_blank" class="active">
-            <img src="imagenes/fotosClubs/logoHiIbiza.webp" alt="Hï Ibiza">
+      <div class="carousel-images" id="carousel-clubs">
+        <a href="https://www.hiibiza.com/es" target="_blank" class="active" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <img src="imagenes/fotosClubs/logoHiIbiza.webp" alt="Hï Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
-        <a href="https://www.amnesia.es/es/" target="_blank">
-            <img src="imagenes/fotosClubs/logoAmnesia.webp" alt="Amnesia">
+        <a href="https://www.amnesia.es/es/" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <img src="imagenes/fotosClubs/logoAmnesia.webp" alt="Amnesia" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
-        <a href="https://pacha.com/es" target="_blank">
-            <img src="imagenes/fotosClubs/logoPacha.webp" alt="Dicoteca Pacha">
+        <a href="https://pacha.com/es" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <img src="imagenes/fotosClubs/logoPacha.webp" alt="Dicoteca Pacha" style="display: block; width: 100%; height: 100%; object-fit: contain;">
         </a>
       </div>
-      <div class="carousel-dots" id="dots-hospedaje">
+      <div class="carousel-dots" id="dots-clubs">
         <span class="dot active" data-index="0"></span>
         <span class="dot" data-index="1"></span>
         <span class="dot" data-index="2"></span>
@@ -291,13 +328,31 @@
   <br>
 
   <!--8a: Sección restaurantes-->
-  <div class="serv2" id="seccion8">
-    <img class="imgServ" src="./imagenes/restaurante.jpeg" width="450px" height="300px">&emsp;
+  <div class="serv2 reveal" id="seccion8">
+    <div class="carousel">
+      <div class="carousel-images" id="carousel-restaurantes">
+        <a href="https://tatelrestaurants.com/ibiza-resto/" target="_blank" class="active">
+          <img src="imagenes/fotosRestaurantes/tatelLogo.png" alt="Restaurante Tatel Ibiza">
+        </a>
+        <a href="https://www.roto.club/ibiza/" target="_blank">
+          <img src="imagenes/fotosRestaurantes/rotoLogo.png" alt="Restaurante Roto Ibiza">
+        </a>
+        <a href="https://www.cappuccinograndcafe.es/es/locations/ibiza" target="_blank">
+          <img src="imagenes/fotosRestaurantes/capuccinoIbiza.png" alt="Restaurante Cappuccino Ibiza">
+        </a>
+      </div>
+      <div class="carousel-dots" id="dots-restaurantes">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
     <div class="textoServ">
-      <h3 style="font-size: 40px; text-align: center; margin-top: 0%;">Reserva en restaurantes</h3>
-      <p>Explore la vibrante escena gastronómica de Ibiza sin preocuparse por nada, gracias a nuestro exclusivo servicio con consejería. Nos encargamos de hacer todas las reservas en los mejores restaurantes de la isla, 
-          asegurando que disfrute de una experiencia culinaria de primer nivel. Desde restaurantes con estrellas Michelin hasta lugares ocultos con sabores auténticos, le garantizamos un viaje gastronómico único y memorable.
-          Permítanos organizar su itinerario para que solo se concentre en disfrutar de los sabores exquisitos que Ibiza tiene para ofrecer.
+      <h3 style="font-size: 40px; text-align: center;">Restaurantes</h3>
+      <p>
+        Descubre los restaurantes más exclusivos de Ibiza. Reservamos para ti en lugares únicos donde 
+        la gastronomía y el ambiente convierten cada comida en una experiencia memorable.<br>
+        Haz clic sobre cada imagen para conocer más.
       </p>
       <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
     </div>
@@ -305,7 +360,6 @@
 </div>
 
 <!--BOTON DE WHATSAPP (es un chatbot no funcional)-->
-<!--Debe aparecer siempre en la pantalla (parte inferior izq), aunque se haga scroll con el ratón-->
 <img id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
 
 <footer>
@@ -361,24 +415,45 @@
   </div>
 </footer>
 
+<div id="cookie-banner" style="display:none;">
+  <div id="cookie-flex">
+    <div id="cookie-content"></div>
+    <div id="cookie-buttons">
+      <button id="cookie-accept-all"></button>
+      <button id="cookie-accept-necessary"></button>
+      <button id="cookie-decline"></button>
+    </div>
+  </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // --- CARRUSEL AUTOMÁTICO Y DOTS ---
+  // CARRUSELES MULTIPLES (INCLUYE <a><img> PARA hoteles)
   const carousels = document.querySelectorAll('.carousel');
-  carousels.forEach(function(carousel) {
+
+  carousels.forEach((carousel) => {
     const imagesWrapper = carousel.querySelector('.carousel-images');
-    let slides = Array.from(imagesWrapper.querySelectorAll('img, a'));
+    let slides = Array.from(imagesWrapper.children); // <a> o <img>
     const dots = carousel.querySelectorAll('.carousel-dots .dot');
     let currentIndex = 0;
     let interval;
 
+    // NUEVA FUNCION: Añade/quita active a <a> y a <img> dentro
     function showImage(index) {
       slides.forEach((slide, i) => {
-        if (slide.tagName === 'A') {
-          slide.classList.toggle('active', i === index);
-          let img = slide.querySelector('img');
-          if (img) img.classList.toggle('active', i === index);
-        } else {
+        if (slide.tagName.toLowerCase() === "a") {
+          // Si es <a>, activa solo el <a> y su <img>
+          if (i === index) {
+            slide.classList.add('active');
+            let img = slide.querySelector('img');
+            if (img) img.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+            let img = slide.querySelector('img');
+            if (img) img.classList.remove('active');
+          }
+        } else if (slide.tagName.toLowerCase() === "img") {
+          // Si es <img> directo
           slide.classList.toggle('active', i === index);
         }
       });
@@ -411,6 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
+    // INICIALIZA mostrando la primera
     showImage(0);
   });
 
@@ -461,7 +537,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   window.addEventListener('scroll', updateHeaderScroll);
-  // Estado inicial del header (esto arregla el bug del fondo)
   updateHeaderScroll();
 
   // --- SCROLL TO TOP BUTTON + WHATSAPP ---
@@ -477,7 +552,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   window.addEventListener('scroll', updateScrollButtons);
-  // Estado inicial de los botones al cargar
   updateScrollButtons();
 
   if (scrollToTopBtn) {
@@ -503,7 +577,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ===== SCROLL SUAVE AL HASH DESDE EL PRINCIPIO DEL INDEX =====
   if (window.location.hash) {
-    // Sube arriba instantáneamente
     window.scrollTo(0, 0);
     setTimeout(function () {
       const header = document.querySelector('header');
@@ -527,7 +600,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = document.getElementById(hash.slice(1));
         if (target) {
           e.preventDefault();
-          // Sube arriba instantáneamente, luego baja suavemente
           window.scrollTo({ top: 0, behavior: 'instant' });
           setTimeout(function () {
             const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
@@ -538,6 +610,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  (function() {
+    var t = {
+      texto: 'Este sitio web utiliza cookies propias y de terceros para personalizar tu experiencia de navegación, analizar el tráfico y ofrecerte contenidos adaptados a tus intereses. Algunas cookies son estrictamente necesarias para el funcionamiento básico del sitio, mientras que otras ayudan a mejorar nuestros servicios y mostrarte información relevante. Puedes obtener más información consultando nuestra <a href="terminos.html#privacidad" style="color: #ac8747; text-decoration:underline;">Política de Privacidad</a>. Selecciona tu opción:',
+      aceptarTodo: "Aceptar todo",
+      soloNecesarias: "Aceptar solo necesarias",
+      noAceptar: "No aceptar"
+    };
+    var cookiePrefs = localStorage.getItem('cookiePrefs');
+    if (!cookiePrefs) {
+      var banner = document.getElementById('cookie-banner');
+      document.getElementById('cookie-content').innerHTML = t.texto;
+      document.getElementById('cookie-accept-all').textContent = t.aceptarTodo;
+      document.getElementById('cookie-accept-necessary').textContent = t.soloNecesarias;
+      document.getElementById('cookie-decline').textContent = t.noAceptar;
+      banner.style.display = "block";
+      document.getElementById('cookie-accept-all').onclick = function(){
+        localStorage.setItem('cookiePrefs','all');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-accept-necessary').onclick = function(){
+        localStorage.setItem('cookiePrefs','necessary');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-decline').onclick = function(){
+        localStorage.setItem('cookiePrefs','none');
+        banner.style.display = "none";
+      };
+    }
+  })();
 });
 </script>
 </body>

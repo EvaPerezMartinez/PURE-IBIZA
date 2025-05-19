@@ -128,61 +128,72 @@
 </main>
 
 <footer>
-    <div class="footer-container">
-      <div class="footer-title">
-        <p><b>PURE IBIZA Concierge</b></p>
+  <div class="footer-container">
+    <div class="footer-title">
+      <p><b>PURE IBIZA Concierge</b></p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-left">
+        <a href="tel:+34616670665" >
+          <i class="fas fa-phone-alt"></i>+34 616 670 665
+        </a><br>
+        <a href="mailto:contact@pureibiza.com">
+          <i class="fas fa-envelope"></i>contact@pureibiza.com
+        </a>
       </div>
 
-      <div class="footer-columns">
-        <div class="footer-left">
-          <a href="tel:+34616670665" >
-            <i class="fas fa-phone-alt"></i>+34 616 670 665
-          </a><br>
-          <a href="mailto:contact@pureibiza.com">
-            <i class="fas fa-envelope"></i>contact@pureibiza.com
-          </a>
-        </div>
-
-        <div class="footer-right">
-          <ul class="social-icons">
-            <li>
-              <a href="https://www.facebook.com" class="redes facebook" target="_blank">
-                <div class="social-icon-circle">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com" class="redes x-twitter" target="_blank">
-                <div class="social-icon-circle">
-                  <i class="fa-brands fa-x-twitter"></i>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com" class="redes instagram" target="_blank">
-                <div class="social-icon-circle">
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
-        <p>
-          <a href="terminosIngles.html#aviso-legal">Legal Notice</a> |
-          <a href="terminosIngles.html#privacidad">Privacy Policy</a> |
-          <a href="terminosIngles.html#cookies">Cookie Policy</a>
-        </p>
+      <div class="footer-right">
+        <ul class="social-icons">
+          <li>
+            <a href="https://www.facebook.com" class="redes facebook" target="_blank">
+              <div class="social-icon-circle">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com" class="redes x-twitter" target="_blank">
+              <div class="social-icon-circle">
+                <i class="fa-brands fa-x-twitter"></i>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" class="redes instagram" target="_blank">
+              <div class="social-icon-circle">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
 
-  <!-- Botón "subir arriba" -->
-  <button id="scrollToTop" title="Volver arriba">↑</button>
+    <div class="footer-bottom">
+      <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
+      <p>
+        <a href="terminosIngles.html#aviso-legal">Legal Notice</a> |
+        <a href="terminosIngles.html#privacidad">Privacy Policy</a> |
+        <a href="terminosIngles.html#cookies">Cookie Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón "subir arriba" -->
+<button id="scrollToTop" title="Volver arriba">↑</button>
+
+<div id="cookie-banner" style="display:none;">
+  <div id="cookie-flex">
+    <div id="cookie-content"></div>
+    <div id="cookie-buttons">
+      <button id="cookie-accept-all"></button>
+      <button id="cookie-accept-necessary"></button>
+      <button id="cookie-decline"></button>
+    </div>
+  </div>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -324,6 +335,35 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
+  (function() {
+    var t = {
+      texto: 'This website uses its own and third-party cookies to personalize your browsing experience, analyze site traffic, and offer content tailored to your interests. Some cookies are strictly necessary for the website to function, while others help us improve our services and display relevant information. For more details, please review our <a href="terminosIngles.html#privacidad" style="color: #ac8747; text-decoration:underline;">Privacy Policy</a>. Please choose an option:',
+      aceptarTodo: "Accept all",
+      soloNecesarias: "Accept only necessary",
+      noAceptar: "Do not accept"
+    };
+    var cookiePrefs = localStorage.getItem('cookiePrefs');
+    if (!cookiePrefs) {
+      var banner = document.getElementById('cookie-banner');
+      document.getElementById('cookie-content').innerHTML = t.texto;
+      document.getElementById('cookie-accept-all').textContent = t.aceptarTodo;
+      document.getElementById('cookie-accept-necessary').textContent = t.soloNecesarias;
+      document.getElementById('cookie-decline').textContent = t.noAceptar;
+      banner.style.display = "block";
+      document.getElementById('cookie-accept-all').onclick = function(){
+        localStorage.setItem('cookiePrefs','all');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-accept-necessary').onclick = function(){
+        localStorage.setItem('cookiePrefs','necessary');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-decline').onclick = function(){
+        localStorage.setItem('cookiePrefs','none');
+        banner.style.display = "none";
+      };
+    }
+  })();
 });
 </script>
 </body>
