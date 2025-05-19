@@ -1092,6 +1092,31 @@ footer {
   margin-top: 100px;
 }
 
+a.boton {
+  background-color: rgb(218, 177, 137);
+  color: black;
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  width: auto;
+  min-width: 120px;
+  display: inline-block;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+  border: none;
+  margin: 0 auto;
+}
+a.boton:hover {
+  background-color: rgb(193, 151, 99);
+  color: white;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
