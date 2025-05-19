@@ -341,9 +341,11 @@ header.scrolled .header-logo img {
 
 #scrollToTop {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 32px;
+  right: 32px;
   width: 48px;
+  left: auto;
+  top: auto;
   height: 48px;
   border-radius: 50%;
   background-color: rgb(218, 177, 137);
@@ -478,6 +480,10 @@ header.scrolled .header-logo img {
   margin-left: 20px;
 }
 
+.textoServ h3 {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .serv1 h3,
 .serv2 h3 {
   font-size: 2rem;
@@ -485,7 +491,6 @@ header.scrolled .header-logo img {
   margin-bottom: var(--spacing-md);
   text-align: center;
   font-family: var(--font-title);
-  font-family: "Montserrat", Arial, sans-serif;
 }
 
 .boton,
@@ -706,34 +711,8 @@ select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  color: #999 !important;
-  font-style: italic !important;
-  font-family: "Montserrat", Arial, sans-serif !important;
-  opacity: 1; /* por si algún navegador lo pone demasiado transparente */
-}
-
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #999 !important;
-  font-style: italic !important;
-  font-family: "Montserrat", Arial, sans-serif !important;
-  opacity: 1;
-}
-
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #999 !important;
-  font-style: italic !important;
-  font-family: "Montserrat", Arial, sans-serif !important;
-  opacity: 1;
-}
-
-input::-ms-input-placeholder,
-textarea::-ms-input-placeholder {
-  color: #999 !important;
-  font-style: italic !important;
-  font-family: "Montserrat", Arial, sans-serif !important;
-  opacity: 1;
+  color: #999;
+  font-style: italic;
 }
 
 textarea {
@@ -750,7 +729,6 @@ textarea {
   margin-bottom: 18px;
   font-family: var(--font-title);
   font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .checkbox-grid {
@@ -1143,7 +1121,7 @@ footer {
   font-size: 36px;
   margin: 0;
   font-family: var(--font-title);
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-columns {
