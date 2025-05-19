@@ -1,4 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wdth,wght@75,100&display=swap");
+/* ===== FONT IMPORTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  /* Colors */
+  --primary: rgb(218, 177, 137);
+  --primary-dark: rgb(193, 151, 99);
+  --text-dark: #333;
+  --text-light: #555;
+  --bg-light: #f7f7f7;
+  --bg-lighter: #ffffff;
+  --bg-dark: #e0e0e0;
+
+  /* Fonts */
+  --font-title: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Lato", Arial, sans-serif;
+  --font-ui: "Montserrat", Arial, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+
+  /* Border radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
 
 /* ===== RESET Y ESTILOS GENERALES ===== */
 body {
@@ -7,6 +44,9 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   background-color: rgb(234, 234, 234);
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
 *,
@@ -15,17 +55,59 @@ body {
   box-sizing: inherit;
 }
 
-p {
-  font-family: "Times New Roman", Times, serif;
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  margin-top: 0;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 h2 {
+  font-size: 2rem;
   text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 24px;
   margin: 20px 0;
   background: transparent !important;
-  color: #333;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary);
 }
 
 hr {
@@ -200,7 +282,7 @@ header.scrolled .header-logo img {
 }
 
 .flag-icon {
-  width: 42px; 
+  width: 42px;
   height: 30px;
   object-fit: cover;
   border: 1px solid #ccc;
@@ -341,15 +423,15 @@ header.scrolled .header-logo img {
 #frase span {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   font-style: italic;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-title);
 }
 
 .apartado {
   text-align: center;
   font-size: x-large;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-title);
 }
 
 /* ===== SECCIÓN SERVICIOS ===== */
@@ -396,19 +478,24 @@ header.scrolled .header-logo img {
   margin-left: 20px;
 }
 
+.serv1 h3,
 .serv2 h3 {
-  font-size: 24px;
-  color: #000;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  font-family: var(--font-title);
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
-.boton {
-  background-color: rgb(218, 177, 137);
+.boton,
+a.boton {
+  background-color: var(--primary);
   color: black;
   font-size: 16px;
   padding: 0;
   border: 0;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   text-align: center;
   cursor: pointer;
   outline: none;
@@ -420,11 +507,19 @@ header.scrolled .header-logo img {
   justify-content: center;
   align-items: center;
   margin: 15px auto 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  min-width: 120px;
+  min-height: 40px;
+  box-shadow: var(--shadow-sm);
 }
 
-.boton:hover {
-  background-color: rgb(193, 151, 99);
+.boton:hover,
+a.boton:hover {
+  background-color: var(--primary-dark);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .textoServ p:last-child {
@@ -550,11 +645,11 @@ legend {
   margin-bottom: 20px;
   padding: 0 10px;
   padding-bottom: 10px;
-  border-bottom: 2px solid rgb(218, 177, 137);
+  border-bottom: 2px solid var(--primary);
   width: auto;
   display: inline-block;
-  color: #333;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--text-dark);
+  font-family: var(--font-title);
 }
 
 .form-row {
@@ -611,8 +706,34 @@ select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  color: #999;
-  font-style: italic;
+  color: #999 !important;
+  font-style: italic !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  opacity: 1; /* por si algún navegador lo pone demasiado transparente */
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999 !important;
+  font-style: italic !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999 !important;
+  font-style: italic !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  opacity: 1;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #999 !important;
+  font-style: italic !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  opacity: 1;
 }
 
 textarea {
@@ -627,8 +748,9 @@ textarea {
 .section-title {
   font-size: 18px;
   margin-bottom: 18px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-title);
   font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .checkbox-grid {
@@ -695,12 +817,12 @@ textarea {
 button {
   align-items: center;
   text-align: center;
-  background-color: rgb(218, 177, 137);
+  background-color: var(--primary);
   border: none;
   cursor: pointer;
   font-size: 16px;
   padding: 12px 20px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   width: 48%;
   transition: all 0.3s ease;
   color: #fff;
@@ -709,12 +831,13 @@ button {
   display: flex;
   justify-content: center;
   gap: 8px;
+  font-family: var(--font-ui);
 }
 
 button:hover {
-  background-color: rgb(193, 151, 99);
+  background-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 button[type="submit"] {
@@ -795,12 +918,14 @@ button:active {
   color: #2d2d2d;
   margin-bottom: 15px;
   text-align: center;
+  font-family: var(--font-title);
 }
 
 .blog-card p {
   font-size: 16px;
   line-height: 1.7;
-  color: #555;
+  color: var(--text-light);
+  font-family: var(--font-body);
 }
 
 .read-more {
@@ -834,9 +959,9 @@ button:active {
   font-weight: bold;
   cursor: pointer;
   background-color: #f2f2f2;
-  color: #333;
+  color: var(--text-dark);
   transition: background-color 0.3s ease;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-title);
   border-bottom: 1px solid #ddd;
 }
 
@@ -889,11 +1014,13 @@ button:active {
 #cookie-banner {
   display: none;
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 9999;
-  background: rgba(255,255,255,0.98);
+  background: rgba(255, 255, 255, 0.98);
   color: #333;
-  box-shadow: 0 -3px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 -3px 16px rgba(0, 0, 0, 0.1);
   font-family: Montserrat, Arial, sans-serif;
   padding: 18px 5vw;
   font-size: 15px;
@@ -1015,6 +1142,8 @@ footer {
 .footer-title p {
   font-size: 36px;
   margin: 0;
+  font-family: var(--font-title);
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 .footer-columns {
@@ -1157,7 +1286,8 @@ footer {
   margin-top: 100px;
 }
 
-a.boton, .boton {
+a.boton,
+.boton {
   display: flex !important;
   justify-content: center;
   align-items: center;
@@ -1173,11 +1303,12 @@ a.boton, .boton {
   border-radius: 5px;
   border: none;
   transition: all 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
 
-a.boton:hover, .boton:hover {
+a.boton:hover,
+.boton:hover {
   background-color: rgb(193, 151, 99);
   color: white;
 }
@@ -1464,7 +1595,7 @@ a.boton:hover, .boton:hover {
   .carousel {
     position: relative !important;
     width: 100% !important;
-    height: 250px !important;    /* altura fija, puedes ajustarla */
+    height: 250px !important; /* altura fija, puedes ajustarla */
     max-width: 100% !important;
     overflow: hidden !important;
     border-radius: 10px;
@@ -1477,7 +1608,8 @@ a.boton:hover, .boton:hover {
   .carousel-images img,
   .carousel-images a img {
     position: absolute !important;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
@@ -1498,17 +1630,17 @@ a.boton:hover, .boton:hover {
     z-index: 2 !important;
     display: flex !important;
     gap: 8px !important;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 16px;
     padding: 3px 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.13);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.13);
     pointer-events: auto;
   }
   .carousel-dots .dot {
     width: 11px !important;
     height: 11px !important;
     border-radius: 50%;
-    background: rgba(255,255,255,0.75);
+    background: rgba(255, 255, 255, 0.75);
     border: 1.5px solid #dab189;
     transition: background 0.2s;
   }
