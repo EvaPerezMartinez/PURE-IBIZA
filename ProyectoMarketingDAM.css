@@ -304,9 +304,17 @@ header.scrolled .header-logo img {
 
 #logo-whatsapp {
   position: fixed;
-  bottom: 80px;
+  bottom: 30px;
   left: 20px;
   z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+#logo-whatsapp.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ===== SECCIÓN HERO ===== */
