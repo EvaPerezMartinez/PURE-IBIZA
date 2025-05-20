@@ -961,6 +961,12 @@ button:active {
   border-radius: 0 0 10px 10px;
 }
 
+@media (max-width: 890px) {
+  .accordion.active .accordion-content {
+    max-height: none !important;
+  }
+}
+
 .accordion.active .accordion-content {
   max-height: 1000px;
   padding: 25px 25px;
