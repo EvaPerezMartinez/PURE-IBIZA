@@ -403,7 +403,7 @@ header.scrolled .header-logo img {
 
 /* ===== SECCIÓN HERO ===== */
 #frase {
-  background-image: url(./imagenes/fotoPortada.jpg);
+  background-image: url(./imagenes/fotoPortada.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1322,7 +1322,7 @@ a.boton:hover,
 }
 
 .bloque-fondo {
-  background-image: url("./imagenes/fotoPortada.jpg");
+  background-image: url("./imagenes/fotoPortada.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
