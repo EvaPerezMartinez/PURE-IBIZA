@@ -341,49 +341,63 @@ header.scrolled .header-logo img {
 
 #scrollToTop {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 48px;
-  left: auto;
-  top: auto;
+  bottom: 30px;
+  right: 30px;
   height: 48px;
-  border-radius: 50%;
-  background-color: rgb(218, 177, 137);
-  color: black;
+  padding: 0 16px;
+  background: linear-gradient(135deg, #dab189, #c19763);
+  color: white;
   border: none;
+  border-radius: 12px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 8px;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  font-size: 2rem;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   opacity: 0;
   pointer-events: none;
-  transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
-  min-width: 0;
-  min-height: 0;
-  max-width: 48px;
-  max-height: 48px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: auto;
+  white-space: nowrap;
+}
+
+#scrollToTop i {
+  font-size: 18px;
 }
 
 #scrollToTop.show {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1);
 }
 
 #scrollToTop:hover {
-  background-color: rgb(193, 151, 99);
-  color: white;
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #c19763, goldenrod);
+  transform: scale(1.05);
 }
 
 #scrollToTop:active {
   transform: scale(0.95);
+}
+
+/* Texto visible solo en pantallas grandes */
+.scroll-text {
+  display: inline;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* En móviles, ocultamos el texto */
+@media (max-width: 767px) {
+  #scrollToTop .scroll-text {
+    display: none !important;
+  }
+
+  #scrollToTop {
+    width: 48px;
+    padding: 0 !important;
+  }
 }
 
 #logo-whatsapp {
@@ -605,15 +619,8 @@ a.boton:hover {
   position: relative;
 }
 
-.form-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1;
+body.contacto {
+  background-color: transparent !important;
 }
 
 form {
@@ -1328,6 +1335,27 @@ a.boton:hover,
   background-repeat: no-repeat;
   padding-top: 100px;
   padding-bottom: 60px;
+}
+
+/* ===== ENLACE ACTIVO EN HEADER ===== */
+.nav-buttons a.active {
+  border-bottom: 3px solid var(--primary-dark);
+  font-weight: bold;
+  color: var(--primary-dark);
+  text-decoration: none;
+  background-color: rgba(218, 177, 137, 0.15);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Flecha con animación suave */
+.chevron-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Rotar flecha hacia arriba al abrir */
+.chevron-icon.rotated {
+  transform: rotate(180deg);
 }
 
 /* ===== RESPONSIVE ===== */

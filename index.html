@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Eva Pérez Martínez">
-  <meta name="keywords" content="travel, concierge, Ibiza">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Eva Pérez Martínez" name="author"/>
+  <meta content="travel, concierge, Ibiza" name="keywords"/>
   <title>Pure Ibiza Concierge</title>
-  <link rel="stylesheet" href="ProyectoMarketingDAM.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="shortcut icon" href="imagenes/logo/logoBlanco.png" type="image/x-icon">
+  <link href="ProyectoMarketingDAM.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="imagenes/logo/logoBlanco.png" rel="shortcut icon" type="image/x-icon"/>
   <style>
     /* HEADER TRANSPARENTE y FONDO BLANCO AL SCROLL */
     header {
@@ -69,52 +69,69 @@
   </style>
 </head>
 <body>
+
   <header>
-  <div class="header-container">
-    <div class="header-logo">
-      <a href="./index.html">
-        <img src="imagenes/logo/logo.png" alt="Logo Pure Ibiza" id="logo-header">
-      </a>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-buttons" id="menu">
-      <div class="dropdown">
+    <div class="header-container">
+      <div class="header-logo">
+
+        <a href="./index.html">
+          <img alt="Logo Pure Ibiza" id="logo-header" src="imagenes/logo/logo.png"/>
+        </a>
+
+      </div>
+      <div class="hamburger" id="hamburger">
+      
+        <div></div>
+        <div></div>
+        <div></div>
+
+      </div>
+      <div class="nav-buttons" id="menu">
+      
+        <div class="dropdown">
         <div class="dropdown-button" id="services-dropdown-btn">
-          Servicios <i class="fas fa-chevron-down"></i>
+
+          Services <i class="fas fa-chevron-down chevron-icon"></i>
+
         </div>
         <div class="dropdown-content" id="services-dropdown-content">
-          <a href="index.html#seccion1">Alquiler de yates</a>
-          <a href="index.html#seccion2">Alquiler de motos de agua</a>
-          <a href="index.html#seccion3">Alquiler de coches</a>
-          <a href="index.html#seccion4">Hospedaje</a>
-          <a href="index.html#seccion5">Chófer privado</a>
-          <a href="index.html#seccion6">Chef privado</a>
-          <a href="index.html#seccion7">Discotecas</a>
-          <a href="index.html#seccion8">Restaurantes</a>
+
+          <a href="#seccion1">Alquiler de yates</a>
+          <a href="#seccion2">Alquiler de motos de agua</a>
+          <a href="#seccion3">Alquiler de coches</a>
+          <a href="#seccion4">Hospedaje</a>
+          <a href="#seccion5">Chófer privado</a>
+          <a href="#seccion6">Chef privado</a>
+          <a href="#seccion7">Discotecas</a>
+          <a href="#seccion8">Restaurantes</a>
+
         </div>
       </div>
-      <a href="./blog.html">Blog</a>
-      <a href="./contacto.html">Contacto</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./contacto.html">Contacto</a>
+      </div>
+      <div class="header-flag">
+        <a class="flag-link" href="./english.html">
+          <img alt="English flag" class="flag-icon" src="./imagenes/ingles.webp"/>
+        </a>
+      </div>
     </div>
-    <div class="header-flag">
-      <a class="flag-link" href="./english.html">
-        <img class="flag-icon" src="./imagenes/ingles.webp" alt="English flag">
-      </a>
-    </div>
-  </div>
-</header>
+  </header>
 
 <p id="frase"><span>Experience Ibiza like never before</span></p>
 <p class="apartado"><b><span style="color:goldenrod">VIP</span> Concierge Services in Ibiza</b></p>
-<p style="text-align: center; margin-left: 10%; margin-right: 10%;">¿Sueñas con tus vacaciones perfectas en Ibiza? Sabemos que puede ser un reto planificar cada pequeño detalle, nuestros Servicios de Concierge en Ibiza pueden ayudarte a cuidar de todas tus necesidades y deseos personales. Le ofreceremos las experiencias más exclusivas de Ibiza y nos aseguraremos de que reciba el mejor servicio de la gente más fiable de la isla.</p>
-<br><br>
+<p style="text-align: center; margin-left: 10%; margin-right: 10%;">
+  ¿Sueñas con tus vacaciones perfectas en Ibiza? Sabemos que puede ser un reto 
+  planificar cada pequeño detalle, nuestros Servicios de Concierge en Ibiza pueden ayudarte a cuidar de todas tus necesidades y deseos personales. 
+  Le ofreceremos las experiencias más exclusivas de Ibiza y nos aseguraremos de que reciba el mejor servicio de la gente más fiable de la isla.
+</p>
+<br/><br/>
 
 <!-- Botón para subir al inicio -->
-<button id="scrollToTop" onclick="scrollToTop()">↑</button>
+<button id="scrollToTop" title="Volver arriba">
+  <i class="fa-solid fa-circle-chevron-up"></i>
+  <span>Subir</span>
+</button>
 
 <!--SERVICIOS DE LA EMPRESA-->
 <div id="Servicios">
@@ -123,9 +140,9 @@
   <div class="serv1 reveal" id="seccion1">
     <div class="carousel">
       <div class="carousel-images">
-        <img src="imagenes/fotosYate/fotoYate1.webp" class="active" alt="Yate 1">
-        <img src="imagenes/fotosYate/fotoYate2.webp" alt="Yate 2">
-        <img src="imagenes/fotosYate/fotoYate3.webp" alt="Yate 3">
+        <img alt="Yate 1" class="active" src="imagenes/fotosYate/fotoYate1.webp"/>
+        <img alt="Yate 2" src="imagenes/fotosYate/fotoYate2.webp"/>
+        <img alt="Yate 3" src="imagenes/fotosYate/fotoYate3.webp"/>
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
@@ -134,7 +151,7 @@
       </div>
     </div>
     <div class="textoServ">
-      <h3 style="font-size: 40px; text-align: center;">Alquiler de yates</h3>     
+      <h3 style="font-size: 40px; text-align: center;">Alquiler de yates</h3>
       <p>
         Pasar unas vacaciones en Ibiza y no navegar hasta Formentera es perderse una de las experiencias más inolvidables del Mediterráneo. 
         La isla ofrece playas de arena blanca y aguas cristalinas que parecen sacadas de un sueño, además de una gastronomía excepcional con 
@@ -143,18 +160,22 @@
         para usted. Nuestro equipo se encargará de todos los detalles para que su travesía sea impecable. Consulte la disponibilidad de nuestra flota 
         y prepárese para descubrir Formentera como nunca antes.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
-  </div>        
-  <br>        
-
+  </div>
+  <br/>
+  
   <!--2a: Sección Motos de agua-->
   <div class="serv2 reveal" id="seccion2">
     <div class="carousel">
       <div class="carousel-images">
-        <img src="imagenes/fotosMoto/fotoMoto1.webp" class="active" alt="Moto 1">
-        <img src="imagenes/fotosMoto/fotoMoto2.webp" alt="Moto 2">
-        <img src="imagenes/fotosMoto/fotoMoto3.webp" alt="Moto 3">
+
+        <img alt="Moto 1" class="active" src="imagenes/fotosMoto/fotoMoto1.webp"/>
+        <img alt="Moto 2" src="imagenes/fotosMoto/fotoMoto2.webp"/>
+        <img alt="Moto 3" src="imagenes/fotosMoto/fotoMoto3.webp"/>
+
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
@@ -163,61 +184,65 @@
       </div>
     </div>
     <div class="textoServ">
-      <h3 style="font-size: 40px; text-align: center;">Alquiler de motos de agua</h3>     
+      <h3 style="font-size: 40px; text-align: center;">Alquiler de motos de agua</h3>
       <p>
         Si ama la emoción del mar, le invitamos a vivir una experiencia única con nuestras exclusivas motos acuáticas. Disfrute de la velocidad, la libertad y la adrenalina mientras recorre las impresionantes
         aguas de Ibiza y Formentera. Ofrecemos alquileres por días completos para una aventura sin límites, o por medio día, una opción ideal como complemento perfecto para su barco o yate. Navegue por calas 
         escondidas, descubra paisajes espectaculares y sienta la energía del Mediterráneo de una manera totalmente diferente. Consulte disponibilidad y prepárese para una experiencia inigualable sobre el agua.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
-  </div>   
-  <br>
+  </div>
+  <br/>
 
   <!--3a: Sección Coches-->
   <div class="serv1 reveal" id="seccion3">
     <div class="carousel">
       <div class="carousel-images">
-        <img src="imagenes/fotosCoche/fotoCoche1.webp" class="active" alt="Coche 1">
-        <img src="imagenes/fotosCoche/fotoCoche2.webp" alt="Coche 2">
-        <img src="imagenes/fotosCoche/fotoCoche3.webp" alt="Coche 3">
+        <img alt="Coche 1" class="active" src="imagenes/fotosCoche/fotoCoche1.webp"/>
+        <img alt="Coche 2" src="imagenes/fotosCoche/fotoCoche2.webp"/>
+        <img alt="Coche 3" src="imagenes/fotosCoche/fotoCoche3.webp"/>
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
         <span class="dot" data-index="1"></span>
         <span class="dot" data-index="2"></span>
       </div>
+      <div class="textoServ">
+        <h3 style="font-size: 40px; text-align: center;">Alquiler de coches</h3>
+        <p>
+          Descubra Ibiza con la comodidad y el estilo que solo un vehículo de alta gama puede ofrecer. Recorra la isla a su propio ritmo, accediendo con facilidad a sus playas paradisíacas, pueblos con encanto y
+          los rincones más exclusivos. Desde elegantes descapotables hasta potentes SUVs, nuestra flota de coches de lujo está diseñada para satisfacer sus exigencias. Disfrute del placer de conducir por
+          carreteras panorámicas con vistas impresionantes y haga de cada trayecto una experiencia inolvidable. Consulte nuestra selección de vehículos y eleve sus vacaciones en Ibiza a otro nivel.
+        </p>
+        <p>
+          <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+        </p>
+      </div>
     </div>
-    <div class="textoServ">
-      <h3 style="font-size: 40px; text-align: center;">Alquiler de coches</h3>     
-      <p>
-        Descubra Ibiza con la comodidad y el estilo que solo un vehículo de alta gama puede ofrecer. Recorra la isla a su propio ritmo, accediendo con facilidad a sus playas paradisíacas, pueblos con encanto y
-        los rincones más exclusivos. Desde elegantes descapotables hasta potentes SUVs, nuestra flota de coches de lujo está diseñada para satisfacer sus exigencias. Disfrute del placer de conducir por
-        carreteras panorámicas con vistas impresionantes y haga de cada trayecto una experiencia inolvidable. Consulte nuestra selección de vehículos y eleve sus vacaciones en Ibiza a otro nivel.
-      </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
-    </div>
-  </div>   
-  <br>
+  </div>
+  <br/>
 
   <!--4a: Sección Hospedaje-->
   <div class="serv2 reveal" id="seccion4">
     <div class="carousel">
       <div class="carousel-images" id="carousel-hospedaje">
-        <a href="https://www.ibizagranhotel.com" target="_blank" class="active" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <img src="imagenes/fotosHoteles/logoHotelIbiza.webp" alt="Ibiza Gran Hotel" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a class="active" href="https://www.ibizagranhotel.com" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Ibiza Gran Hotel" src="imagenes/fotosHoteles/logoHotelIbiza.webp" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://www.melia.com" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <img src="imagenes/fotosHoteles/logoMelia.png" alt="Hotel Melia" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://www.melia.com" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Hotel Melia" src="imagenes/fotosHoteles/logoMelia.png" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://www.sixsenses.com" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <img src="imagenes/fotosHoteles/logoSixSenses.png" alt="Six Senses" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://www.sixsenses.com" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Six Senses" src="imagenes/fotosHoteles/logoSixSenses.png" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://www.theushuaiaexperience.com/es" target="_blank" rel="noopener" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <img src="imagenes/fotosHoteles/ushuaia-logo.png" alt="Ushuaïa Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://www.theushuaiaexperience.com/es" rel="noopener" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Ushuaïa Ibiza" src="imagenes/fotosHoteles/ushuaia-logo.png" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://hotel.hardrock.com/ibiza/es/" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <img src="imagenes/fotosHoteles/hard-rock-logo.png" alt="Hard Rock Hotel Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://hotel.hardrock.com/ibiza/es/" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Hard Rock Hotel Ibiza" src="imagenes/fotosHoteles/hard-rock-logo.png" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
       </div>
       <div class="carousel-dots" id="dots-hospedaje">
@@ -229,7 +254,7 @@
       </div>
     </div>
     <div class="textoServ">
-      <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Hoteles</h3>     
+      <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Hoteles</h3>
       <p id="descripcionHospedaje">
         Disfruta de una estancia de ensueño en Ibiza reservando una de nuestras exclusivas villas o hoteles boutique.
         Tanto si prefieres despertarte con vistas al mar, alojarte cerca de la animada vida nocturna, o desconectar en un oasis rural,
@@ -237,18 +262,20 @@
         con detalles de lujo como piscinas infinitas, terrazas panorámicas y un servicio personalizado.
         Relájate, desconecta y deja que nos encarguemos de cada detalle para que tu experiencia en Ibiza sea realmente inolvidable.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
   </div>
-  <br>      
+  <br/>
 
   <!--5a: Sección Chóferes-->
   <div class="serv1 reveal" id="seccion5">
     <div class="carousel">
       <div class="carousel-images">
-        <img src="imagenes/fotosChofer/fotoChofer1.webp" class="active" alt="Chófer 1">
-        <img src="imagenes/fotosChofer/fotoChofer2.webp" alt="Chófer 2">
-        <img src="imagenes/fotosChofer/fotoChofer3.webp" alt="Chófer 3">
+        <img alt="Chófer 1" class="active" src="imagenes/fotosChofer/fotoChofer1.webp"/>
+        <img alt="Chófer 2" src="imagenes/fotosChofer/fotoChofer2.webp"/>
+        <img alt="Chófer 3" src="imagenes/fotosChofer/fotoChofer3.webp"/>
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
@@ -257,56 +284,60 @@
       </div>
     </div>
     <div class="textoServ">
-      <h3 style="font-size: 40px; text-align: center;">Chófer privado</h3>     
+      <h3 style="font-size: 40px; text-align: center;">Chófer privado</h3>
       <p>
         Durante sus vacaciones en Ibiza, su tiempo es un lujo que merece disfrutar sin preocupaciones. Olvídese de la espera por un taxi o de la molestia de buscar aparcamiento. Con nuestro servicio de chófer
         privado, todo lo que tiene que hacer es relajarse y disfrutar del trayecto. Nuestros conductores profesionales le llevarán con total comodidad y discreción a cualquier destino, ya sea a una exlusiva cena,
         una playa paradisíaca o una noche inolvidable en los clubs más selectos de la isla. Disponemos de una flota de vehículos de alta gama para garantizar una experiencia impecable. Déjese llevar y viva Ibiza
         con el confort y la elegancia que merece.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
-  </div>  
-  <br>
+  </div>
+  <br/>
 
   <!--6a: Sección Comidas/Chefs-->
   <div class="serv2 reveal" id="seccion6">
     <div class="carousel">
       <div class="carousel-images">
-        <img src="imagenes/fotosComida/fotoComida1.webp" class="active" alt="Comida 1">
-        <img src="imagenes/fotosComida/fotoComida2.webp" alt="Comida 2">
-        <img src="imagenes/fotosComida/fotoComida3.webp" alt="Comida 3">
+        <img alt="Comida 1" class="active" src="imagenes/fotosComida/fotoComida1.webp"/>
+        <img alt="Comida 2" src="imagenes/fotosComida/fotoComida2.webp"/>
+        <img alt="Comida 3" src="imagenes/fotosComida/fotoComida3.webp"/>
       </div>
-    <div class="carousel-dots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
+      <div class="carousel-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+    <div class="textoServ">
+      <h3 style="font-size: 40px; text-align: center;">Chef privado</h3>
+      <p>
+        Si desea relajarse y disfrutar de una experiencia culinaria sin preocuparse por la cocina, le ofrecemos nuestro servicio de chef privado a domicilio en toda la isla, incluso a bordo. Gracias a nuestra red de chefs
+        profesionales, le garantizamos un menú completamente personalizado que se adapta a sus gustos y preferencias. Utilizamos solo los mejorse ingresientes frescos y de temporada para asegurar que cada plato sea 
+        una verdadera delicia. Ya sea para una ocasión especial o simplemente para disfrutar de una velada sin estrés, nos encargamos de todo para que usted pueda relajarse y saborear una experiencia única.
+      </p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
   </div>
-  <div class="textoServ">
-    <h3 style="font-size: 40px; text-align: center;">Chef privado</h3>     
-    <p>
-      Si desea relajarse y disfrutar de una experiencia culinaria sin preocuparse por la cocina, le ofrecemos nuestro servicio de chef privado a domicilio en toda la isla, incluso a bordo. Gracias a nuestra red de chefs
-      profesionales, le garantizamos un menú completamente personalizado que se adapta a sus gustos y preferencias. Utilizamos solo los mejorse ingresientes frescos y de temporada para asegurar que cada plato sea 
-      una verdadera delicia. Ya sea para una ocasión especial o simplemente para disfrutar de una velada sin estrés, nos encargamos de todo para que usted pueda relajarse y saborear una experiencia única.
-    </p>
-    <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
-  </div>
-  </div>  
-  <br>
+  <br/>
 
   <!--7a: Sección Clubs Nocturnos -->
   <div class="serv1 reveal" id="seccion7">
     <div class="carousel">
       <div class="carousel-images" id="carousel-clubs">
-        <a href="https://www.hiibiza.com/es" target="_blank" class="active" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <img src="imagenes/fotosClubs/logoHiIbiza.webp" alt="Hï Ibiza" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a class="active" href="https://www.hiibiza.com/es" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Hï Ibiza" src="imagenes/fotosClubs/logoHiIbiza.webp" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://www.amnesia.es/es/" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <img src="imagenes/fotosClubs/logoAmnesia.webp" alt="Amnesia" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://www.amnesia.es/es/" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Amnesia" src="imagenes/fotosClubs/logoAmnesia.webp" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
-        <a href="https://pacha.com/es" target="_blank" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-            <img src="imagenes/fotosClubs/logoPacha.webp" alt="Dicoteca Pacha" style="display: block; width: 100%; height: 100%; object-fit: contain;">
+        <a href="https://pacha.com/es" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" target="_blank">
+          <img alt="Dicoteca Pacha" src="imagenes/fotosClubs/logoPacha.webp" style="display: block; width: 100%; height: 100%; object-fit: contain;"/>
         </a>
       </div>
       <div class="carousel-dots" id="dots-clubs">
@@ -316,29 +347,31 @@
       </div>
     </div>
     <div class="textoServ">
-      <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Discotecas</h3>     
+      <h3 id="tituloHospedaje" style="font-size: 40px; text-align: center;">Discotecas</h3>
       <p id="descripcionHospedaje">
-          Disfrute de una noche única en Ibiza con nuestros servicios exclusivos de reserva VIP. Le ofrecemos acceso a los lugares más selectos y exclusivos de la isla, garantizando una experiencia personalizada con trato 
-          VIP en cada detalle. Desde las mejores mesas en los clubes más prestigiosos hasta entradas prioritarias, nuestro objetivo es asegurarnos de que cada aspecto de su noche sea inolvidable. Permítanos hacer que su 
-          experiencia en Ibiza sea realmente excepcional, con un servicio exclusivo que lo hará sentir como un verdadero VIP.
+        Disfrute de una noche única en Ibiza con nuestros servicios exclusivos de reserva VIP. Le ofrecemos acceso a los lugares más selectos y exclusivos de la isla, garantizando una experiencia personalizada con trato 
+        VIP en cada detalle. Desde las mejores mesas en los clubes más prestigiosos hasta entradas prioritarias, nuestro objetivo es asegurarnos de que cada aspecto de su noche sea inolvidable. Permítanos hacer que su 
+        experiencia en Ibiza sea realmente excepcional, con un servicio exclusivo que lo hará sentir como un verdadero VIP.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
   </div>
-  <br>
+  <br/>
 
   <!--8a: Sección restaurantes-->
   <div class="serv2 reveal" id="seccion8">
     <div class="carousel">
       <div class="carousel-images" id="carousel-restaurantes">
-        <a href="https://tatelrestaurants.com/ibiza-resto/" target="_blank" class="active">
-          <img src="imagenes/fotosRestaurantes/tatelLogo.png" alt="Restaurante Tatel Ibiza">
+        <a class="active" href="https://tatelrestaurants.com/ibiza-resto/" target="_blank">
+          <img alt="Restaurante Tatel Ibiza" src="imagenes/fotosRestaurantes/tatelLogo.png"/>
         </a>
         <a href="https://www.roto.club/ibiza/" target="_blank">
-          <img src="imagenes/fotosRestaurantes/rotoLogo.png" alt="Restaurante Roto Ibiza">
+          <img alt="Restaurante Roto Ibiza" src="imagenes/fotosRestaurantes/rotoLogo.png"/>
         </a>
         <a href="https://www.cappuccinograndcafe.es/es/locations/ibiza" target="_blank">
-          <img src="imagenes/fotosRestaurantes/capuccinoIbiza.png" alt="Restaurante Cappuccino Ibiza">
+          <img alt="Restaurante Cappuccino Ibiza" src="imagenes/fotosRestaurantes/capuccinoIbiza.png"/>
         </a>
       </div>
       <div class="carousel-dots" id="dots-restaurantes">
@@ -351,17 +384,19 @@
       <h3 style="font-size: 40px; text-align: center;">Restaurantes</h3>
       <p>
         Descubre los restaurantes más exclusivos de Ibiza. Reservamos para ti en lugares únicos donde 
-        la gastronomía y el ambiente convierten cada comida en una experiencia memorable.<br>
+        la gastronomía y el ambiente convierten cada comida en una experiencia memorable.<br/>
         Haz clic sobre cada imagen para conocer más.
       </p>
-      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
+      <p>
+        <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
+      </p>
     </div>
   </div>
 </div>
 
 <!--BOTON DE WHATSAPP (es un chatbot no funcional)-->
 <a href="https://web.whatsapp.com/">
-  <img id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" height="50px" width="50px">
+  <img height="50px" id="logo-whatsapp" src="./imagenes/whatsapp logo.PNG" width="50px"/>
 </a>
 
 <footer>
@@ -369,12 +404,12 @@
     <div class="footer-title">
       <p><b>PURE IBIZA Concierge</b></p>
     </div>
-
     <div class="footer-columns">
       <div class="footer-left">
-        <a href="tel:+34616670665" >
+        <a href="tel:+34616670665">
           <i class="fas fa-phone-alt"></i>+34 616 670 665
-        </a><br>
+        </a>
+        <br/>
         <a href="mailto:contact@pureibiza.com">
           <i class="fas fa-envelope"></i>contact@pureibiza.com
         </a>
@@ -382,21 +417,21 @@
       <div class="footer-right">
         <ul class="social-icons">
           <li>
-            <a href="https://www.facebook.com" class="redes facebook" target="_blank">
+            <a class="redes facebook" href="https://www.facebook.com" target="_blank">
               <div class="social-icon-circle">
                 <i class="fa-brands fa-facebook-f"></i>
               </div>
             </a>
           </li>
           <li>
-            <a href="https://x.com" class="redes x-twitter" target="_blank">
+            <a class="redes x-twitter" href="https://x.com" target="_blank">
               <div class="social-icon-circle">
                 <i class="fa-brands fa-x-twitter"></i>
               </div>
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com" class="redes instagram" target="_blank">
+            <a class="redes instagram" href="https://www.instagram.com" target="_blank">
               <div class="social-icon-circle">
                 <i class="fa-brands fa-instagram"></i>
               </div>
@@ -404,19 +439,20 @@
           </li>
         </ul>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>Pure Ibiza Concierge &copy; Copyright - 2025</p>
-      <p>
-        <a href="terminos.html#aviso-legal">Aviso legal</a> |
-        <a href="terminos.html#privacidad">Política de privacidad</a> |
-        <a href="terminos.html#cookies">Política de cookies</a>
-      </p>
+      </div>
+      <div class="footer-bottom">
+        <p>Pure Ibiza Concierge © Copyright - 2025</p>
+        <p>
+          <a href="terminos.html#aviso-legal">Aviso legal</a> |
+          <a href="terminos.html#privacidad">Política de privacidad</a> |
+          <a href="terminos.html#cookies">Política de cookies</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
 
+<!-- BANNER DE COOKIES -->
 <div id="cookie-banner" style="display:none;">
   <div id="cookie-flex">
     <div id="cookie-content"></div>
@@ -430,218 +466,122 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // CARRUSELES MULTIPLES (INCLUYE <a><img> PARA hoteles)
-  const carousels = document.querySelectorAll('.carousel');
+  // === TOGGLE SOLO DEL SUBMENÚ "SERVICES" ===
+  const dropdownButton = document.querySelector('.dropdown-button');
+  const dropdownContent = document.querySelector('.dropdown-content');
+  const chevron = dropdownButton?.querySelector('.chevron-icon') || dropdownButton?.querySelector('i');
 
-  carousels.forEach((carousel) => {
-    const imagesWrapper = carousel.querySelector('.carousel-images');
-    let slides = Array.from(imagesWrapper.children); // <a> o <img>
-    const dots = carousel.querySelectorAll('.carousel-dots .dot');
-    let currentIndex = 0;
-    let interval;
+  if (dropdownButton && dropdownContent) {
+    dropdownButton.addEventListener('click', function (e) {
+      if (window.innerWidth <= 890) {
+        e.preventDefault();
+        const isOpen = dropdownContent.classList.contains('show-mobile');
 
-    // NUEVA FUNCION: Añade/quita active a <a> y a <img> dentro
-    function showImage(index) {
-      slides.forEach((slide, i) => {
-        if (slide.tagName.toLowerCase() === "a") {
-          // Si es <a>, activa solo el <a> y su <img>
-          if (i === index) {
-            slide.classList.add('active');
-            let img = slide.querySelector('img');
-            if (img) img.classList.add('active');
-          } else {
-            slide.classList.remove('active');
-            let img = slide.querySelector('img');
-            if (img) img.classList.remove('active');
-          }
-        } else if (slide.tagName.toLowerCase() === "img") {
-          // Si es <img> directo
-          slide.classList.toggle('active', i === index);
+        // Cierra todos los submenús abiertos
+        document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show-mobile'));
+        document.querySelectorAll('.chevron-icon').forEach(i => i.classList.remove('rotated'));
+
+        // Si no estaba abierto, lo abrimos
+        if (!isOpen) {
+          dropdownContent.classList.add('show-mobile');
+          if (chevron) chevron.classList.add('rotated');
         }
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      currentIndex = index;
-    }
-
-    function nextImage() {
-      let nextIdx = (currentIndex + 1) % slides.length;
-      showImage(nextIdx);
-    }
-
-    dots.forEach((dot, idx) => {
-      dot.addEventListener('click', function () {
-        showImage(idx);
-        clearInterval(interval);
-        interval = setInterval(nextImage, 4000);
-      });
-    });
-
-    interval = setInterval(nextImage, 4000);
-
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) {
-        clearInterval(interval);
-      } else {
-        interval = setInterval(nextImage, 4000);
       }
     });
 
-    // INICIALIZA mostrando la primera
-    showImage(0);
-  });
+    // Cierra submenú al hacer clic fuera
+    document.addEventListener('click', function (e) {
+      if (
+        window.innerWidth <= 890 &&
+        !e.target.closest('.dropdown') &&
+        !e.target.closest('.dropdown-button') &&
+        !e.target.closest('.dropdown-content')
+      ) {
+        dropdownContent.classList.remove('show-mobile');
+        if (chevron) chevron.classList.remove('rotated');
+      }
+    });
+  }
 
-  // --- MENÚ HAMBURGUESA ---
+  // === BOTÓN HAMBURGUESA ===
   const hamburger = document.querySelector('.hamburger');
   const navButtons = document.querySelector('.nav-buttons');
-  const dropdownButtons = document.querySelectorAll('.dropdown-button');
 
   if (hamburger && navButtons) {
-    hamburger.addEventListener('click', function () {
+    hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navButtons.classList.toggle('show');
     });
-
-    dropdownButtons.forEach((dropdownButton) => {
-      dropdownButton.addEventListener('click', function (e) {
-        if (window.innerWidth <= 890) {
-          e.preventDefault();
-          const dropdown = dropdownButton.closest('.dropdown');
-          const dropdownContent = dropdown.querySelector('.dropdown-content');
-          dropdownContent.classList.toggle('show-mobile');
-        }
-      });
-    });
-
-    // Cerrar menú al hacer click fuera
-    document.addEventListener('click', function (event) {
-      if (
-        !event.target.closest('.nav-buttons') &&
-        !event.target.closest('.hamburger')
-      ) {
-        hamburger.classList.remove('active');
-        navButtons.classList.remove('show');
-        document
-          .querySelectorAll('.dropdown-content')
-          .forEach((content) => content.classList.remove('show-mobile'));
-      }
-    });
   }
 
-  // --- HEADER SCROLL SOMBRA ---
-  function updateHeaderScroll() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 450) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
-  window.addEventListener('scroll', updateHeaderScroll);
-  updateHeaderScroll();
-
-  // --- SCROLL TO TOP BUTTON + WHATSAPP ---
+  // === BOTÓN "VOLVER ARRIBA" Y WHATSAPP ===
   const scrollToTopBtn = document.getElementById('scrollToTop');
   const logoWhatsapp = document.getElementById('logo-whatsapp');
+
   function updateScrollButtons() {
     if (window.scrollY > 200) {
-      scrollToTopBtn.classList.add('show');
-      if (logoWhatsapp) logoWhatsapp.classList.add('show');
+      scrollToTopBtn?.classList.add('show');
+      logoWhatsapp?.classList.add('show');
     } else {
-      scrollToTopBtn.classList.remove('show');
-      if (logoWhatsapp) logoWhatsapp.classList.remove('show');
+      scrollToTopBtn?.classList.remove('show');
+      logoWhatsapp?.classList.remove('show');
     }
   }
+
   window.addEventListener('scroll', updateScrollButtons);
   updateScrollButtons();
 
-  if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  scrollToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // === SOMBRA EN HEADER ===
+  function updateHeaderScroll() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 450) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
   }
 
-  // --- ANIMACIONES AL HACER SCROLL ---
+  window.addEventListener('scroll', updateHeaderScroll);
+  updateHeaderScroll();
+
+  // === ANIMACIONES AL SCROLL ===
   function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
+
     reveals.forEach((el) => {
       const elementTop = el.getBoundingClientRect().top;
-      const elementVisible = 80;
-      if (elementTop < windowHeight - elementVisible) {
+      if (elementTop < windowHeight - 80) {
         el.classList.add('active');
       }
     });
   }
+
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
 
-  // ===== SCROLL SUAVE AL HASH DESDE EL PRINCIPIO DEL INDEX =====
-  if (window.location.hash) {
-    window.scrollTo(0, 0);
-    setTimeout(function () {
-      const header = document.querySelector('header');
-      const offset = header ? header.offsetHeight + 10 : 90;
-      const id = window.location.hash.replace('#', '');
-      const target = document.getElementById(id);
-      if (target) {
-        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 350);
-  }
-
-  // --- Scroll suave para anclas internas (en la misma página) ---
+  // === SCROLL SUAVE PARA ENLACES INTERNOS ===
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       const hash = this.getAttribute('href');
       if (hash.length > 1) {
+        const target = document.querySelector(hash);
         const header = document.querySelector('header');
         const offset = header ? header.offsetHeight + 10 : 90;
-        const target = document.getElementById(hash.slice(1));
         if (target) {
           e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'instant' });
-          setTimeout(function () {
-            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }, 200);
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
         }
       }
     });
   });
-
-  (function() {
-    var t = {
-      texto: 'Este sitio web utiliza cookies propias y de terceros para personalizar tu experiencia de navegación, analizar el tráfico y ofrecerte contenidos adaptados a tus intereses. Algunas cookies son estrictamente necesarias para el funcionamiento básico del sitio, mientras que otras ayudan a mejorar nuestros servicios y mostrarte información relevante. Puedes obtener más información consultando nuestra <a href="terminos.html#privacidad" style="color: #ac8747; text-decoration:underline;">Política de Privacidad</a>. Selecciona tu opción:',
-      aceptarTodo: "Aceptar todo",
-      soloNecesarias: "Aceptar solo necesarias",
-      noAceptar: "No aceptar"
-    };
-    var cookiePrefs = localStorage.getItem('cookiePrefs');
-    if (!cookiePrefs) {
-      var banner = document.getElementById('cookie-banner');
-      document.getElementById('cookie-content').innerHTML = t.texto;
-      document.getElementById('cookie-accept-all').textContent = t.aceptarTodo;
-      document.getElementById('cookie-accept-necessary').textContent = t.soloNecesarias;
-      document.getElementById('cookie-decline').textContent = t.noAceptar;
-      banner.style.display = "block";
-      document.getElementById('cookie-accept-all').onclick = function(){
-        localStorage.setItem('cookiePrefs','all');
-        banner.style.display = "none";
-      };
-      document.getElementById('cookie-accept-necessary').onclick = function(){
-        localStorage.setItem('cookiePrefs','necessary');
-        banner.style.display = "none";
-      };
-      document.getElementById('cookie-decline').onclick = function(){
-        localStorage.setItem('cookiePrefs','none');
-        banner.style.display = "none";
-      };
-    }
-  })();
 });
 </script>
+
 </body>
 </html>
