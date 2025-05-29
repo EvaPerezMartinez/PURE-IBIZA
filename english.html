@@ -628,6 +628,36 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  (function() {
+    var t = {
+      texto: 'This website uses its own and third-party cookies to personalize your browsing experience, analyze site traffic, and offer content tailored to your interests. Some cookies are strictly necessary for the website to function, while others help us improve our services and display relevant information. For more details, please review our <a href="terminosIngles.html#privacidad" style="color: #ac8747; text-decoration:underline;">Privacy Policy</a>. Please choose an option:',
+      aceptarTodo: "Accept all",
+      soloNecesarias: "Accept only necessary",
+      noAceptar: "Do not accept"
+    };
+    var cookiePrefs = localStorage.getItem('cookiePrefs');
+    if (!cookiePrefs) {
+      var banner = document.getElementById('cookie-banner');
+      document.getElementById('cookie-content').innerHTML = t.texto;
+      document.getElementById('cookie-accept-all').textContent = t.aceptarTodo;
+      document.getElementById('cookie-accept-necessary').textContent = t.soloNecesarias;
+      document.getElementById('cookie-decline').textContent = t.noAceptar;
+      banner.style.display = "block";
+      document.getElementById('cookie-accept-all').onclick = function(){
+        localStorage.setItem('cookiePrefs','all');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-accept-necessary').onclick = function(){
+        localStorage.setItem('cookiePrefs','necessary');
+        banner.style.display = "none";
+      };
+      document.getElementById('cookie-decline').onclick = function(){
+        localStorage.setItem('cookiePrefs','none');
+        banner.style.display = "none";
+      };
+    }
+  })();
 });
 </script>
 </body>
