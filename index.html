@@ -201,29 +201,26 @@
   <div class="serv1 reveal" id="seccion3">
     <div class="carousel">
       <div class="carousel-images">
-        <img alt="Coche 1" class="active" src="imagenes/fotosCoche/fotoCoche1.webp"/>
-        <img alt="Coche 2" src="imagenes/fotosCoche/fotoCoche2.webp"/>
-        <img alt="Coche 3" src="imagenes/fotosCoche/fotoCoche3.webp"/>
+        <img src="imagenes/fotosCoche/fotoCoche1.webp" class="active" alt="Coche 1">
+        <img src="imagenes/fotosCoche/fotoCoche2.webp" alt="Coche 2">
+        <img src="imagenes/fotosCoche/fotoCoche3.webp" alt="Coche 3">
       </div>
       <div class="carousel-dots">
         <span class="dot active" data-index="0"></span>
         <span class="dot" data-index="1"></span>
         <span class="dot" data-index="2"></span>
       </div>
-      <div class="textoServ">
-        <h3 style="font-size: 40px; text-align: center;">Alquiler de coches</h3>
-        <p>
+    </div>
+    <div class="textoServ">
+      <h3 style="font-size: 40px; text-align: center;">Alquiler de coches</h3>     
+      <p>
           Descubra Ibiza con la comodidad y el estilo que solo un vehículo de alta gama puede ofrecer. Recorra la isla a su propio ritmo, accediendo con facilidad a sus playas paradisíacas, pueblos con encanto y
           los rincones más exclusivos. Desde elegantes descapotables hasta potentes SUVs, nuestra flota de coches de lujo está diseñada para satisfacer sus exigencias. Disfrute del placer de conducir por
           carreteras panorámicas con vistas impresionantes y haga de cada trayecto una experiencia inolvidable. Consulte nuestra selección de vehículos y eleve sus vacaciones en Ibiza a otro nivel.
         </p>
-        <p>
-          <a class="boton" href="https://web.whatsapp.com/">Contactar</a>
-        </p>
-      </div>
+      <p><a class="boton" href="https://web.whatsapp.com/">Contactar</a></p>
     </div>
-  </div>
-  <br/>
+  </div>  
 
   <!--4a: Sección Hospedaje-->
   <div class="serv2 reveal" id="seccion4">
@@ -466,47 +463,61 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // === TOGGLE SOLO DEL SUBMENÚ "SERVICES" ===
-  const dropdownButton = document.querySelector('.dropdown-button');
-  const dropdownContent = document.querySelector('.dropdown-content');
-  const chevron = dropdownButton?.querySelector('.chevron-icon') || dropdownButton?.querySelector('i');
+  // ========= CARRUSELES ==========
+  const carousels = document.querySelectorAll('.carousel');
+  carousels.forEach((carousel) => {
+    const imagesWrapper = carousel.querySelector('.carousel-images');
+    const slides = Array.from(imagesWrapper.children);
+    const dots = carousel.querySelectorAll('.carousel-dots .dot');
+    let currentIndex = 0;
+    let interval;
 
-  if (dropdownButton && dropdownContent) {
-    dropdownButton.addEventListener('click', function (e) {
-      if (window.innerWidth <= 890) {
-        e.preventDefault();
-        const isOpen = dropdownContent.classList.contains('show-mobile');
-
-        // Cierra todos los submenús abiertos
-        document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show-mobile'));
-        document.querySelectorAll('.chevron-icon').forEach(i => i.classList.remove('rotated'));
-
-        // Si no estaba abierto, lo abrimos
-        if (!isOpen) {
-          dropdownContent.classList.add('show-mobile');
-          if (chevron) chevron.classList.add('rotated');
+    function showImage(index) {
+      slides.forEach((slide, i) => {
+        const isActive = i === index;
+        slide.classList.toggle('active', isActive);
+        if (slide.tagName.toLowerCase() === 'a') {
+          const img = slide.querySelector('img');
+          if (img) img.classList.toggle('active', isActive);
         }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      currentIndex = index;
+    }
+
+    function nextImage() {
+      const nextIdx = (currentIndex + 1) % slides.length;
+      showImage(nextIdx);
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        showImage(idx);
+        clearInterval(interval);
+        interval = setInterval(nextImage, 4000);
+      });
+    });
+
+    interval = setInterval(nextImage, 4000);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        interval = setInterval(nextImage, 4000);
       }
     });
 
-    // Cierra submenú al hacer clic fuera
-    document.addEventListener('click', function (e) {
-      if (
-        window.innerWidth <= 890 &&
-        !e.target.closest('.dropdown') &&
-        !e.target.closest('.dropdown-button') &&
-        !e.target.closest('.dropdown-content')
-      ) {
-        dropdownContent.classList.remove('show-mobile');
-        if (chevron) chevron.classList.remove('rotated');
-      }
-    });
-  }
+    showImage(0);
+  });
 
-  // === BOTÓN HAMBURGUESA ===
+  // ========= MENÚ HAMBURGUESA ==========
   const hamburger = document.querySelector('.hamburger');
   const navButtons = document.querySelector('.nav-buttons');
-
   if (hamburger && navButtons) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
@@ -514,48 +525,88 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === BOTÓN "VOLVER ARRIBA" Y WHATSAPP ===
+  // ========= SUBMENÚ SERVICES (SOLO TOGGLE) ==========
+  const dropdownButtons = document.querySelectorAll('.dropdown-button');
+  dropdownButtons.forEach((dropdownButton) => {
+    dropdownButton.addEventListener('click', function (e) {
+      if (window.innerWidth <= 890) {
+        e.preventDefault();
+        const dropdown = dropdownButton.closest('.dropdown');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        const chevron = dropdownButton.querySelector('.chevron-icon') || dropdownButton.querySelector('i');
+        const isOpen = dropdownContent.classList.contains('show-mobile');
+
+        if (isOpen) {
+          dropdownContent.classList.remove('show-mobile');
+          if (chevron) chevron.classList.remove('rotated');
+        } else {
+          // Cierra otros submenús si hubiera
+          document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show-mobile'));
+          document.querySelectorAll('.chevron-icon').forEach(i => i.classList.remove('rotated'));
+
+          dropdownContent.classList.add('show-mobile');
+          if (chevron) chevron.classList.add('rotated');
+        }
+      }
+    });
+  });
+
+  // ========= CERRAR SUBMENÚ AL CLIC FUERA ==========
+  document.addEventListener('click', function (event) {
+    if (
+      !event.target.closest('.dropdown') &&
+      !event.target.closest('.dropdown-content') &&
+      window.innerWidth <= 890
+    ) {
+      document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show-mobile'));
+      document.querySelectorAll('.chevron-icon').forEach(i => i.classList.remove('rotated'));
+    }
+  });
+
+  // ========= BOTÓN "VOLVER ARRIBA" Y WHATSAPP ==========
   const scrollToTopBtn = document.getElementById('scrollToTop');
   const logoWhatsapp = document.getElementById('logo-whatsapp');
 
   function updateScrollButtons() {
     if (window.scrollY > 200) {
-      scrollToTopBtn?.classList.add('show');
-      logoWhatsapp?.classList.add('show');
+      scrollToTopBtn.classList.add('show');
+      if (logoWhatsapp) logoWhatsapp.classList.add('show');
     } else {
-      scrollToTopBtn?.classList.remove('show');
-      logoWhatsapp?.classList.remove('show');
+      scrollToTopBtn.classList.remove('show');
+      if (logoWhatsapp) logoWhatsapp.classList.remove('show');
     }
   }
 
   window.addEventListener('scroll', updateScrollButtons);
   updateScrollButtons();
 
-  scrollToTopBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  // === SOMBRA EN HEADER ===
+  // ========= HEADER SCROLL SOMBRA ==========
   function updateHeaderScroll() {
     const header = document.querySelector('header');
     if (window.scrollY > 450) {
-      header?.classList.add('scrolled');
+      header.classList.add('scrolled');
     } else {
-      header?.classList.remove('scrolled');
+      header.classList.remove('scrolled');
     }
   }
 
   window.addEventListener('scroll', updateHeaderScroll);
   updateHeaderScroll();
 
-  // === ANIMACIONES AL SCROLL ===
+  // ========= ANIMACIONES AL SCROLL ==========
   function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
-
     reveals.forEach((el) => {
       const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 80) {
+      const elementVisible = 80;
+      if (elementTop < windowHeight - elementVisible) {
         el.classList.add('active');
       }
     });
@@ -564,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
 
-  // === SCROLL SUAVE PARA ENLACES INTERNOS ===
+  // ========= SCROLL SUAVE A ENLACES INTERIORES ==========
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       const hash = this.getAttribute('href');
@@ -582,6 +633,5 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-
 </body>
 </html>
